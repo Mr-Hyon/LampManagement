@@ -11,6 +11,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 public class AccountController {
 	
@@ -36,6 +37,9 @@ public class AccountController {
 	Button ReturnButton;
 	
 	@FXML
+	Button ModifyButton;
+	
+	@FXML
 	TextField keyWords;
 	
 	@FXML
@@ -47,11 +51,15 @@ public class AccountController {
 	@FXML
 	TextField AccountCashAdd;
 	
-	private final ObservableList<AccountVO> data=FXCollections.observableArrayList(
+	private ObservableList<AccountVO> data=FXCollections.observableArrayList(
 			new AccountVO("admin","2233"),
 			new AccountVO("acfun","666"),
 			new AccountVO("third","1111")
 			);
+	
+	public void changeData(int index,AccountVO vo){
+		data.set(index, vo);
+	}
 	
 	public void initialize(){
 		AccountTable.setEditable(true);
@@ -87,7 +95,19 @@ public class AccountController {
 	
 	public void DeleteAccount(){
 		int index=AccountTable.getSelectionModel().getSelectedIndex();
-		AccountVO account=AccountTable.getSelectionModel().getSelectedItem();
-		data.remove(account);
+		if(index>=0){
+			AccountVO account=AccountTable.getSelectionModel().getSelectedItem();
+			data.remove(account);
+		}
+	}
+	
+	public void ModifyAccount(){
+		int index=AccountTable.getSelectionModel().getSelectedIndex();
+		if(index>=0){
+			AccountVO vo=AccountInputui.show();
+			if(AccountInputui.getAccess()){
+				data.set(index, vo);
+			}
+		}
 	}
 }
