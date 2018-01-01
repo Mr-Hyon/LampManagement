@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="669.0" prefWidth="942.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="billUI.BillController">
+   <children>
+      <Label layoutX="107.0" layoutY="54.0" text="期初建账">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Button layoutX="764.0" layoutY="102.0" mnemonicParsing="false" text="查看期初信息" />
+      <Button fx:id="BillReturnButton" layoutX="764.0" layoutY="53.0" mnemonicParsing="false" onAction="#BillReturn" text="返回至主界面" />
+      <Label layoutX="107.0" layoutY="104.0" text="添加商品信息">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="107.0" layoutY="487.0" text="添加账户信息">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="107.0" layoutY="287.0" text="添加客户信息">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="107.0" layoutY="336.0" text="客户分类" />
+      <Label layoutX="107.0" layoutY="379.0" text="客户名称" />
+      <Label layoutX="107.0" layoutY="429.0" text="联系方式" />
+      <ComboBox layoutX="187.0" layoutY="331.0" prefHeight="30.0" prefWidth="148.0" />
+      <TextField layoutX="187.0" layoutY="374.0" />
+      <TextField layoutX="187.0" layoutY="424.0" />
+      <Label layoutX="107.0" layoutY="159.0" text="商品分类" />
+      <TextField layoutX="187.0" layoutY="154.0" />
+      <Label layoutX="107.0" layoutY="204.0" text="商品名称" />
+      <TextField layoutX="187.0" layoutY="199.0" />
+      <Label layoutX="107.0" layoutY="252.0" text="商品类别" />
+      <Label layoutX="479.0" layoutY="159.0" text="型号" />
+      <TextField layoutX="187.0" layoutY="247.0" />
+      <TextField layoutX="562.0" layoutY="154.0" />
+      <Label layoutX="460.0" layoutY="204.0" text="进价/售价" />
+      <Label layoutX="430.0" layoutY="252.0" text="最近进价/最近售价" />
+      <TextField layoutX="562.0" layoutY="199.0" />
+      <TextField layoutX="562.0" layoutY="247.0" />
+      <Label layoutX="107.0" layoutY="528.0" text="账户名称" />
+      <Label layoutX="90.0" layoutY="577.0" text="余额（RMB）" />
+      <TextField layoutX="187.0" layoutY="523.0" />
+      <TextField layoutX="187.0" layoutY="572.0" />
+      <Button layoutX="626.0" layoutY="572.0" mnemonicParsing="false" text="保存期初信息" />
+   </children>
+</AnchorPane>

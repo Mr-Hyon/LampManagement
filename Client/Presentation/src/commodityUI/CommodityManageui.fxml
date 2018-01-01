@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="825.0" prefWidth="1227.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="commodityUI.CommodityManageController">
+   <children>
+      <TableView layoutX="506.0" layoutY="43.0" prefHeight="580.0" prefWidth="660.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="编号" />
+          <TableColumn prefWidth="75.0" text="名称" />
+            <TableColumn prefWidth="90.0" text="型号" />
+            <TableColumn prefWidth="86.0" text="库存数量" />
+            <TableColumn prefWidth="71.0" text="进价" />
+            <TableColumn prefWidth="77.0" text="零售价" />
+            <TableColumn prefWidth="91.0" text="最近进价" />
+            <TableColumn prefWidth="94.0" text="最近零售价" />
+        </columns>
+      </TableView>
+      <Label layoutX="506.0" layoutY="14.0" text="商品信息" />
+      <TreeTableView layoutX="35.0" layoutY="43.0" prefHeight="580.0" prefWidth="296.0">
+        <columns>
+          <TreeTableColumn fx:id="GoodType" prefWidth="147.0" text="商品类别" />
+          <TreeTableColumn fx:id="Good" prefWidth="148.0" text="商品" />
+        </columns>
+      </TreeTableView>
+      <Label layoutX="35.0" layoutY="14.0" text="商品类别信息" />
+      <Button fx:id="AddGoodTypeButton" layoutX="347.0" layoutY="364.0" mnemonicParsing="false" onAction="#AddGoodType" text="添加商品分类" />
+      <Button fx:id="DeleteGoodTypeButton" layoutX="347.0" layoutY="414.0" mnemonicParsing="false" onAction="#DeleteGoodType" text="删除商品分类" />
+      <Button fx:id="ModifyGoodTypeButton" layoutX="347.0" layoutY="464.0" mnemonicParsing="false" onAction="#ModifyGoodType" text="修改商品分类" />
+      <Button fx:id="AddGoodButton" layoutX="931.0" layoutY="642.0" mnemonicParsing="false" onAction="#AddGood" prefHeight="30.0" prefWidth="95.0" text="添 加 商 品" />
+      <Button fx:id="DeleteGoodButton" layoutX="935.0" layoutY="687.0" mnemonicParsing="false" onAction="#DeleteGood" text="删 除 商 品" />
+      <Button fx:id="ModifyGoodButton" layoutX="935.0" layoutY="735.0" mnemonicParsing="false" onAction="#ModifyGood" text="修 改 商 品" />
+      <Button fx:id="SearchGoodButton" layoutX="684.0" layoutY="771.0" mnemonicParsing="false" onAction="#SearchGood" text="查 询 商 品" />
+      <Button fx:id="ReturnButton" layoutX="1109.0" layoutY="756.0" mnemonicParsing="false" onAction="#Return" text="返回主界面" />
+      <Label layoutX="584.0" layoutY="677.0" text="商品名称" />
+      <Label layoutX="591.0" layoutY="725.0" text="商品ID" />
+      <TextField fx:id="GoodNameSearch" layoutX="668.0" layoutY="672.0" prefHeight="20.0" prefWidth="110.0" />
+      <TextField fx:id="GoodIdSearch" layoutX="668.0" layoutY="720.0" prefHeight="20.0" prefWidth="110.0" />
+   </children>
+</AnchorPane>
