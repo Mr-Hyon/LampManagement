@@ -1,6 +1,7 @@
 package presentation.accountUI;
 
 import presentation.financeUI.Financeui;
+import vo.AccountVO;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,7 +15,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class AccountController {
 	
 	@FXML
-	TableView<Account> AccountTable;
+	TableView<AccountVO> AccountTable;
 	
 	@FXML
 	TableColumn AccountNameCol;
@@ -46,10 +47,10 @@ public class AccountController {
 	@FXML
 	TextField AccountCashAdd;
 	
-	private final ObservableList<Account> data=FXCollections.observableArrayList(
-			new Account("admin","2233"),
-			new Account("acfun","666"),
-			new Account("third","1111")
+	private final ObservableList<AccountVO> data=FXCollections.observableArrayList(
+			new AccountVO("admin","2233"),
+			new AccountVO("acfun","666"),
+			new AccountVO("third","1111")
 			);
 	
 	public void initialize(){
@@ -57,7 +58,7 @@ public class AccountController {
 		AccountNameCol.setCellValueFactory(new PropertyValueFactory<>("AccountName"));
 		AccountCashCol.setCellValueFactory(new PropertyValueFactory<>("AccountCash"));
 		AccountTable.setItems(data);
-		data.add(new Account("here","123"));
+		data.add(new AccountVO("here","123"));
 		//System.out.println(data);
 	}
 	
@@ -74,7 +75,7 @@ public class AccountController {
 		String name=AccountNameAdd.getText();
 		String cash=AccountCashAdd.getText();
 		
-		data.add(new Account(name,cash));
+		data.add(new AccountVO(name,cash));
 		AccountNameAdd.clear();
 		AccountCashAdd.clear();
 		
@@ -86,35 +87,7 @@ public class AccountController {
 	
 	public void DeleteAccount(){
 		int index=AccountTable.getSelectionModel().getSelectedIndex();
-		Account account=AccountTable.getSelectionModel().getSelectedItem();
+		AccountVO account=AccountTable.getSelectionModel().getSelectedItem();
 		data.remove(account);
-	}
-
-
-	public class Account{
-		private final SimpleStringProperty accountName;
-		private final SimpleStringProperty accountCash;
-		
-		public Account(String AccountName,String AccountCash){
-			this.accountName=new SimpleStringProperty(AccountName);
-			this.accountCash=new SimpleStringProperty(AccountCash);
-		}
-		
-		public String getAccountName(){
-			return accountName.get();
-		}
-		
-		public String getAccountCash(){
-			return accountCash.get();
-		}
-		
-		public void setAccountName(String name){
-			accountName.set(name);
-		}
-		
-		public void setAccountCash(String cash){
-			accountCash.set(cash);
-		}
-		
 	}
 }
