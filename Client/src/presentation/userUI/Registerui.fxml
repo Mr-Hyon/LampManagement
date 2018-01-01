@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="455.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1"
+fx:controller="presentation.userUI.RegisterController">
+   <children>
+      <Label layoutX="188.0" layoutY="48.0" text="进销存注册系统" textFill="#282626">
+         <font>
+            <Font name="Segoe UI Symbol" size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="128.0" layoutY="121.0" text="用户名" />
+      <Label layoutX="131.0" layoutY="185.0" text="密  码" />
+      <TextField fx:id="UserID" layoutX="212.0" layoutY="116.0" prefHeight="30.0" prefWidth="262.0" />
+      <PasswordField fx:id="password" layoutX="212.0" layoutY="180.0" prefHeight="20.0" prefWidth="262.0" />
+      <Label layoutX="134.0" layoutY="308.0" text="身 份" />
+      <ChoiceBox fx:id="identity" layoutX="212.0" layoutY="303.0" prefWidth="150.0" />
+      <Label layoutX="122.0" layoutY="248.0" text="确认密码" />
+      <PasswordField fx:id="password1" layoutX="212.0" layoutY="243.0" prefHeight="20.0" prefWidth="262.0" />
+      <Button fx:id="RegisterButton" layoutX="198.0" layoutY="381.0" mnemonicParsing="false" onAction="#RegisterUser" text="注  册" />
+      <Button fx:id="ReturnButton" layoutX="362.0" layoutY="381.0" mnemonicParsing="false" onAction="#RegisterReturn" text="返  回" />
+   </children>
+</AnchorPane>
