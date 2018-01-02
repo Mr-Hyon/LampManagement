@@ -1,9 +1,12 @@
 package presentation.paymentUI;
 
 import presentation.financeUI.Financeui;
+import vo.ReceiptVO;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
 public class PaymentController {
 	
@@ -28,8 +31,29 @@ public class PaymentController {
 	@FXML
 	Label currentUser;
 	
+	@FXML
+	Label Operator;
+	
+	@FXML
+	TextField AccountName;
+	
+	@FXML
+	TextField Cash;
+	
+	@FXML
+	TextField TotalCash;
+	
+	@FXML
+	TextField Supplier;
+	
+	@FXML
+	TextField Salesman;
+	
+	@FXML
+	TextArea Other;
+	
 	public void initialize(){
-		
+		//test
 	}
 	
 	public void ReceiptReturnAction(){
@@ -38,7 +62,8 @@ public class PaymentController {
 	}
 	
 	public void ReceiptSubmitAction(){
-		
+		String id=ReceiptID.getId();
+		//need blsupport
 	}
 	
 	public void PaybillReturnAction(){
