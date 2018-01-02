@@ -16,9 +16,6 @@ public class AccountInputController extends AccountController{
 	@FXML
 	TextField AccountName;
 	
-	@FXML
-	TextField AccountCash;
-	
 	@Override
 	public void initialize(){
 		
@@ -26,7 +23,7 @@ public class AccountInputController extends AccountController{
 	
 	public void Confirm(){
 		AccountInputui.setAccess(true);
-		AccountInputui.setData(AccountName.getText(),AccountCash.getText());
+		AccountInputui.setData(AccountName.getText(),"0");
 		AccountInputui.hide();
 	}
 	

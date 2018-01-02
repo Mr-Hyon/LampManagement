@@ -43,9 +43,6 @@ public class AccountController {
 	TextField keyWords;
 	
 	@FXML
-	TextField AccountName;
-	
-	@FXML
 	TextField AccountNameAdd;
 	
 	@FXML
@@ -71,7 +68,18 @@ public class AccountController {
 	}
 	
 	public void SearchAccount(){
-		
+		String key=keyWords.getText();
+		int size=data.size();
+		ObservableList<AccountVO> transfer=FXCollections.observableArrayList();
+		for(int i=0;i<size;i++){
+			AccountVO temp=data.get(i);
+			if(temp.getAccountName().indexOf(key)>=0){
+				transfer.add(temp);
+			}
+		}
+		AccountShowController.setData(transfer);
+		AccountShowui.show();
+		keyWords.clear();
 	}
 	
 	public void ReturntoMainmenu(){
@@ -106,7 +114,9 @@ public class AccountController {
 		if(index>=0){
 			AccountVO vo=AccountInputui.show();
 			if(AccountInputui.getAccess()){
-				data.set(index, vo);
+				AccountVO sample=data.get(index);
+				sample.setAccountName(vo.getAccountName());
+				data.set(index, sample);
 			}
 		}
 	}

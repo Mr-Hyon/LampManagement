@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="634.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1"
+fx:controller="presentation.accountUI.AccountShowController">
+   <children>
+      <Label layoutX="39.0" layoutY="14.0" prefHeight="28.0" prefWidth="82.0" text="查询结果">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TableView fx:id="SearchAccountTable" layoutX="39.0" layoutY="57.0" prefHeight="481.0" prefWidth="354.0">
+        <columns>
+          <TableColumn fx:id="SearchAccountName" prefWidth="169.0" text="账户名称" />
+          <TableColumn fx:id="SearchAccountCash" prefWidth="183.0" text="余额（RMB）" />
+        </columns>
+      </TableView>
+      <Button fx:id="ReturnButton" layoutX="576.0" layoutY="566.0" mnemonicParsing="false" onAction="#Return" text="返回" />
+   </children>
+</AnchorPane>
