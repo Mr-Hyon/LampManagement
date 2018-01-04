@@ -13,6 +13,8 @@ public class CommodityVO {
 	private final SimpleStringProperty goodRecentBP;		//商品最近进价
 	private final SimpleStringProperty goodRecentRP;		//商品最近零售价
 	
+	CommodityTypeVO type;
+	
 	public CommodityVO(String id,String name,String model,String num,String bp,String rp){
 		goodId=new SimpleStringProperty(id);
 		goodName=new SimpleStringProperty(name);
@@ -22,6 +24,14 @@ public class CommodityVO {
 		goodRetailPrice=new SimpleStringProperty(rp);
 		goodRecentBP=new SimpleStringProperty(bp);
 		goodRecentRP=new SimpleStringProperty(rp);
+	}
+	
+	public void setType(CommodityTypeVO vo){
+		this.type=vo;
+	}
+	
+	public CommodityTypeVO getType(){
+		return type;
 	}
 	
 	public String getGoodId(){
