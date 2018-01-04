@@ -11,9 +11,9 @@ public class UserVO {
 	
 	public UserVO(String userName,String userPassword,String userIdentity,String userLevel){
 		this.userName=new SimpleStringProperty(userName);
-		this.userPassword=new SimpleStringProperty(userName);
-		this.userIdentity=new SimpleStringProperty(userName);
-		this.userLevel=new SimpleStringProperty(userName);
+		this.userPassword=new SimpleStringProperty(userPassword);
+		this.userIdentity=new SimpleStringProperty(userIdentity);
+		this.userLevel=new SimpleStringProperty(userLevel);
 	}
 	
 	public String getUserName(){
