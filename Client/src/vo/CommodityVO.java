@@ -4,14 +4,14 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class CommodityVO {
 	
-	private final SimpleStringProperty goodId;				//ÉÌÆ·±àºÅ
-	private final SimpleStringProperty goodName;			//ÉÌÆ·Ãû³Æ
-	private final SimpleStringProperty goodModel;			//ÉÌÆ·ĞÍºÅ
-	private final SimpleStringProperty goodNum;				//ÉÌÆ·¿â´æÊıÁ¿
-	private final SimpleStringProperty goodBuyPrice;		//ÉÌÆ·½ø¼Û
-	private final SimpleStringProperty goodRetailPrice;		//ÉÌÆ·ÁãÊÛ¼Û
-	private final SimpleStringProperty goodRecentBP;		//ÉÌÆ·×î½ü½ø¼Û
-	private final SimpleStringProperty goodRecentRP;		//ÉÌÆ·×î½üÁãÊÛ¼Û
+	private final SimpleStringProperty goodId;				//å•†å“ç¼–å·
+	private final SimpleStringProperty goodName;			//å•†å“åç§°
+	private final SimpleStringProperty goodModel;			//å•†å“å‹å·
+	private final SimpleStringProperty goodNum;				//å•†å“åº“å­˜æ•°é‡
+	private final SimpleStringProperty goodBuyPrice;		//å•†å“è¿›ä»·
+	private final SimpleStringProperty goodRetailPrice;		//å•†å“é›¶å”®ä»·
+	private final SimpleStringProperty goodRecentBP;		//å•†å“æœ€è¿‘è¿›ä»·
+	private final SimpleStringProperty goodRecentRP;		//å•†å“æœ€è¿‘é›¶å”®ä»·
 	
 	CommodityTypeVO type;
 	

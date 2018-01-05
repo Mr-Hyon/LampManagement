@@ -14,7 +14,7 @@ public class CheckBusinessStateui {
 			Parent root=FXMLLoader.load(getClass().getResource("CheckBusinessStateui.fxml"));
 			Scene scene=new Scene(root);
 			CheckBusinessStateuiStage=new Stage();
-			CheckBusinessStateuiStage.setTitle("²éÑ¯¾­ÓªÇé¿ö±í");
+			CheckBusinessStateuiStage.setTitle("æŸ¥çœ‹ç»è¥æƒ…å†µè¡¨");
 			CheckBusinessStateuiStage.setScene(scene);
 		}catch(Exception e){
 			e.printStackTrace();

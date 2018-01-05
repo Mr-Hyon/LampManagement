@@ -31,20 +31,20 @@ public class RegisterController {
 	
 	
 	public void initialize(){
-		identity.setItems(FXCollections.observableArrayList("×Ü¾­Àí","²ÆÎñÈËÔ±","¿â´æ¹ÜÀíÈËÔ±","ÏúÊÛÈËÔ±"));
+		identity.setItems(FXCollections.observableArrayList("æ€»ç»ç†","è´¢åŠ¡äººå‘˜","è¿›é”€ç®¡ç†äººå‘˜","åº“å­˜ç®¡ç†äººå‘˜"));
 		identity.getSelectionModel().select(0);
 	}
 	
 	public void RegisterUser(){
 		if(UserID.getText().equals("") || password.getText().equals("")){
-			Alert warning=new Alert(Alert.AlertType.WARNING,"ÓÃ»§Ãû»òÃÜÂëÌîĞ´´íÎó");
+			Alert warning=new Alert(Alert.AlertType.WARNING,"ç”¨æˆ·åæˆ–å¯†ç ä¸èƒ½ä¸ºç©º");
 			warning.showAndWait();
 			UserID.setText("");
 			password.setText("");
 		}
 		
 		else if(!password.getText().equals(password1.getText())){
-			Alert warning=new Alert(Alert.AlertType.WARNING,"ÃÜÂë²»Ò»ÖÂ");
+			Alert warning=new Alert(Alert.AlertType.WARNING,"å¯†ç ä¸ä¸€è‡´");
 			warning.showAndWait();
 			UserID.setText("");
 			password.setText("");
@@ -59,7 +59,7 @@ public class RegisterController {
 			System.out.println(pw);
 			System.out.println(id);
 			
-			Alert information=new Alert(Alert.AlertType.INFORMATION,"×¢²á³É¹¦");
+			Alert information=new Alert(Alert.AlertType.INFORMATION,"æ³¨å†ŒæˆåŠŸ");
 			information.showAndWait();
 			Registerui.hide();
 			Loginui.show();

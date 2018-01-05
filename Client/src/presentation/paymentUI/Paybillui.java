@@ -14,7 +14,7 @@ public class Paybillui {
 			Parent root=FXMLLoader.load(getClass().getResource("Paybillui.fxml"));
 			Scene scene=new Scene(root);
 			PaybillStage=new Stage();
-			PaybillStage.setTitle("ÖÆ¶¨¸¶¿îµ¥");
+			PaybillStage.setTitle("åˆ¶å®šä»˜æ¬¾å•");
 			PaybillStage.setScene(scene);
 		}catch(Exception e){
 			e.printStackTrace();

@@ -14,7 +14,7 @@ public class CommodityCheckui {
 			Parent root = FXMLLoader.load(getClass().getResource("CommodityCheckui.fxml"));
 			Scene scene=new Scene(root);
 			CommodityCheckStage=new Stage();
-			CommodityCheckStage.setTitle("²é¿´¿â´æ");
+			CommodityCheckStage.setTitle("åº“å­˜æŸ¥çœ‹");
 			CommodityCheckStage.setScene(scene);
 		}catch(Exception e){
 			e.printStackTrace();

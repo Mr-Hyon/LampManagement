@@ -19,7 +19,7 @@ public static Stage AccountInputStage;
 			Parent root=FXMLLoader.load(getClass().getResource("AccountInputui.fxml"));
 			Scene scene=new Scene(root);
 			AccountInputStage=new Stage();
-			AccountInputStage.setTitle("ÕË»§¹ÜÀí");
+			AccountInputStage.setTitle("ä¿®æ”¹è´¦æˆ·");
 			AccountInputStage.setScene(scene);
 		}catch(Exception e){
 			e.printStackTrace();

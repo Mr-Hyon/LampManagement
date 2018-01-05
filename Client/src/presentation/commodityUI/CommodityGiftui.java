@@ -16,10 +16,9 @@ public class CommodityGiftui {
 			Parent root = FXMLLoader.load(getClass().getResource("CommodityGiftui.fxml"));
 			Scene scene=new Scene(root);
 			CommodityGiftStage=new Stage();
-			CommodityGiftStage.setTitle("¿â´æÔùËÍ");
+			CommodityGiftStage.setTitle("åº“å­˜èµ é€");
 			CommodityGiftStage.setScene(scene);
 		} catch (IOException e) {
-			// TODO ×Ô¶¯Éú³ÉµÄ catch ¿é
 			e.printStackTrace();
 		}
 	}

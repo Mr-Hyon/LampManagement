@@ -6,22 +6,25 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 
 public class RemoteHelper {
-	public static String url = "rmi://127.0.0.1:8887/";
-	
-	public static void initServer() {
-		try {
-			LocateRegistry.createRegistry(8887);
-			
-			AccountBLService accountBS = new AccountBLController();
-			Naming.rebind(url+"AccountBL", accountBS);
 
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public RemoteHelper() {
 
-	}
+        DataRemoteObject dataRemoteObject;
+        try {
+            dataRemoteObject = new DataRemoteObject();
+            System.out.println("ok1");
+            LocateRegistry.createRegistry(8887);
+            System.out.println("ok2");
+            Naming.bind("rmi://127.0.0.1:8887/DataRemoteObject", dataRemoteObject);
+            System.out.println("bind well");
+
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (AlreadyBoundException e) {
+            e.printStackTrace();
+        }
+
+    }
 }

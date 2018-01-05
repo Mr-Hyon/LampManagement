@@ -14,7 +14,7 @@ public class Billui {
 			Parent root=FXMLLoader.load(getClass().getResource("Billui.fxml"));
 			Scene scene=new Scene(root);
 			BillStage=new Stage();
-			BillStage.setTitle("ÆÚ³õ½¨ÕË");
+			BillStage.setTitle("æœŸåˆå»ºè´¦");
 			BillStage.setScene(scene);
 		}catch(Exception e){
 			e.printStackTrace();

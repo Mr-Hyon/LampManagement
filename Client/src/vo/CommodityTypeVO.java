@@ -4,19 +4,22 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class CommodityTypeVO {
 	
-	private final SimpleStringProperty typeName;	//商品类型名称
-	private final SimpleStringProperty typeId;		//商品类型编号
-	CommodityTypeVO upperType;
-	boolean isleaf;
+	private final SimpleStringProperty typeName;		//鍟嗗搧绫诲瀷鍚嶇О
+	private final SimpleStringProperty typeId;			//鍟嗗搧绫诲瀷缂栧彿
+	private final SimpleStringProperty upperTypeName;	//鍟嗗搧姣嶇被鍚嶇О
 	
-	public CommodityTypeVO(CommodityTypeVO upperType,String typeId,String typeName){
+	public CommodityTypeVO(String upperType,String typeId,String typeName){
 		this.typeId=new SimpleStringProperty(typeId);
 		this.typeName=new SimpleStringProperty(typeName);
-		isleaf=true;
-		this.upperType=upperType;
-		if(upperType!=null){
-			this.upperType.setisLeaf(false);
-		}
+		this.upperTypeName=new SimpleStringProperty(upperType);
+	}
+	
+	public String getUpperTypeName(){
+		return upperTypeName.get();
+	}
+	
+	public void setUpperTypeName(String upperTypeName){
+		
 	}
 	
 	public String getTypeId(){
@@ -35,12 +38,4 @@ public class CommodityTypeVO {
 		typeName.set(name);
 	}
 	
-	public boolean isLeaf(){
-		return isleaf;
-	}
-	
-	public void setisLeaf(boolean bool){
-		isleaf=bool;
-	}
-
 }

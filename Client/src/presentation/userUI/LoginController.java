@@ -30,7 +30,7 @@ public class LoginController {
 	ChoiceBox identity;
 	
 	public void initialize(){
-		identity.setItems(FXCollections.observableArrayList("×Ü¾­Àí","²ÆÎñÈËÔ±","¿â´æ¹ÜÀíÈËÔ±","ÏúÊÛÈËÔ±"));
+		identity.setItems(FXCollections.observableArrayList("æ€»ç»ç†","è´¢åŠ¡äººå‘˜","è¿›é”€ç®¡ç†äººå‘˜","åº“å­˜ç®¡ç†äººå‘˜"));
 		identity.getSelectionModel().select(0);
 	}
 
@@ -43,7 +43,7 @@ public class LoginController {
 		System.out.println(pw);
 		
 		if(username.equals("") || pw.equals("")){
-			Alert warning=new Alert(Alert.AlertType.WARNING,"ÓÃ»§Ãû»òÃÜÂëÌîĞ´´íÎó");
+			Alert warning=new Alert(Alert.AlertType.WARNING,"ç”¨æˆ·åæˆ–å¯†ç å¡«å†™ä¸æ­£ç¡®");
 			warning.showAndWait();
 			UserID.setText("");
 			password.setText("");
@@ -54,14 +54,14 @@ public class LoginController {
 				
 			}
 		
-			if(identity.getValue().equals("²ÆÎñÈËÔ±")){
+			if(identity.getValue().equals("è´¢åŠ¡äººå‘˜")){
 				Loginui.hide();
 				Financeui.show();
 				UserID.setText("");
 				password.setText("");
 			}
 			//FinanceController.setCurrentUser(UserID.getText());
-			else if(identity.getValue().equals("¿â´æ¹ÜÀíÈËÔ±")){
+			else if(identity.getValue().equals("åº“å­˜ç®¡ç†äººå‘˜")){
 				Loginui.hide();
 				Commodityui.show();
 				UserID.setText("");

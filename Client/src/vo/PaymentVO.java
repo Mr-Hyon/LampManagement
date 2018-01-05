@@ -3,20 +3,20 @@ package vo;
 import javafx.beans.property.SimpleStringProperty;
 
 public class PaymentVO {
-	//¸¶¿îµ¥
-	private final SimpleStringProperty id;				//µ¥¾İ±àºÅ
-	private final SimpleStringProperty supplierName;	//¹©»õÉÌÃû³Æ
-	private final SimpleStringProperty salesmanName;		//ÏúÊÛÉÌÃû³Æ
-	private final SimpleStringProperty operatorName;		//²Ù×÷Ô±Ãû³Æ
-	private final SimpleStringProperty accountName;			//ÕË»§Ãû³Æ
-	private final SimpleStringProperty cash;			//×ªÕË¶î¶È
-	private final SimpleStringProperty other;			//±¸×¢ÄÚÈİ
-	private final SimpleStringProperty totalCash;		//×Ü¶î»ã×Ü
+	//ä»˜æ¬¾å•
+	private final SimpleStringProperty id;				//ä»˜æ¬¾å•ç¼–å·
+	private final SimpleStringProperty supplierName;	//ä¾›è´§å•†åç§°
+	private final SimpleStringProperty salesmanName;		//é”€å”®å•†åç§°
+	private final SimpleStringProperty operatorName;		//æ“ä½œå‘˜åç§°
+	private final SimpleStringProperty accountName;			//è´¦æˆ·åç§°
+	private final SimpleStringProperty cash;			//é¢åº¦
+	private final SimpleStringProperty other;			//å¤‡æ³¨
+	private final SimpleStringProperty totalCash;		//æ€»é¢æ±‡æ€»
 	
-	private AccountVO account;						//ÒøĞĞÕË»§vo¶ÔÏó
-	private ClientVO supplier;							//¹©»õÉÌvo¶ÔÏó
-	private ClientVO salesman;							//ÏúÊÛÉÌvo¶ÔÏó
-	private UserVO operator;							//²Ù×÷Ô±vo¶ÔÏó
+	private AccountVO account;						//è´¦æˆ·
+	private ClientVO supplier;							//ä¾›è´§å•†
+	private ClientVO salesman;							//é”€å”®å•†
+	private UserVO operator;							//æ“ä½œå‘˜
 	
 	public PaymentVO(String id,ClientVO supplier,ClientVO salesman,UserVO operator,AccountVO account,String cash,String other,String totalCash){
 		this.id=new SimpleStringProperty(id);

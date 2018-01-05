@@ -16,10 +16,10 @@ public class Commodityui {
 			Parent root = FXMLLoader.load(getClass().getResource("Commodityui.fxml"));
 			Scene scene=new Scene(root);
 			CommodityStage=new Stage();
-			CommodityStage.setTitle("¿â´æ¹ÜÀíÏµÍ³");
+			CommodityStage.setTitle("åº“å­˜ç®¡ç†äººå‘˜ä¸»ç•Œé¢");
 			CommodityStage.setScene(scene);
 		} catch (IOException e) {
-			// TODO ×Ô¶¯Éú³ÉµÄ catch ¿é
+			// TODO ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½Éµï¿½ catch ï¿½ï¿½
 			e.printStackTrace();
 		}
 	}
