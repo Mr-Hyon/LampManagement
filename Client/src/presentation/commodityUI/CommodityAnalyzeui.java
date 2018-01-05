@@ -16,10 +16,10 @@ public class CommodityAnalyzeui {
 			Parent root = FXMLLoader.load(getClass().getResource("CommodityAnalyzeui.fxml"));
 			Scene scene=new Scene(root);
 			CommodityAnalyzeStage=new Stage();
-			CommodityAnalyzeStage.setTitle("¿â´æ·ÖÎö");
+			CommodityAnalyzeStage.setTitle("åº“å­˜åˆ†æ");
 			CommodityAnalyzeStage.setScene(scene);
 		} catch (IOException e) {
-			// TODO ×Ô¶¯Éú³ÉµÄ catch ¿é
+			// TODO ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½Éµï¿½ catch ï¿½ï¿½
 			e.printStackTrace();
 		}
 	}

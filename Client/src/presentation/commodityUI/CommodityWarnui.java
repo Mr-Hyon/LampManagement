@@ -16,10 +16,9 @@ public class CommodityWarnui {
 			Parent root = FXMLLoader.load(getClass().getResource("CommodityWarnui.fxml"));
 			Scene scene=new Scene(root);
 			CommodityWarnStage=new Stage();
-			CommodityWarnStage.setTitle("库存报警");
+			CommodityWarnStage.setTitle("搴撳瓨鎶ヨ");
 			CommodityWarnStage.setScene(scene);
 		} catch (IOException e) {
-			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}
 	}

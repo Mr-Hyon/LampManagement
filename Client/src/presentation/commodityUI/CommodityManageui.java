@@ -16,10 +16,10 @@ public static Stage CommodityManageStage;
 			Parent root = FXMLLoader.load(getClass().getResource("CommodityManageui.fxml"));
 			Scene scene=new Scene(root);
 			CommodityManageStage=new Stage();
-			CommodityManageStage.setTitle("商品管理");
+			CommodityManageStage.setTitle("鍟嗗搧绠＄悊");
 			CommodityManageStage.setScene(scene);
 		} catch (IOException e) {
-			// TODO 自动生成的 catch 块
+			// TODO 锟皆讹拷锟斤拷锟缴碉拷 catch 锟斤拷
 			e.printStackTrace();
 		}
 	}

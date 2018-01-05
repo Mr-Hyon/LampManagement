@@ -4,10 +4,10 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class UserVO {
 	
-	private final SimpleStringProperty userName; //用户名
-	private final SimpleStringProperty userPassword; //用户密码
-	private final SimpleStringProperty userIdentity; //用户身份
-	private final SimpleStringProperty userLevel; //用户权限
+	private final SimpleStringProperty userName; //鐢ㄦ埛鍚嶇О
+	private final SimpleStringProperty userPassword; //鐢ㄦ埛瀵嗙爜
+	private final SimpleStringProperty userIdentity; //鐢ㄦ埛韬唤
+	private final SimpleStringProperty userLevel; //鐢ㄦ埛鏉冮檺
 	
 	public UserVO(String userName,String userPassword,String userIdentity,String userLevel){
 		this.userName=new SimpleStringProperty(userName);

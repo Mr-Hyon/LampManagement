@@ -14,7 +14,7 @@ public class CheckSalesDetailui {
 			Parent root=FXMLLoader.load(getClass().getResource("CheckSalesDetailui.fxml"));
 			Scene scene=new Scene(root);
 			CheckSalesDetailStage=new Stage();
-			CheckSalesDetailStage.setTitle("查看销售明细表");
+			CheckSalesDetailStage.setTitle("鏌ョ湅閿�鍞槑缁嗚〃");
 			CheckSalesDetailStage.setScene(scene);
 		}catch(Exception e){
 			e.printStackTrace();

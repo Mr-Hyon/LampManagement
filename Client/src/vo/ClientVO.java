@@ -4,16 +4,16 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class ClientVO {
 	
-	private SimpleStringProperty clientId;		//¿Í»§±àºÅ
-	private SimpleStringProperty clientType;	//¿Í»§ÀàĞÍ(½ø»õÉÌsupplierÓëÏúÊÛÉÌsalesman)
-	private SimpleStringProperty clientLevel;	//¿Í»§µÈ¼¶(´Ó1µ½5)
-	private SimpleStringProperty clientName;	//¿Í»§Ãû³Æ
-	private SimpleStringProperty clientContact;	//¿Í»§µç»°
-	private SimpleStringProperty clientAddress;	//¿Í»§µØÖ·
-	private SimpleStringProperty clientZip;		//¿Í»§ÓÊ±à
-	private SimpleStringProperty clientEmail;	//¿Í»§ÓÊÏä
-	private SimpleStringProperty clientPay;		//¿Í»§Ó¦¸¶
-	private SimpleStringProperty clientReceive;	//¿Í»§Ó¦ÊÕ
+	private SimpleStringProperty clientId;		//å®¢æˆ·ç¼–å·
+	private SimpleStringProperty clientType;	//å®¢æˆ·ç±»å‹(ä¾›è´§å•†supplieré”€å”®å•†salesman)
+	private SimpleStringProperty clientLevel;	//å®¢æˆ·ç­‰çº§(ä»1åˆ°5)
+	private SimpleStringProperty clientName;	//å®¢æˆ·åç§°
+	private SimpleStringProperty clientContact;	//å®¢æˆ·ç”µè¯
+	private SimpleStringProperty clientAddress;	//å®¢æˆ·åœ°å€Ö·
+	private SimpleStringProperty clientZip;		//å®¢æˆ·é‚®ç¼–
+	private SimpleStringProperty clientEmail;	//å®¢æˆ·é‚®ç®±
+	private SimpleStringProperty clientPay;		//å®¢æˆ·åº”ä»˜
+	private SimpleStringProperty clientReceive;	//å®¢æˆ·åº”æ”¶
 	
 	public ClientVO(String clientId,String clientType,String clientLevel,String clientName,String clientContact,String clientAddress,String clientZip,
 			String clientEmail,String clientPay,String clientReceive){

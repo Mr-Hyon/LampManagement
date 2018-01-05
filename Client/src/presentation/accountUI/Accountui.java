@@ -14,7 +14,7 @@ public class Accountui {
 			Parent root=FXMLLoader.load(getClass().getResource("Accountui.fxml"));
 			Scene scene=new Scene(root);
 			AccountStage=new Stage();
-			AccountStage.setTitle("’Àªßπ‹¿Ì");
+			AccountStage.setTitle("Ë¥¶Êà∑ÁÆ°ÁêÜ");
 			AccountStage.setScene(scene);
 		}catch(Exception e){
 			e.printStackTrace();

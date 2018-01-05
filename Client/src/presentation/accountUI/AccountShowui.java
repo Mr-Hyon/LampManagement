@@ -13,7 +13,7 @@ public class AccountShowui {
 				Parent root=FXMLLoader.load(getClass().getResource("AccountShowui.fxml"));
 				Scene scene=new Scene(root);
 				AccountShowStage=new Stage();
-				AccountShowStage.setTitle("²éÑ¯½á¹û");
+				AccountShowStage.setTitle("æŸ¥è¯¢ç»“æžœ");
 				AccountShowStage.setScene(scene);
 			}catch(Exception e){
 				e.printStackTrace();

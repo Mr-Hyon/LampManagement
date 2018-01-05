@@ -14,7 +14,7 @@ public class CheckBusinessProgressui {
 			Parent root=FXMLLoader.load(getClass().getResource("CheckBusinessProgressui.fxml"));
 			Scene scene=new Scene(root);
 			CheckBusinessProgressStage=new Stage();
-			CheckBusinessProgressStage.setTitle("²é¿´¾­ÓªÀú³Ì±í");
+			CheckBusinessProgressStage.setTitle("æŸ¥çœ‹ç»è¥å†ç¨‹è¡¨");
 			CheckBusinessProgressStage.setScene(scene);
 		}catch(Exception e){
 			e.printStackTrace();

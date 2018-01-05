@@ -60,8 +60,8 @@ public class AccountController {
 	
 	public void initialize(){
 		AccountTable.setEditable(true);
-		AccountNameCol.setCellValueFactory(new PropertyValueFactory<>("AccountName"));
-		AccountCashCol.setCellValueFactory(new PropertyValueFactory<>("AccountCash"));
+		AccountNameCol.setCellValueFactory(new PropertyValueFactory<>("accountName"));
+		AccountCashCol.setCellValueFactory(new PropertyValueFactory<>("accountCash"));
 		AccountTable.setItems(data);
 		data.add(new AccountVO("here","123"));
 		//System.out.println(data);

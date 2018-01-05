@@ -16,7 +16,7 @@ public class Receiptui {
 			Parent root=FXMLLoader.load(getClass().getResource("Paymentui.fxml"));
 			Scene scene=new Scene(root);
 			PaymentStage=new Stage();
-			PaymentStage.setTitle("�ƶ��տ");
+			PaymentStage.setTitle("制定收款单");
 			PaymentStage.setScene(scene);
 		} catch (IOException e) {
 			e.printStackTrace();
