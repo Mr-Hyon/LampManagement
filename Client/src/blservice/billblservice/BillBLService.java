@@ -6,9 +6,9 @@ import java.rmi.RemoteException;
 import util.ResultMessage;
 
 public interface BillBLService {
-	public ResultMessage initial(BillVO vo);
+	public ResultMessage initial(BillVO vo) throws RemoteException;
 	public ArrayList<BillVO> show() throws RemoteException;
 	public ArrayList<BillVO> showInitial() throws RemoteException;
 	public ResultMessage update(BillVO vo) throws RemoteException;
-	public ResultMessage delete(BillVO vo);
+	public ResultMessage delete(BillVO vo) throws RemoteException;
 }

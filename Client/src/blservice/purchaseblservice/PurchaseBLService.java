@@ -5,7 +5,7 @@ import java.rmi.RemoteException;
 import util.ResultMessage;
 
 public interface PurchaseBLService {
-	public ResultMessage addPurchase(PurchaseVO vo);
-	public ResultMessage addRefunds(PurchaseVO vo);
-	public ResultMessage sendToVerify(PurchaseVO vo)throws RemoteException;
+	public ResultMessage addPurchase(PurchaseVO vo) throws RemoteException;
+	public ResultMessage addRefunds(PurchaseVO vo) throws RemoteException;
+	public ResultMessage sendToVerify(PurchaseVO vo) throws RemoteException;
 }
