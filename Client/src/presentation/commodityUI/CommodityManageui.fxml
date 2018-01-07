@@ -30,7 +30,7 @@
         </columns>
       </TreeTableView>
       <Label layoutX="35.0" layoutY="14.0" text="商品类别信息" />
-      <Button fx:id="AddGoodTypeButton" layoutX="347.0" layoutY="364.0" mnemonicParsing="false" onAction="#AddGoodType" text="添加商品分类" />
+      <Button fx:id="AddGoodTypeButton" layoutX="257.0" layoutY="657.0" mnemonicParsing="false" onAction="#AddMainType" text="添加商品主类" />
       <Button fx:id="DeleteGoodTypeButton" layoutX="347.0" layoutY="414.0" mnemonicParsing="false" onAction="#DeleteGoodType" text="删除商品分类" />
       <Button fx:id="ModifyGoodTypeButton" layoutX="347.0" layoutY="464.0" mnemonicParsing="false" onAction="#ModifyGoodType" text="修改商品分类" />
       <Button fx:id="AddGoodButton" layoutX="931.0" layoutY="642.0" mnemonicParsing="false" onAction="#AddGood" prefHeight="30.0" prefWidth="95.0" text="添 加 商 品" />
@@ -42,5 +42,8 @@
       <Label layoutX="591.0" layoutY="725.0" text="商品ID" />
       <TextField fx:id="GoodNameSearch" layoutX="668.0" layoutY="672.0" prefHeight="20.0" prefWidth="110.0" />
       <TextField fx:id="GoodIdSearch" layoutX="668.0" layoutY="720.0" prefHeight="20.0" prefWidth="110.0" />
+      <TextField fx:id="MainType" layoutX="35.0" layoutY="657.0" />
+      <TextField fx:id="SubType" layoutX="35.0" layoutY="715.0" />
+      <Button fx:id="AddGoodTypeButton1" layoutX="257.0" layoutY="715.0" mnemonicParsing="false" onAction="#AddSubType" text="添加商品子类" />
    </children>
 </AnchorPane>
