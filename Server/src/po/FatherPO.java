@@ -1,4 +1,4 @@
-package Server.src.po;
+package po;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;

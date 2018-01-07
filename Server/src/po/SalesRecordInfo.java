@@ -1,15 +1,15 @@
-package Server.src.po.SalesPO;
+package po;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name="salesrecordpo")
-public class SalesRecordPO implements Serializable{
+@Table(name="salesrecordinfo")
+public class SalesRecordInfo implements Serializable{
     private static final long serialVersionUID=1L;
 
-	public SalesRecordPO() {
-		// TODO �Զ����ɵĹ��캯�����
+	public SalesRecordInfo() {
+		
 	}
 
 	private int id;
@@ -20,7 +20,7 @@ public class SalesRecordPO implements Serializable{
 	private double totalPrice;
 	private String type;
 	
-	public SalesRecordPO(String date,String name,String type,double amount,double price,double totalPrice){
+	public SalesRecordInfo(String date,String name,String type,double amount,double price,double totalPrice){
 		this.date=date;
 		this.name=name;
 		this.type=type;
@@ -94,3 +94,4 @@ public class SalesRecordPO implements Serializable{
         this.type = type;
     }
 }
+

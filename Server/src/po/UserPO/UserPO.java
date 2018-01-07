@@ -1,4 +1,4 @@
-package Server.src.po.UserPO;
+package po.UserPO;
 
 import javax.persistence.*;
 

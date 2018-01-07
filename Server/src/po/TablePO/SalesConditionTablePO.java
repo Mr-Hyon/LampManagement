@@ -1,8 +1,8 @@
-package Server.src.po.TablePO;
+package po.TablePO;
 
-import  Server.src.po.ClientPO.ClientPO;
-import  Server.src.po.UserPO.UserPO;
-import  Server.src.po.SalesPO.SalesRecordPO;
+import  po.ClientPO.ClientPO;
+import  po.UserPO.UserPO;
+import  po.SalesRecordInfo;
 import java.io.Serializable;
 import java.util.List;
 
@@ -14,7 +14,7 @@ public class SalesConditionTablePO implements Serializable{
     private static final long serialVersionUID=1L;
 
 	public SalesConditionTablePO() {
-		// TODO �Զ����ɵĹ��캯�����
+		
 	}
 
 	private int id;
@@ -23,9 +23,9 @@ public class SalesConditionTablePO implements Serializable{
 	private String commodityName;
 	private String client;
 	private String salesman;
-	private List<SalesRecordPO> salesRecord;
+	private List<SalesRecordInfo> salesRecord;
 	
-	public SalesConditionTablePO(String startDate,String endDate,String commodityName,String client,String salesman,List<SalesRecordPO> salesRecord){
+	public SalesConditionTablePO(String startDate,String endDate,String commodityName,String client,String salesman,List<SalesRecordInfo> salesRecord){
 		this.salesRecord=salesRecord;
 		this.startDate=startDate;
 		this.endDate=endDate;
@@ -65,11 +65,11 @@ public class SalesConditionTablePO implements Serializable{
 
     @OneToMany(fetch=FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name="salesrecordID")
-    public List<SalesRecordPO> getSalesRecord(){
+    public List<SalesRecordInfo> getSalesRecord(){
     	return salesRecord;
     }
     
-    public void setSalesRecord(List<SalesRecordPO> list){
+    public void setSalesRecord(List<SalesRecordInfo> list){
     	this.salesRecord=list;
     }
 

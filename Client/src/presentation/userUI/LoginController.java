@@ -3,6 +3,11 @@ package presentation.userUI;
 import presentation.commodityUI.Commodityui;
 import presentation.financeUI.FinanceController;
 import presentation.financeUI.Financeui;
+import rmi.RemoteHelper;
+
+import java.rmi.RemoteException;
+
+import common.feedback;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import po.AccountPO.AccountPO;
 
 public class LoginController {
 	
@@ -34,7 +40,13 @@ public class LoginController {
 		identity.getSelectionModel().select(0);
 	}
 
-	public void onLoginAction(){
+	public void onLoginAction() throws RemoteException{
+		
+		/*test rmi*/
+//		feedback fb=RemoteHelper.getInstance().getAccountDataService().addAccount(new AccountPO("test 3","Bank A",200.0));
+//		System.out.println(fb);
+		/*test complete*/
+		
 		
 		String username=UserID.getText();
 		String pw=password.getText();

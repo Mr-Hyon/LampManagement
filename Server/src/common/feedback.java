@@ -1,4 +1,4 @@
-package Server.src;
+package common;
 
 public enum feedback {
 
@@ -9,4 +9,3 @@ public enum feedback {
 	Sale,
 	Form;
 }
-

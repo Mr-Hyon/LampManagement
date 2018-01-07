@@ -19,7 +19,6 @@ public class Commodityui {
 			CommodityStage.setTitle("库存管理人员主界面");
 			CommodityStage.setScene(scene);
 		} catch (IOException e) {
-			// TODO �Զ����ɵ� catch ��
 			e.printStackTrace();
 		}
 	}

@@ -6,11 +6,12 @@ import java.rmi.NotBoundException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-import blservice.accountblservice.AccountBLService;
+import dataservice.AccountDataService.AccountDataService;
+
+
 
 
 public class RemoteHelper {
-	
 	private static RemoteHelper remoteHelper=new RemoteHelper();
 	private Remote remote;
 	
@@ -19,11 +20,7 @@ public class RemoteHelper {
 	}
 	
 	private RemoteHelper(){
-		try{
-			remote=Naming.lookup("rmi://127.0.0.1:8887/DataRemoteObject");			
-		}catch(Exception e){
-			e.printStackTrace();
-		}
+		;
 	}
 	
 	public void setRemote(Remote remote){

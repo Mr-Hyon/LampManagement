@@ -1,5 +1,6 @@
 package presentation.commodityUI;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -44,6 +45,12 @@ public class CommodityManageController {
 	Button SearchGoodButton;
 	
 	@FXML
+	TextField MainType;
+	
+	@FXML
+	TextField SubType;
+	
+	@FXML
 	TextField GoodNameSearch;
 	
 	@FXML
@@ -55,17 +62,15 @@ public class CommodityManageController {
 			new CommodityVO("0003","X1X","XM03","100","3000","3500")
 			);
 	
-	private ObservableList<CommodityTypeVO> type=FXCollections.observableArrayList(
-			new CommodityTypeVO(null,"0001","MainType A"),
-			new CommodityTypeVO(null,"0002","MainType B"),
-			new CommodityTypeVO(null,"0003","MainType C")
-			);
+	ArrayList<CommodityTypeVO> type=new ArrayList<>();	
 	
-	
-	TreeItem<CommodityTypeVO> root=new TreeItem<>(new CommodityTypeVO(null,"0000","商品分类"));
+	TreeItem<CommodityTypeVO> root=new TreeItem<>(new CommodityTypeVO(null,"0000","鍟嗗搧绠＄悊"));
 			
 	
 	public void initialize(){
+		type.add(new CommodityTypeVO(null,"0001","MainType A"));
+		type.add(new CommodityTypeVO(null,"0002","MainType B"));
+		type.add(new CommodityTypeVO(null,"0003","MainType C"));
 		GoodTypeTree.setEditable(true);
 		CommodityTypeVO subType1=new CommodityTypeVO(null,"0002","Type B");
 		CommodityTypeVO subType2=new CommodityTypeVO(null,"0003","Type C");
@@ -84,8 +89,22 @@ public class CommodityManageController {
 		Commodityui.show();
 	}
 	
-	public void AddGoodType(){
-		
+	public void AddMainType(){
+		String typeName=MainType.getText();
+		CommodityTypeVO Type=new CommodityTypeVO(null,"0005",typeName);
+		TreeItem<CommodityTypeVO> mainType=new TreeItem<>(Type);
+		root.getChildren().add(mainType);
+		MainType.clear();
+	}
+	
+	public void AddSubType(){
+		String typeName=SubType.getText();
+		TreeItem<CommodityTypeVO> parent=GoodTypeTree.getSelectionModel().getSelectedItem();
+		CommodityTypeVO parentType=parent.getValue();
+		CommodityTypeVO childType=new CommodityTypeVO(parentType.getTypeId(),"0005",typeName);
+		TreeItem<CommodityTypeVO> child=new TreeItem<>(childType);
+		parent.getChildren().add(child);
+		SubType.clear();
 	}
 	
 	public void DeleteGoodType(){
