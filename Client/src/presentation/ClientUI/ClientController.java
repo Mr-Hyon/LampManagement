@@ -78,6 +78,4 @@ public class ClientController {
 		ClientUI.hide();
 		Loginui.show();
 	}
-
-
 }

@@ -26,5 +26,5 @@ public class SalesmanUI {
 	public static void show(){
 		new SalesmanUI();
 		SalesmanStage.show();
-	}
+	} 
 }

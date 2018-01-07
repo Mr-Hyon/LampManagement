@@ -33,5 +33,5 @@ public class SalesUI {
 	}
 	public static void show(){
 		stage.show();
-	}
+	} 
 }

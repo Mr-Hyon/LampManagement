@@ -34,6 +34,4 @@ public class PurchaseUI {
 			e1.printStackTrace();
 		}
 	}
-
-
 }

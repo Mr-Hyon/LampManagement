@@ -63,5 +63,5 @@ public class ManagerController {
 	public void logout(ActionEvent event){
 		Loginui.show();
 		ManagerUI.hide();
-	}
+	} 
 }

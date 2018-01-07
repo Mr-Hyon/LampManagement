@@ -29,5 +29,5 @@ public class ManagerUI  {
 	public static void show(){
 		new ManagerUI();
 		ManagerStage.show();
-	}
+	} 
 }

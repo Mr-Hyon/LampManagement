@@ -87,5 +87,4 @@ public class SalesController {
 		SalesUI.hide();
 		Loginui.show();
 	}
-
 }

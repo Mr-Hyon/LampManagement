@@ -66,5 +66,5 @@ public class SalesmanController {
 	public void logout(ActionEvent event){
 		Loginui.show();
 		SalesmanUI.hide();
-	}
+	} 
 }

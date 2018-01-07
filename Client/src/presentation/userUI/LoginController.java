@@ -93,7 +93,7 @@ public class LoginController {
 			}
 		}
 	}
-	
+
 	public void onRegisterAction(){
 		Loginui.hide();
 		Registerui.show();

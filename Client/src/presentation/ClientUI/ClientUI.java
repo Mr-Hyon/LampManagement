@@ -34,4 +34,5 @@ public class ClientUI {
 	public static void show(){
 		stage.show();
 	}
+	
 }

@@ -18,7 +18,6 @@ public class ClientFindController {
 	@FXML
 	private Button Back;
 	
-	
 	public void Back(ActionEvent event){
 		System.out.println("Button Clicked 5!");
 		ClientFindUI.hide();

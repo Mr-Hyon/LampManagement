@@ -44,5 +44,4 @@ public class TableController {
 		else
 			Financeui.show();
 	}
-
 }
