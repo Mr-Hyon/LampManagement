@@ -1,32 +1,32 @@
-package Server.src.po.SalesPO;
+package Server.src.po;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity
-@Table(name="salesrecordpo")
-public class SalesRecordPO implements Serializable{
-    private static final long serialVersionUID=1L;
 
-	public SalesRecordPO() {
-		// TODO �Զ����ɵĹ��캯�����
+@Entity
+@Table(name="goodInfo")
+public class GoodInfo implements Serializable{
+    private static final long serialVersionUID=1L;
+	public GoodInfo() {
+		
 	}
 
 	private int id;
-	private String date;
 	private String name;
+	private String type;
 	private double amount;
 	private double price;
 	private double totalPrice;
-	private String type;
+	private String remark;
 	
-	public SalesRecordPO(String date,String name,String type,double amount,double price,double totalPrice){
-		this.date=date;
+	public GoodInfo(String name,String type,double amount,double price,double totalPrice,String remark){
 		this.name=name;
 		this.type=type;
 		this.amount=amount;
 		this.price=price;
 		this.totalPrice=totalPrice;
+		this.remark=remark;
 	}
 	
 	@Id
@@ -49,13 +49,13 @@ public class SalesRecordPO implements Serializable{
     	this.name=name;
     }
     
-    @Column(name="date")
-    public String getDate(){
-    	return date;
+    @Column(name="type")
+    public String getType(){
+    	return type;
     }
     
-    public void setDate(String date){
-    	this.date=date;
+    public void setType(String type){
+    	this.type=type;
     }
     
     @Column(name="amount")
@@ -81,16 +81,18 @@ public class SalesRecordPO implements Serializable{
     	return totalPrice;
     }
     
-    public void setTotalPrice(double totalPrice){
-    	this.totalPrice=totalPrice;
+    public void setTotalPrice(double total){
+    	this.totalPrice=total;
     }
-
-    @Column(name = "type")
-    public String getType() {
-        return type;
+    
+    @Column(name="remark")
+    public String getRemark(){
+    	return remark;
     }
-
-    public void setType(String type) {
-        this.type = type;
+    
+    public void setRemark(String remark){
+    	this.remark=remark;
     }
+	
 }
+
