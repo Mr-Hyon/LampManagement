@@ -29,7 +29,7 @@ public interface PurchaseBillDataService extends Remote {
 
 	public feedback checkPurchaseBill(PurchaseBillPO po)throws RemoteException;
 
-	public feedback redDashPurchaseBill(String billID)throws RemoteException;
+	public feedback reversePurchaseBill(String billID)throws RemoteException;//红冲
 
 	public feedback modifyPurchaseBill(PurchaseBillPO po)throws RemoteException;
 

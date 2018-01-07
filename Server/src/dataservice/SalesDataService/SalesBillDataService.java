@@ -30,7 +30,7 @@ public interface SalesBillDataService extends Remote {
 
 	public feedback checkSaleBill(SalesBillPO po)throws RemoteException;
 
-	public feedback redDashSalesBill(String billID)throws RemoteException;
+	public feedback reverseSalesBill(String billID)throws RemoteException;//红冲
 
 	public feedback modifySaleBill(SalesBillPO po)throws RemoteException;
 }

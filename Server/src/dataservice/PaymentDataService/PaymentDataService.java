@@ -26,7 +26,7 @@ public interface PaymentDataService extends Remote {
 	
 	public feedback checkPaymentBill(PaymentPO po)throws RemoteException;
 
-	public feedback redDashPaymentBill(String billID)throws RemoteException;
+	public feedback reversePaymentBill(String billID)throws RemoteException;//红冲
 
 	public feedback modifyPaymentBill(PaymentPO po)throws RemoteException;
 
