@@ -1,8 +1,42 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE hibernate-configuration PUBLIC
-		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
+        <property name="connection.url">jdbc:mysql://localhost:3306/data?characterEncoding=UTF-8</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <!-- <property name="connection.username"/> -->
+        <property name="connection.username">root</property>
+        <!-- <property name="connection.password"/> -->
+        <property name="connection.password">123456</property>
+
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+
+        <property name="current_session_context_class">thread</property>
+
+        <!-- DB schema will be updated if needed -->
+        <!-- <property name="hbm2ddl.auto">update</property> -->
+        <property name="hbm2ddl.auto">update</property>
+
+        <mapping class="po.UserPO.UserPO"/>
+        <mapping class="po.ClientPO.ClientPO"/>
+        <mapping class="po.AccountPO.AccountPO"/>
+        <mapping class="po.CommodityPO.GoodsPO"/>
+        <mapping class="po.CommodityPO.ClassificationPO"/>
+        <mapping class="po.CommodityPO.CommodityBillPO"/>
+        <mapping class="po.PaymentPO.PaymentPO"/>
+        <mapping class="po.PaymentPO.CollectionPO"/>
+        <mapping class="po.PaymentPO.FundInfo"/>
+        <mapping class="po.PaymentPO.TransferInfo"/>
+        <mapping class="po.PurchasePO.PurchaseBillPO"/>      
+        <mapping class="po.SalesPO.SaleBillPO"/>
+        <mapping class="po.PromotionPO.PromotionPO"/>
+        <mapping class="po.GoodInfo"/>
+        <mapping class="po.SalesRecordInfo"/>
+        <mapping class="po.FatherPO"/>
     </session-factory>
 </hibernate-configuration>
+
