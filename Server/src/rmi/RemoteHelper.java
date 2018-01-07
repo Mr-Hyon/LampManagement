@@ -1,23 +1,22 @@
 package rmi;
 
 import java.net.MalformedURLException;
+import java.rmi.AlreadyBoundException;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 
 public class RemoteHelper {
-
-	public RemoteHelper() {
-
+    public RemoteHelper(){
+        initServer();
+    }
+    public void initServer(){
         DataRemoteObject dataRemoteObject;
         try {
-            dataRemoteObject = new DataRemoteObject();
-            System.out.println("ok1");
+            dataRemoteObject=new DataRemoteObject();
             LocateRegistry.createRegistry(8887);
-            System.out.println("ok2");
-            Naming.bind("rmi://127.0.0.1:8887/DataRemoteObject", dataRemoteObject);
-            System.out.println("bind well");
-
+            Naming.bind("rmi://127.0.0.1:8887/DataRemoteObject",
+                    dataRemoteObject);
         } catch (RemoteException e) {
             e.printStackTrace();
         } catch (MalformedURLException e) {
@@ -25,6 +24,6 @@ public class RemoteHelper {
         } catch (AlreadyBoundException e) {
             e.printStackTrace();
         }
-
     }
 }
+
