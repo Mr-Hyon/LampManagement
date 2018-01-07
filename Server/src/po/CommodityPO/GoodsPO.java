@@ -1,7 +1,7 @@
-package Server.src.po.CommodityPO;
+package po.CommodityPO;
 
 import javax.persistence.*;
-import Server.src.po.FatherPO;
+import po.FatherPO;
 import java.io.Serializable;
 
 

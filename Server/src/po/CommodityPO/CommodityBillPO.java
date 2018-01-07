@@ -1,4 +1,4 @@
-package Server.src.po.CommodityPO;
+package po.CommodityPO;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -12,9 +12,9 @@ public class CommodityBillPO implements Serializable{
 
     private int id;
     private String date;
-    private String type;//赠送、报损、报溢单
-    private List<GoodsPO> InventoryBillGoodsList;//赠送商品列表或者报溢、报损商品列表
-    private String billID;//赠送单对应销售单的单据编号
+    private String type;
+    private List<GoodsPO> InventoryBillGoodsList;
+    private String billID;
 
     public CommodityBillPO(String date,String type,List<GoodsPO> goodsList){
         this.type=type;

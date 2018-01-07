@@ -1,4 +1,4 @@
-package Server.src.data.AccountData;
+package data.AccountData;
 
 import java.rmi.RemoteException;
 import java.util.Iterator;
@@ -8,9 +8,9 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Restrictions;
-import Server.src.feedback;
-import Server.src.dataservice.AccountDataService.AccountDataService;
-import Server.src.po.AccountPO.AccountPO;
+import common.feedback;
+import dataservice.AccountDataService.AccountDataService;
+import po.AccountPO.AccountPO;
 public class AccountData implements AccountDataService{
 	public AccountData() {
 		

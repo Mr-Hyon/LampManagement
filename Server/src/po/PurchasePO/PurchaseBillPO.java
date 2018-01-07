@@ -1,20 +1,20 @@
-package Server.src.po.PurchasePO;
+package po.PurchasePO;
 
 import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.*;
 
-import Server.src.po.ClientPO.ClientPO;
-import Server.src.po.UserPO.UserPO;
-import Server.src.po.GoodInfo;
+import po.ClientPO.ClientPO;
+import po.UserPO.UserPO;
+import po.GoodInfo;
 
 @Entity
 @Table(name="purchasebillpo")
 public class PurchaseBillPO implements Serializable{
 	private static final long serialVersionUID=1L;
 	public PurchaseBillPO() {
-		// TODO �Զ����ɵĹ��캯�����
+		
 	}
 
 	private int id;

@@ -1,10 +1,10 @@
-package Server.src.dataservice.TableDataService;
+package dataservice.TableDataService;
 
-import Server.src.po.TablePO.SalesConditionTablePO;
-import Server.src.po.SalesRecordInfo;
-import Server.src.po.ClientPO.ClientPO;
-import Server.src.po.UserPO.UserPO;
-import Server.src.feedback;
+import po.TablePO.SalesConditionTablePO;
+import po.SalesRecordInfo;
+import po.ClientPO.ClientPO;
+import po.UserPO.UserPO;
+import common.feedback;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

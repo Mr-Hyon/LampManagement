@@ -1,12 +1,12 @@
-package Server.src.po.PaymentPO;
+package po.PaymentPO;
 
 import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.*;
 
-import Server.src.po.ClientPO.ClientPO;
-import Server.src.po.UserPO.UserPO;
+import po.ClientPO.ClientPO;
+import po.UserPO.UserPO;
 
 @Entity
 @Table(name="paymentpo")

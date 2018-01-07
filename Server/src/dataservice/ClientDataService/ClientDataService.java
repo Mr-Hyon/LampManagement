@@ -1,11 +1,11 @@
-package Server.src.dataservice.ClientDataService;
+package dataservice.ClientDataService;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
 
-import Server.src.po.ClientPO.ClientPO;
-import Server.src.feedback;
+import po.ClientPO.ClientPO;
+import common.feedback;
 
 public interface ClientDataService extends Remote {
 

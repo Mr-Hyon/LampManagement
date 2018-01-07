@@ -1,12 +1,12 @@
-package Server.src.dataservice.PromotionDataService;
+package dataservice.PromotionDataService;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.text.ParseException;
 import java.util.List;
 
-import Server.src.po.PromotionPO.PromotionPO;
-import Server.src.feedback;
+import po.PromotionPO.PromotionPO;
+import common.feedback;
 
 public interface PromotionDataService extends Remote {
 	

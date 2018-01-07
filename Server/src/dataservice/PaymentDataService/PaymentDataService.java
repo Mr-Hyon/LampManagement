@@ -1,14 +1,14 @@
-package Server.src.dataservice.PaymentDataService;
+package dataservice.PaymentDataService;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.text.ParseException;
 import java.util.List;
 
-import Server.src.po.PaymentPO.PaymentPO;
-import Server.src.po.ClientPO.ClientPO;
-import Server.src.po.UserPO.UserPO;
-import Server.src.feedback;
+import po.PaymentPO.PaymentPO;
+import po.ClientPO.ClientPO;
+import po.UserPO.UserPO;
+import common.feedback;
 
 public interface PaymentDataService extends Remote {
 

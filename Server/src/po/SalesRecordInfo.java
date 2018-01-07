@@ -1,4 +1,4 @@
-package Server.src.po;
+package po;
 
 import javax.persistence.*;
 import java.io.Serializable;

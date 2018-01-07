@@ -1,8 +1,8 @@
-package Server.src.po.PaymentPO;
+package po.PaymentPO;
 
 import javax.persistence.*;
 
-import Server.src.po.AccountPO.AccountPO;
+import po.AccountPO.AccountPO;
 
 import java.io.Serializable;
 

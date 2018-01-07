@@ -1,4 +1,4 @@
-package Server.src.po.AccountPO;
+package po.AccountPO;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -16,7 +16,7 @@ public class AccountPO implements Serializable{
 	private String name;
 	private double balance;
 	private String bank;
-	private String isValid;//是否被删除
+	private String isValid;
 
 	
 	public AccountPO(String name,String bank,double balance){

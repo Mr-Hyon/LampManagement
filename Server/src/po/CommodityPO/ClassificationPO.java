@@ -1,9 +1,9 @@
-package Server.src.po.CommodityPO;
+package po.CommodityPO;
 
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.*;
-import Server.src.po.CommodityPO.GoodsPO;
+import po.CommodityPO.GoodsPO;
 
 @Entity
 @Table(name="classificationpo")

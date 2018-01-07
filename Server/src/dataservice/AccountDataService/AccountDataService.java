@@ -1,10 +1,10 @@
-package Server.src.dataservice.AccountDataService;
+package dataservice.AccountDataService;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
 
-import Server.src.po.AccountPO.AccountPO;
-import Server.src.feedback;
+import po.AccountPO.AccountPO;
+import common.feedback;
 
 public interface AccountDataService extends Remote {
 	public feedback addAccount(AccountPO po)throws RemoteException;

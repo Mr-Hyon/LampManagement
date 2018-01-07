@@ -1,6 +1,6 @@
-package Server.src.po.PromotionPO;
+package po.PromotionPO;
 
-import Server.src.po.CommodityPO.GoodsPO;
+import po.CommodityPO.GoodsPO;
 
 import javax.persistence.*;
 import java.io.Serializable;

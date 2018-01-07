@@ -1,7 +1,7 @@
-package Server.src.dataservice.UserDataService;
+package dataservice.UserDataService;
 
-import Server.src.feedback;
-import Server.src.po.UserPO.UserPO;
+import common.feedback;
+import po.UserPO.UserPO;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

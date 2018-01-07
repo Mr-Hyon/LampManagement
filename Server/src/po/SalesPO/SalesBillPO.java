@@ -1,13 +1,13 @@
-package Server.src.po.SalesPO;
+package po.SalesPO;
 
 import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.*;
 
-import Server.src.po.ClientPO.ClientPO;
-import Server.src.po.UserPO.UserPO;
-import Server.src.po.GoodInfo;
+import po.ClientPO.ClientPO;
+import po.UserPO.UserPO;
+import po.GoodInfo;
 
 @Entity
 @Table(name="salebillpo")

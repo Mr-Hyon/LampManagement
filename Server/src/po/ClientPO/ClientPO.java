@@ -1,8 +1,8 @@
-package Server.src.po.ClientPO;
+package po.ClientPO;
 
 import javax.persistence.*;
 
-import Server.src.po.UserPO.UserPO;
+import po.UserPO.UserPO;
 
 import java.io.Serializable;
 
@@ -11,7 +11,7 @@ import java.io.Serializable;
 public class ClientPO implements Serializable{
     private static final long serialVersionUID=1L;
     public ClientPO() {
-        // TODO �Զ����ɵĹ��캯�����
+        
     }
 
     private int id;
@@ -27,7 +27,7 @@ public class ClientPO implements Serializable{
     private double pay;
     private UserPO operator;
     private String isValid;
-    private int point;//积分
+    private int point;
 
     public ClientPO(String name, String level, String type, String tel, String address, String postcode, String email, int point) {
         this.name = name;

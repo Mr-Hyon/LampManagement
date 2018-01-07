@@ -1,12 +1,12 @@
-package Server.src.dataservice.CommodityDataService;
+package dataservice.CommodityDataService;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
 
 import org.hibernate.SessionException;
-import Server.src.feedback;
-import Server.src.po.CommodityPO.ClassificationPO;
+import common.feedback;
+import po.CommodityPO.ClassificationPO;
 
 public interface ClassificationDataService extends Remote {
 

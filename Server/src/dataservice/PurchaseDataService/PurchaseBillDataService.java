@@ -1,15 +1,15 @@
-package Server.src.dataservice.PurchaseDataService;
+package dataservice.PurchaseDataService;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.text.ParseException;
 import java.util.List;
 
-import Server.src.po.ClientPO.ClientPO;
-import Server.src.po.PurchasePO.PurchaseBillPO;
-import Server.src.po.SalesPO.SalesBillPO;
-import Server.src.po.UserPO.UserPO;
-import Server.src.feedback;
+import po.ClientPO.ClientPO;
+import po.PurchasePO.PurchaseBillPO;
+import po.SalesPO.SalesBillPO;
+import po.UserPO.UserPO;
+import common.feedback;
 
 public interface PurchaseBillDataService extends Remote {
 
