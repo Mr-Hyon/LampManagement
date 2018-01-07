@@ -28,7 +28,7 @@ public class LoginController {
 	
 	@FXML
 	ChoiceBox identity;
-	
+	public static Object Identity;
 	public void initialize(){
 		identity.setItems(FXCollections.observableArrayList("总经理","财务人员","进销管理人员","库存管理人员"));
 		identity.getSelectionModel().select(0);
@@ -41,7 +41,7 @@ public class LoginController {
 		
 		System.out.println(username);
 		System.out.println(pw);
-		
+		Identity=identity.getValue();
 		if(username.equals("") || pw.equals("")){
 			Alert warning=new Alert(Alert.AlertType.WARNING,"用户名或密码填写不正确");
 			warning.showAndWait();
@@ -67,6 +67,18 @@ public class LoginController {
 				UserID.setText("");
 				password.setText("");
 			}
+			else if(identity.getValue().equals("进销管理人员")){
+				Loginui.hide();
+				SalesmanUI.show();
+				UserID.setText("");
+				password.setText("");
+			}
+			else if(identity.getValue().equals("总经理")){
+				Loginui.hide();
+				ManagerUI.show();
+				UserID.setText("");
+				password.setText("");
+			}
 		}
 	}
 	
@@ -74,5 +86,7 @@ public class LoginController {
 		Loginui.hide();
 		Registerui.show();
 	}
-
+	public static Object getIdentity(){
+		return Identity;
+	}
 }

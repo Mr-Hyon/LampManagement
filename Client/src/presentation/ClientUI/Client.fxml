@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="603.0" prefWidth="961.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.ClientUI.ClientController">
+   <children>
+      <Button fx:id="ShowMessage" layoutX="711.0" layoutY="106.0" mnemonicParsing="false" onAction="#ShowMessage" prefHeight="44.0" prefWidth="145.0" text="详细信息" />
+      <Button fx:id="AddClient" layoutX="711.0" layoutY="266.0" mnemonicParsing="false" onAction="#AddClient" prefHeight="44.0" prefWidth="145.0" text="增加客户" />
+      <Button fx:id="Delete" layoutX="711.0" layoutY="346.0" mnemonicParsing="false" onAction="#Delete" prefHeight="44.0" prefWidth="145.0" text="删除客户信息" />
+      <Button fx:id="Modify" layoutX="711.0" layoutY="426.0" mnemonicParsing="false" onAction="#Modify" prefHeight="44.0" prefWidth="145.0" text="修改客户信息" />
+      <Button fx:id="BacktoMain" layoutX="796.0" layoutY="528.0" mnemonicParsing="false" onAction="#BacktoMain" prefHeight="44.0" prefWidth="145.0" text="返回主界面" />
+      <TableView fx:id="ShowClientMes" layoutX="95.0" layoutY="86.0" prefHeight="442.0" prefWidth="516.0">
+        <columns>
+          <TableColumn fx:id="ClientID" prefWidth="259.0" text="客户编号" />
+          <TableColumn fx:id="ClientName" prefWidth="256.0" text="客户姓名" />
+        </columns>
+      </TableView>
+      <Label fx:id="Label1" layoutX="796.0" layoutY="-1.0" prefHeight="30.0" prefWidth="99.0" text="您好！XXX" />
+      <Label layoutX="76.0" layoutY="47.0" text="客户列表：">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Button fx:id="Find" layoutX="711.0" layoutY="186.0" mnemonicParsing="false" onAction="#Find" prefHeight="44.0" prefWidth="145.0" text="查询客户" />
+      <Button fx:id="logout" layoutX="893.0" layoutY="-1.0" mnemonicParsing="false" onAction="#logout" prefHeight="30.0" prefWidth="69.0" text="登出" />
+   </children>
+</AnchorPane>

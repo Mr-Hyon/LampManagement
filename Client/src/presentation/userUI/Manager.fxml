@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="619.0" prefWidth="834.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.userUI.ManagerController">
+   <children>
+      <Button fx:id="SalesDetail" layoutX="72.0" layoutY="184.0" mnemonicParsing="false" onAction="#CheckSalesDetail" prefHeight="70.0" prefWidth="143.0" text="查看销售明细表">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Button fx:id="BusinessProgress" layoutX="328.0" layoutY="184.0" mnemonicParsing="false" onAction="#CheckBusinessProgress" prefHeight="70.0" prefWidth="143.0" text="查看经营历程表">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Button fx:id="Promotion" layoutX="328.0" layoutY="400.0" mnemonicParsing="false" onAction="#Promotion" prefHeight="70.0" prefWidth="143.0" text="制定销售策略">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Button fx:id="BusinessState" layoutX="72.0" layoutY="400.0" mnemonicParsing="false" onAction="#CheckBusinessState" prefHeight="70.0" prefWidth="143.0" text="查看经营状况表">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Button fx:id="Verify" layoutX="579.0" layoutY="293.0" mnemonicParsing="false" onAction="#Verify" prefHeight="70.0" prefWidth="143.0" text="审批单据">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Label layoutX="284.0" layoutY="75.0" prefHeight="50.0" prefWidth="266.0" text="你想做什么？">
+         <font>
+            <Font size="41.0" />
+         </font>
+      </Label>
+      <Label fx:id="label1" layoutX="668.0" layoutY="4.0" text="欢迎您！XXX" />
+      <Button fx:id="logout" layoutX="765.0" layoutY="-1.0" mnemonicParsing="false" onAction="#logout" prefHeight="31.0" prefWidth="69.0" text="登出" />
+   </children>
+</AnchorPane>

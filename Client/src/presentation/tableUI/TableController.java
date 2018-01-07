@@ -1,6 +1,8 @@
 package presentation.tableUI;
 
 import presentation.financeUI.Financeui;
+import presentation.userUI.LoginController;
+import presentation.userUI.ManagerUI;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
@@ -21,17 +23,26 @@ public class TableController {
 	
 	public void CheckSDReturn(){
 		CheckSalesDetailui.hide();
-		Financeui.show();
+		if(LoginController.getIdentity().equals("总经理"))
+			ManagerUI.show();
+		else
+			Financeui.show();
 	}
 	
 	public void CheckBPReturn(){
 		CheckBusinessProgressui.hide();
-		Financeui.show();
+		if(LoginController.getIdentity().equals("总经理"))
+			ManagerUI.show();
+		else
+			Financeui.show();
 	}
 	
 	public void CheckBSReturn(){
 		CheckBusinessStateui.hide();
-		Financeui.show();
+		if(LoginController.getIdentity().equals("总经理"))
+			ManagerUI.show();
+		else
+			Financeui.show();
 	}
 
 }

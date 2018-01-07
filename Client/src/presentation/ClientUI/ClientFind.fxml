@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="456.0" prefWidth="758.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.ClientUI.ClientFindController">
+   <children>
+      <Button fx:id="Find" layoutX="540.0" layoutY="201.0" mnemonicParsing="false" onAction="#Find" prefHeight="49.0" prefWidth="114.0" text="查询">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Label layoutX="100.0" layoutY="46.0" prefHeight="49.0" prefWidth="271.0" text="请选择以下其中一种方式查询：">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <TextField fx:id="FindbyId" layoutX="209.0" layoutY="159.0" />
+      <TextField fx:id="FindbyString" layoutX="209.0" layoutY="271.0" />
+      <Label layoutX="89.0" layoutY="159.0" prefHeight="30.0" prefWidth="94.0" text="根据ID查询：" />
+      <Label layoutX="89.0" layoutY="271.0" prefHeight="30.0" prefWidth="128.0" text="根据关键字查询：" />
+      <Button fx:id="Back" layoutX="540.0" layoutY="358.0" mnemonicParsing="false" onAction="#Back" prefHeight="49.0" prefWidth="114.0" text="返回">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
