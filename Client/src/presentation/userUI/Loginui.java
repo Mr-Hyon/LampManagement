@@ -1,23 +1,25 @@
 package presentation.userUI;
 
-import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 
-public class Loginui extends Application {
+public class Loginui {
 	public static Stage LoginStage;
 
-	@Override
-	public void start(Stage primaryStage) throws Exception {
+	private Loginui() {
+		try{
 			Parent root=FXMLLoader.load(getClass().getResource("Loginui.fxml"));
 			Scene scene = new Scene(root);
-			primaryStage.setTitle("Welcome");
-			primaryStage.setScene(scene);
-			primaryStage.show();
-			LoginStage=primaryStage;
+			LoginStage=new Stage();
+			LoginStage.setTitle("Welcome");
+			LoginStage.setScene(scene);
+			//RegisterStage.show();
+			} catch(Exception e){
+				e.printStackTrace();
+			}
 	}
 
 	public static void hide(){
@@ -25,11 +27,8 @@ public class Loginui extends Application {
 	}
 
 	public static void show(){
+		new Loginui();
 		LoginStage.show();
-	}
-
-	public static void main(String[] args) {
-		launch(args);
 	}
 
 }

@@ -19,7 +19,6 @@ public static Stage CommodityManageStage;
 			CommodityManageStage.setTitle("商品管理");
 			CommodityManageStage.setScene(scene);
 		} catch (IOException e) {
-			// TODO �Զ����ɵ� catch ��
 			e.printStackTrace();
 		}
 	}

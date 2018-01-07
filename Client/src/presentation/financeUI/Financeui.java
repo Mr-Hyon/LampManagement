@@ -20,7 +20,7 @@ public class Financeui {
 			Parent root=FXMLLoader.load(getClass().getResource("Financeui.fxml"));
 			Scene scene = new Scene(root);
 			FinanceStage=new Stage();
-			FinanceStage.setTitle("²ÆÎñ¹ÜÀíÏµÍ³");
+			FinanceStage.setTitle("è´¢åŠ¡äººå‘˜ä¸»ç•Œé¢");
 			FinanceStage.setScene(scene);
 			//FinanceStage.show();
 			} catch(Exception e){
