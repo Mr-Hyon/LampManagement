@@ -19,7 +19,6 @@ public class CommodityAnalyzeui {
 			CommodityAnalyzeStage.setTitle("库存分析");
 			CommodityAnalyzeStage.setScene(scene);
 		} catch (IOException e) {
-			// TODO �Զ����ɵ� catch ��
 			e.printStackTrace();
 		}
 	}

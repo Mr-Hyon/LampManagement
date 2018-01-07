@@ -19,7 +19,6 @@ public class CommoditySaveui {
 			CommoditySaveStage.setTitle("库存盘点");
 			CommoditySaveStage.setScene(scene);
 		} catch (IOException e) {
-			// TODO �Զ����ɵ� catch ��
 			e.printStackTrace();
 		}
 	}
