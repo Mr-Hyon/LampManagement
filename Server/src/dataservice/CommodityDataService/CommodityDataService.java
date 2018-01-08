@@ -12,13 +12,13 @@ import java.util.List;
 public interface CommodityDataService extends Remote {
 
 
-    public feedback addInventoryBill(CommodityBillPO po)throws RemoteException;
+    public feedback addCommodityBill(CommodityBillPO po)throws RemoteException;
 
-    public List<CommodityBillPO> getInventoryBill()throws RemoteException;
+    public List<CommodityBillPO> getCommodityBill()throws RemoteException;
 
-    public CommodityBillPO findInventoryBillByBillID(String billID) throws RemoteException;
+    public CommodityBillPO findCommodityBillByBillID(String billID) throws RemoteException;
 
-    public List<CommodityBillPO> getInventoryList(String startDate,String endDate) throws ParseException,RemoteException;
+    public List<CommodityBillPO> getCommodityList(String startDate,String endDate) throws ParseException,RemoteException;
 
-    public feedback redDashInventoryBill(int id)throws RemoteException;
+    public feedback reverseCommodityBill(int id)throws RemoteException;
 }

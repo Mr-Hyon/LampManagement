@@ -110,14 +110,14 @@ public class PurchaseBillData implements PurchaseBillDataService{
 	}
 
 	@Override
-	public List<PurchaseBillPO> findPurchaseBillByInventory(String inventory)throws RemoteException {
+	public List<PurchaseBillPO> findPurchaseBillByCommodity(String commodity)throws RemoteException {
 
 		Configuration configuration = new Configuration().configure();
 		factory = configuration.buildSessionFactory();
 		session = factory.openSession();
 		transaction = session.beginTransaction();
 
-		List<PurchaseBillPO> list=session.createCriteria(PurchaseBillPO.class).add(Restrictions.eq("inventory", inventory)).list();
+		List<PurchaseBillPO> list=session.createCriteria(PurchaseBillPO.class).add(Restrictions.eq("commodity", commodity)).list();
 
 		transaction.commit();
 		session.close();

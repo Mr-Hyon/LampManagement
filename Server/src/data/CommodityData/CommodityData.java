@@ -28,14 +28,12 @@ public class CommodityData implements CommodityDataService {
 
 
     @Override
-    public feedback addInventoryBill(CommodityBillPO po)throws RemoteException {
+    public feedback addCommodityBill(CommodityBillPO po)throws RemoteException {
         Configuration configuration = new Configuration().configure();
         factory = configuration.buildSessionFactory();
         session = factory.openSession();
         transaction = session.beginTransaction();
 
-//        IDData idData=new IDData();
-//        po.setBillID(idData.getID(po.getType()));
         session.save(po);
 
         transaction.commit();
@@ -45,7 +43,7 @@ public class CommodityData implements CommodityDataService {
     }
 
     @Override
-    public List<CommodityBillPO> getInventoryBill()throws RemoteException {
+    public List<CommodityBillPO> getCommodityBill()throws RemoteException {
         Configuration configuration = new Configuration().configure();
         factory = configuration.buildSessionFactory();
         session = factory.openSession();
@@ -60,7 +58,7 @@ public class CommodityData implements CommodityDataService {
     }
 
     @Override
-    public CommodityBillPO findInventoryBillByBillID(String billID) throws RemoteException {
+    public CommodityBillPO findCommodityBillByBillID(String billID) throws RemoteException {
         Configuration configuration = new Configuration().configure();
         factory = configuration.buildSessionFactory();
         session = factory.openSession();
@@ -80,7 +78,7 @@ public class CommodityData implements CommodityDataService {
     }
 
     @Override
-    public List<CommodityBillPO> getInventoryList(String startDate, String endDate) throws ParseException,RemoteException {
+    public List<CommodityBillPO> getCommodityList(String startDate, String endDate) throws ParseException,RemoteException {
         Configuration configuration = new Configuration().configure();
         factory = configuration.buildSessionFactory();
         session = factory.openSession();
@@ -112,7 +110,7 @@ public class CommodityData implements CommodityDataService {
     }
 
     @Override
-    public feedback redDashInventoryBill(int id)throws RemoteException {
+    public feedback reverseCommodityBill(int id)throws RemoteException {
         Configuration configuration = new Configuration().configure();
         factory = configuration.buildSessionFactory();
         session = factory.openSession();

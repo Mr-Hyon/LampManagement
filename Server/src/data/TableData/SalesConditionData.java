@@ -49,7 +49,7 @@ public class SalesConditionData implements SalesConditionDataService{
 
 	@Override
 	public List<SalesRecordInfo> getSalesBill(String startDate, String endDate, String commodityName, String client, String salesman, String inventory) throws ParseException, RemoteException {
-		List<SalesBillPO> saleBillPOList=saleBillDataService.getSaleBillPO(startDate,endDate,client,salesman,inventory);
+		List<SalesBillPO> saleBillPOList=saleBillDataService.getSalesBillPO(startDate,endDate,client,salesman,inventory);
 		List<SalesRecordInfo> salesRecordInfoList=null;
 		for(int i=0;i<saleBillPOList.size();i++){
 			SalesRecordInfo info=new SalesRecordInfo();

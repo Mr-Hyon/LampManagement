@@ -19,7 +19,7 @@ public interface PurchaseBillDataService extends Remote {
 	
 	public List<PurchaseBillPO> findPurchaseBillByClient(String po)throws RemoteException;
 	
-	public List<PurchaseBillPO> findPurchaseBillByInventory(String inventory)throws RemoteException;
+	public List<PurchaseBillPO> findPurchaseBillByCommodity(String commodity)throws RemoteException;
 
 	public List<PurchaseBillPO> getPurchaseBillPO(String startDate, String endDate, String client, String salesman,String inventory) throws ParseException,RemoteException;
 	

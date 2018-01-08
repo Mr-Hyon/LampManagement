@@ -39,7 +39,7 @@ public class SalesBillData implements SalesBillDataService{
 	private static SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 
 	@Override
-	public feedback addSaleBill(SalesBillPO po)throws RemoteException {
+	public feedback addSalesBill(SalesBillPO po)throws RemoteException {
 		
 		Configuration configuration = new Configuration().configure();
 		factory = configuration.buildSessionFactory();
@@ -63,7 +63,7 @@ public class SalesBillData implements SalesBillDataService{
 
 
 	@Override
-	public List<SalesBillPO> findSaleBillByType(String type)throws RemoteException {
+	public List<SalesBillPO> findSalesBillByType(String type)throws RemoteException {
 		
 		Configuration configuration = new Configuration().configure();
 		factory = configuration.buildSessionFactory();
@@ -79,7 +79,7 @@ public class SalesBillData implements SalesBillDataService{
 	}
 
 	@Override
-	public List<SalesBillPO> findSaleBillByClient(String po)throws RemoteException {
+	public List<SalesBillPO> findSalesBillByClient(String po)throws RemoteException {
 		Configuration configuration = new Configuration().configure();
 		factory = configuration.buildSessionFactory();
 		session = factory.openSession();
@@ -94,14 +94,14 @@ public class SalesBillData implements SalesBillDataService{
 	}
 
 	@Override
-	public List<SalesBillPO> findSaleBillByInventory(String inventory)throws RemoteException {
+	public List<SalesBillPO> findSalesBillByCommodity(String commodity)throws RemoteException {
 		
 		Configuration configuration = new Configuration().configure();
 		factory = configuration.buildSessionFactory();
 		session = factory.openSession();
 		transaction = session.beginTransaction();
 
-		List<SalesBillPO> list=session.createCriteria(SalesBillPO.class).add(Restrictions.eq("inventory", inventory)).list();
+		List<SalesBillPO> list=session.createCriteria(SalesBillPO.class).add(Restrictions.eq("commodity", commodity)).list();
 
 		transaction.commit();
 		session.close();
@@ -110,7 +110,7 @@ public class SalesBillData implements SalesBillDataService{
 	}
 
 	@Override
-	public SalesBillPO findSaleBillByID(String id) throws RemoteException {
+	public SalesBillPO findSalesBillByID(String id) throws RemoteException {
 		Configuration configuration = new Configuration().configure();
 		factory = configuration.buildSessionFactory();
 		session = factory.openSession();
@@ -132,7 +132,7 @@ public class SalesBillData implements SalesBillDataService{
 	}
 
 	@Override
-	public List<SalesBillPO> getSaleBillPO(String startDate, String endDate, String client, String salesman, String inventory) throws ParseException,RemoteException {
+	public List<SalesBillPO> getSalesBillPO(String startDate, String endDate, String client, String salesman, String inventory) throws ParseException,RemoteException {
 		Configuration configuration = new Configuration().configure();
 		factory = configuration.buildSessionFactory();
 		session = factory.openSession();
@@ -172,7 +172,7 @@ public class SalesBillData implements SalesBillDataService{
 	}
 
 	@Override
-	public List<SalesBillPO> getDraftSaleBill() throws RemoteException{
+	public List<SalesBillPO> getDraftSalesBill() throws RemoteException{
 		Configuration configuration = new Configuration().configure();
 		factory = configuration.buildSessionFactory();
 		session = factory.openSession();
@@ -187,7 +187,7 @@ public class SalesBillData implements SalesBillDataService{
 	}
 
 	@Override
-	public List<SalesBillPO> getPassedSaleBill()throws RemoteException {
+	public List<SalesBillPO> getPassedSalesBill()throws RemoteException {
 		Configuration configuration = new Configuration().configure();
 		factory = configuration.buildSessionFactory();
 		session = factory.openSession();
@@ -202,7 +202,7 @@ public class SalesBillData implements SalesBillDataService{
 	}
 
 	@Override
-	public feedback checkSaleBill(SalesBillPO po) throws RemoteException{
+	public feedback checkSalesBill(SalesBillPO po) throws RemoteException{
 		Configuration configuration = new Configuration().configure();
 		factory = configuration.buildSessionFactory();
 		session = factory.openSession();
@@ -272,7 +272,7 @@ public class SalesBillData implements SalesBillDataService{
 	}
 
 	@Override
-	public feedback modifySaleBill(SalesBillPO po) {
+	public feedback modifySalesBill(SalesBillPO po) {
 		Configuration configuration = new Configuration().configure();
 		factory = configuration.buildSessionFactory();
 		session = factory.openSession();
