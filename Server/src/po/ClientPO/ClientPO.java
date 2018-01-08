@@ -165,7 +165,7 @@ public class ClientPO implements Serializable{
         return point;
     }
 
-    public void setIntegral(int point) {
+    public void setPoint(int point) {
         this.point = point;
     }
 }

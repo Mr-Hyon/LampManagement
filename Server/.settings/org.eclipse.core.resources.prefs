@@ -1,4 +1,6 @@
 eclipse.preferences.version=1
+encoding//src/data/PaymentData/PaymentData.java=UTF-8
+encoding//src/data/PurchaseData/PurchaseBillData.java=UTF-8
 encoding//src/po/CommodityPO/CommodityBillPO.java=US-ASCII
 encoding//src/po/PurchasePO/PurchaseBillPO.java=UTF-8
 encoding//src/po/TablePO/SalesConditionTablePO.java=UTF-8
