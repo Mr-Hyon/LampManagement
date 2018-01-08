@@ -18,7 +18,10 @@ public class AccountPO implements Serializable{
 	private String bank;
 	private String isValid;
 
-	
+	public AccountPO(String name,double balance){
+		this.name = name;
+		this.balance = balance;
+	}
 	public AccountPO(String name,String bank,double balance){
 		this.name=name;
 		this.bank=bank;

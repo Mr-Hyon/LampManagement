@@ -26,8 +26,8 @@ public class AccountController implements AccountBLService{
 	}
 
 	@Override
-	public ArrayList<AccountVO> findById(String id) throws RemoteException{
-		return account.findById(id);
+	public ArrayList<AccountVO> findByKeyword(String str) throws RemoteException{
+		return account.findByKeyword(str);
 	}
 
 	@Override
