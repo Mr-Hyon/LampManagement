@@ -18,10 +18,6 @@ public class TableController implements TableBLService{
 		return table.viewSaleTable(time, goodsName, client, salesman, warehouse);
 	}
 
-	@Override
-	public ResultMessage deriveSaleTable(SaleTableVO vo) {
-		return table.deriveSaleTable(vo);
-	}
 
 	@Override
 	public ArrayList<TableVO> viewManagementProcess(String time, String receiptType, String client, String salesman,
@@ -39,19 +35,14 @@ public class TableController implements TableBLService{
 		return table.reverseAndCopy(vo);
 	}
 
-	@Override
-	public ResultMessage deriveManagementProcess(ArrayList<TableVO> List) {
-		return table.deriveManagementProcess(List);
-	}
+
 
 	@Override
 	public SituationTableVO viewManagementSituation(String time) throws RemoteException {
 		return table.viewManagementSituation(time);
 	}
 
-	@Override
-	public ResultMessage deriveManagementSituation(SituationTableVO vo) {
-		return table.deriveManagementSituation(vo);
-	}
+
+
 
 }

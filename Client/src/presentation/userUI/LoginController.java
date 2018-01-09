@@ -43,8 +43,8 @@ public class LoginController {
 	public void onLoginAction() throws RemoteException{
 		
 		/*test rmi*/
-		feedback fb=RemoteHelper.getInstance().getAccountDataService().addAccount(new AccountPO("test 3","Bank A",200.0));
-		System.out.println(fb);
+//		feedback fb=RemoteHelper.getInstance().getAccountDataService().addAccount(new AccountPO("test 3","Bank A",200.0));
+//		System.out.println(fb);
 		/*test complete*/
 		
 		

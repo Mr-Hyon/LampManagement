@@ -21,6 +21,33 @@ public class CommodityManageController {
 	TreeTableColumn<CommodityTypeVO,String> GoodTypeCol;
 	
 	@FXML
+	TableView<CommodityVO> GoodTable;
+	
+	@FXML
+	TableColumn GoodIdCol;
+	
+	@FXML
+	TableColumn GoodNameCol;
+	
+	@FXML
+	TableColumn GoodModelCol;
+	
+	@FXML
+	TableColumn GoodNumCol;
+	
+	@FXML
+	TableColumn GoodBPCol;
+	
+	@FXML
+	TableColumn GoodRPCol;
+	
+	@FXML
+	TableColumn GoodRBPCol;
+	
+	@FXML
+	TableColumn GoodRRPCol;
+	
+	@FXML
 	Button ReturnButton;
 	
 	@FXML
@@ -82,6 +109,17 @@ public class CommodityManageController {
 		GoodTypeTree.setRoot(root);
 		child2.getChildren().setAll(child3);
 		root.getChildren().setAll(child1,child2);
+		
+		GoodTable.setEditable(true);
+		GoodIdCol.setCellValueFactory(new PropertyValueFactory<>("goodId"));
+		GoodNameCol.setCellValueFactory(new PropertyValueFactory<>("goodName"));
+		GoodModelCol.setCellValueFactory(new PropertyValueFactory<>("goodModel"));
+		GoodNumCol.setCellValueFactory(new PropertyValueFactory<>("goodNum"));
+		GoodBPCol.setCellValueFactory(new PropertyValueFactory<>("goodBuyPrice"));
+		GoodRPCol.setCellValueFactory(new PropertyValueFactory<>("goodRetailPrice"));
+		GoodRBPCol.setCellValueFactory(new PropertyValueFactory<>("goodRecentBP"));
+		GoodRRPCol.setCellValueFactory(new PropertyValueFactory<>("goodRecentRP"));
+		GoodTable.setItems(commodity);
 	}
 	
 	public void Return(){
