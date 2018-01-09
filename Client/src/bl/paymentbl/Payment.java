@@ -12,6 +12,7 @@ import vo.PaymentVO;
 import vo.ReceiptVO;
 
 public class Payment {
+	//add receipt
 	public ResultMessage addReceipt(ReceiptVO vo) throws RemoteException{
 		if(RemoteHelper.getInstance().getCollectionDataService().addCash(toCollectionPO(vo))==feedback.Success){
 			return ResultMessage.SUCCESS;
@@ -20,6 +21,7 @@ public class Payment {
 			return ResultMessage.FAILED;
 		}
 	}
+	//add paymentbill
 	public ResultMessage addPayBill(PaymentVO vo) throws RemoteException{
 		if(RemoteHelper.getInstance().getPaymentDataService().addPaymentBill(toPaymentPO(vo))==feedback.Success){
 			return ResultMessage.SUCCESS;
