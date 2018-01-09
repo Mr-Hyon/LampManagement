@@ -2,27 +2,38 @@ package bl.paymentbl;
 
 import java.rmi.RemoteException;
 
+import common.feedback;
+import po.PaymentPO.CollectionPO;
+import po.PaymentPO.FundInfo;
+import po.PaymentPO.PaymentPO;
+import rmi.RemoteHelper;
 import util.ResultMessage;
 import vo.PaymentVO;
 import vo.ReceiptVO;
 
 public class Payment {
 	public ResultMessage addReceipt(ReceiptVO vo) throws RemoteException{
-		
+		if(RemoteHelper.getInstance().getCollectionDataService().addCash(toCollectionPO(vo))==feedback.Success){
+			return ResultMessage.SUCCESS;
+		}
+		else{
+			return ResultMessage.FAILED;
+		}
 	}
 	public ResultMessage addPayBill(PaymentVO vo) throws RemoteException{
-		
+		if(RemoteHelper.getInstance().getPaymentDataService().addPaymentBill(toPaymentPO(vo))==feedback.Success){
+			return ResultMessage.SUCCESS;
+		}
+		else{
+			return ResultMessage.FAILED;
+		}
 	}
-	public ResultMessage sendToVerifyR(ReceiptVO vo) throws RemoteException{
-		
+	
+	public static CollectionPO toCollectionPO(ReceiptVO vo){
+		return null;
 	}
-	public ResultMessage sendToVerifyP(PaymentVO vo) throws RemoteException{
-		
-	}
-	public ResultMessage updateR(ReceiptVO vo) throws RemoteException{
-		
-	}
-	public ResultMessage updateP(PaymentVO vo) throws RemoteException{
-		
+	
+	public static PaymentPO toPaymentPO(PaymentVO vo){
+		return null;
 	}
 }

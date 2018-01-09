@@ -4,26 +4,26 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import blservice.commodityblservice.CommodityBLService;
-import util.GoodType;
 import util.ResultMessage;
+import vo.CommodityTypeVO;
 import vo.CommodityVO;
 
 public class CommodityController implements CommodityBLService{
 
 	Commodity commodity = new Commodity();
 	@Override
-	public ResultMessage addType(GoodType type) throws RemoteException {
-		return commodity.addType(type);
+	public ResultMessage addType(CommodityTypeVO vo) throws RemoteException {
+		return commodity.addType(vo);
 	}
 
 	@Override
-	public ResultMessage deleteType(GoodType type) throws RemoteException {
-		return commodity.deleteType(type);
+	public ResultMessage deleteType(CommodityTypeVO vo) throws RemoteException {
+		return commodity.deleteType(vo);
 	}
 
 	@Override
-	public ResultMessage updateType(GoodType type) throws RemoteException {
-		return commodity.updateType(type);
+	public ResultMessage updateType(CommodityTypeVO vo) throws RemoteException {
+		return commodity.updateType(vo);
 	}
 
 	@Override
@@ -42,13 +42,8 @@ public class CommodityController implements CommodityBLService{
 	}
 
 	@Override
-	public ArrayList<CommodityVO> show(String beginTime, String endTime) throws RemoteException {
-		return commodity.show(beginTime, endTime);
-	}
-
-	@Override
-	public ArrayList<CommodityVO> showById(String id) throws RemoteException {
-		return commodity.showById(id);
+	public ArrayList<CommodityVO> show() throws RemoteException {
+		return commodity.show();
 	}
 
 	@Override

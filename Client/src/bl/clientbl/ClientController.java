@@ -1,6 +1,7 @@
 package bl.clientbl;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import blservice.clientblservice.ClientBLService;
 import util.ResultMessage;
@@ -15,23 +16,28 @@ public class ClientController implements ClientBLService{
 	}
 
 	@Override
-	public ResultMessage findbyID(String ID) throws RemoteException {
+	public ArrayList<ClientVO> findbyID(String ID) throws RemoteException {
 		return client.findbyID(ID);
 	}
 
 	@Override
-	public ResultMessage findbyString(String str) throws RemoteException {
+	public ArrayList<ClientVO> findbyString(String str) throws RemoteException {
 		return client.findbyString(str);
 	}
 
 	@Override
-	public ResultMessage sendToVerify(ClientVO vo) throws RemoteException {
-		return client.sendToVerify(vo);
+	public ResultMessage update(ClientVO vo) throws RemoteException {
+		return client.update(vo);
 	}
 
 	@Override
-	public ResultMessage delete(String ID) throws RemoteException {
-		return client.delete(ID);
+	public ResultMessage delete(ClientVO vo) throws RemoteException {
+		return client.delete(vo);
+	}
+
+	@Override
+	public ArrayList<ClientVO> show() throws RemoteException {
+		return client.show();
 	}
 
 }
