@@ -1,9 +1,16 @@
 package runner;
 
+import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -40,7 +47,7 @@ public class ClientRunner extends Application {
 		}
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {		
 		linkToServer();
 		launch(args);
 	}

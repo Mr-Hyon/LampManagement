@@ -24,7 +24,6 @@ public class CommodityPO implements Serializable {
         this.lot = lot;
         this.lotnumber = lotnumber;
         this.date = date;
-
     }
 
 
@@ -43,12 +42,18 @@ public class CommodityPO implements Serializable {
     public String getName() {
         return name;
     }
+    public void setName(String name) {
+    	 this.name = name;
+    }
+   
 
     @Column(name = "model")
     public String getModel() {
         return model;
     }
-
+    public void setModel(String model) {
+   	 this.model = model;
+   }
 
     @Column(name = "number")
     public double getNumber() {
@@ -72,15 +77,24 @@ public class CommodityPO implements Serializable {
     public String getLot() {
         return lot;
     }
+    public void setLot(String lot) {
+        this.lot = lot;
+    }
 
     @Column(name = "lotnumber")
     public String getLotnumber() {
         return lotnumber;
     }
+    public void setLotnumber(String lotnumber) {
+        this.lotnumber = lotnumber;
+    }
 
     @Column(name = "date")
     public String getDate(){
         return date;
+    }
+    public void setDate(String date) {
+        this.date = date;
     }
 }
 

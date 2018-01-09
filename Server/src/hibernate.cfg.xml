@@ -34,11 +34,12 @@
         <mapping class="po.PaymentPO.FundInfo"/>
         <mapping class="po.PaymentPO.TransferInfo"/>
         <mapping class="po.PurchasePO.PurchaseBillPO"/>      
-        <mapping class="po.SalesPO.SaleBillPO"/>
+        <mapping class="po.SalesPO.SalesBillPO"/>
         <mapping class="po.PromotionPO.PromotionPO"/>
         <mapping class="po.GoodInfo"/>
         <mapping class="po.SalesRecordInfo"/>
         <mapping class="po.FatherPO"/>
+        <mapping class="po.DatePO"/>
     </session-factory>
 </hibernate-configuration>
 
