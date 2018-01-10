@@ -126,7 +126,6 @@ public class AccountData implements AccountDataService{
 	}
 	
 	@Override
-
 	public AccountPO findAccountByName(String name) throws RemoteException {
 		Configuration configuration = new Configuration().configure();
 		factory = configuration.buildSessionFactory();
