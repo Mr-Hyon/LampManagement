@@ -2,6 +2,7 @@ package presentation.accountUI;
 
 import presentation.BLFactory.BLServiceFactory;
 import presentation.financeUI.Financeui;
+import util.ResultMessage;
 import vo.AccountVO;
 
 import java.rmi.RemoteException;
@@ -55,6 +56,7 @@ public class AccountController {
 	@FXML
 	TextField AccountCashAdd;
 	
+	AccountBLService accountBLService = BLServiceFactory.getAccountBLService();
 	
 	private ObservableList<AccountVO> data=FXCollections.observableArrayList(
 			new AccountVO("admin","2233"),
@@ -67,10 +69,11 @@ public class AccountController {
 	}
 	
 	public void initialize() throws RemoteException{
-		AccountBLService accountBLService = BLServiceFactory.getAccountBLService();
-		System.out.println("BLService connected");
-		//ArrayList<AccountVO> accountList=accountBLService.show();
-		//data=FXCollections.observableArrayList(accountList);
+		data.clear();
+		ArrayList<AccountVO> accountList=accountBLService.show();
+		for(int i=0;i<accountList.size();i++){
+			data.add(accountList.get(i));
+		}
 		AccountTable.setEditable(true);
 		AccountNameCol.setCellValueFactory(new PropertyValueFactory<>("accountName"));
 		AccountCashCol.setCellValueFactory(new PropertyValueFactory<>("accountCash"));
@@ -97,7 +100,7 @@ public class AccountController {
 		Financeui.show();
 	}
 	
-	public void AddAccount(){
+	public void AddAccount() throws RemoteException{
 		
 		String name=AccountNameAdd.getText();
 		String cash=AccountCashAdd.getText();
@@ -115,10 +118,21 @@ public class AccountController {
 			AccountCashAdd.setText("");
 		}
 		else{
-			data.add(new AccountVO(name,cash));
-			AccountNameAdd.clear();
-			AccountCashAdd.clear();
-		
+			AccountVO vo=new AccountVO(name,cash);
+			ResultMessage rm=accountBLService.add(vo);
+			
+			if(rm==ResultMessage.SUCCESS){
+				Alert information=new Alert(Alert.AlertType.INFORMATION,"添加成功");
+				information.showAndWait();
+				data.add(vo);
+				AccountNameAdd.clear();
+				AccountCashAdd.clear();
+			}
+			else if(rm==ResultMessage.FAILED){
+				Alert information=new Alert(Alert.AlertType.INFORMATION,"添加失败");
+				information.showAndWait();
+			}
+			
 			//AccountInputui.hide();
 			//Account account=new Account(name,cash);
 			//data.add(account);
@@ -126,15 +140,24 @@ public class AccountController {
 			}
 	}
 	
-	public void DeleteAccount(){
+	public void DeleteAccount() throws RemoteException{
 		int index=AccountTable.getSelectionModel().getSelectedIndex();
 		if(index>=0){
 			AccountVO account=AccountTable.getSelectionModel().getSelectedItem();
-			data.remove(account);
+			ResultMessage rm=accountBLService.delete(account);
+			if(rm==ResultMessage.SUCCESS){
+				Alert information=new Alert(Alert.AlertType.INFORMATION,"删除成功");
+				information.showAndWait();
+				data.remove(account);
+			}
+		}
+		else{
+			Alert warning=new Alert(Alert.AlertType.WARNING,"请选中一个账户进行操作");
+			warning.showAndWait();
 		}
 	}
 	
-	public void ModifyAccount(){
+	public void ModifyAccount() throws RemoteException{
 		int index=AccountTable.getSelectionModel().getSelectedIndex();
 		if(index>=0){
 			AccountVO vo=AccountInputui.show();

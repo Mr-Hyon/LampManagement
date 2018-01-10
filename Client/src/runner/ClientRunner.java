@@ -48,7 +48,7 @@ public class ClientRunner extends Application {
 	}
 
 	public static void main(String[] args) throws Exception {		
-		//linkToServer();
+		linkToServer();
 		launch(args);
 	}
 
