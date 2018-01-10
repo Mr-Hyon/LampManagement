@@ -535,6 +535,11 @@ public class DataRemoteObject extends UnicastRemoteObject  implements AccountDat
 	public feedback addUser(UserPO user) throws RemoteException {
 		return userDataService.addUser(user);
 	}
+
+	@Override
+	public feedback updateAccountName(AccountPO po, String name) throws RemoteException {
+		return accountDataService.updateAccountName(po, name);
+	}
 	
 	
 }

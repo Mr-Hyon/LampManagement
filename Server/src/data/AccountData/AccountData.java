@@ -56,6 +56,31 @@ public class AccountData implements AccountDataService{
 			return feedback.Fail;
 		}
 	}
+	
+	
+	@Override
+	public feedback updateAccountName(AccountPO po,String name)throws RemoteException{
+		Configuration configuration = new Configuration().configure();
+		factory = configuration.buildSessionFactory();
+		session = factory.openSession();
+		transaction = session.beginTransaction();
+		List<AccountPO> list=session.createCriteria(AccountPO.class).add(Restrictions.eq("name", po.getName())).list();
+		if(list.size()>0) {
+			AccountPO account = list.get(0);
+			account.setName(name);
+			account.setIsValid("Yes");
+			session.update(account);
+			transaction.commit();
+			session.close();
+			factory.close();
+			return feedback.Success;
+		}else {
+			transaction.commit();
+			session.close();
+			factory.close();
+			return feedback.Fail;
+	}
+	}
 	@Override
 	public feedback updateAccount(AccountPO po)throws RemoteException {
 		Configuration configuration = new Configuration().configure();
