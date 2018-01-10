@@ -9,7 +9,6 @@ import bl.purchasebl.PurchaseController;
 import bl.salesbl.SalesController;
 import bl.tablebl.TableController;
 import bl.userbl.UserController;
-import bl.verifybl.VerifyController;
 import blservice.accountblservice.AccountBLService;
 import blservice.clientblservice.ClientBLService;
 import blservice.commodityblservice.CommodityBLService;
@@ -19,7 +18,6 @@ import blservice.purchaseblservice.PurchaseBLService;
 import blservice.salesblservice.SalesBLService;
 import blservice.tableblservice.TableBLService;
 import blservice.userblservice.UserBLService;
-import blservice.verifyblservice.VerifyBLService;
 
 public class BLServiceFactory {
 	private static AccountBLService accountBLService= new AccountController();
@@ -31,7 +29,6 @@ public class BLServiceFactory {
 	private static SalesBLService salesBLService= new SalesController();
 	private static TableBLService tableBLService= new TableController();
 	private static UserBLService userBLService= new UserController();
-	private static VerifyBLService verifyBLService= new VerifyController();
 	
 	public static AccountBLService getAccountBLService(){
 		return accountBLService;
@@ -67,10 +64,6 @@ public class BLServiceFactory {
 	
 	public static UserBLService getUserBLService(){
 		return userBLService;
-	}
-	
-	public static VerifyBLService getVerifyBLService(){
-		return verifyBLService;
 	}
 	
 }

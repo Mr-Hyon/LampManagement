@@ -11,7 +11,7 @@ import vo.TableVO;
 public class Table {
 	
 	public SituationTableVO viewManagementSituation(String time) throws RemoteException{
-		
+		return null;
 	}
 	
 }
