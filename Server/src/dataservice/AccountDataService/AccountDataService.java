@@ -14,5 +14,6 @@ public interface AccountDataService extends Remote {
 	public List<AccountPO> findAccountByBank(String bank)throws RemoteException;
 	public List<AccountPO> showAccount()throws RemoteException;
 	public AccountPO findAccountByName(String name) throws RemoteException;
+	public feedback updateAccountName(AccountPO po, String name) throws RemoteException;
 }
 
