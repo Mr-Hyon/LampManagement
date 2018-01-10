@@ -530,6 +530,11 @@ public class DataRemoteObject extends UnicastRemoteObject  implements AccountDat
 	public feedback modifyPurchaseBill(PurchaseBillPO po) throws RemoteException {
 		return purchaseBillDataService.modifyPurchaseBill(po);
 	}
+
+	@Override
+	public feedback addUser(UserPO user) throws RemoteException {
+		return userDataService.addUser(user);
+	}
 	
 	
 }

@@ -65,8 +65,18 @@ public class UserData implements UserDataService{
 
 	@Override
 	public feedback addUser(UserPO user) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		Configuration configuration = new Configuration().configure();
+		factory = configuration.buildSessionFactory();
+		session = factory.openSession();
+		transaction = session.beginTransaction();
+
+		
+		session.save(user);
+
+		transaction.commit();
+		session.close();
+		factory.close();
+		return feedback.Success;
 	}
 
 
