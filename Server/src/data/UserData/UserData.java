@@ -63,6 +63,12 @@ public class UserData implements UserDataService{
 		}
 	}
 
+	@Override
+	public feedback addUser(UserPO user) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }
 

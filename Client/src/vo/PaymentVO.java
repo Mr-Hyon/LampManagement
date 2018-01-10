@@ -5,8 +5,6 @@ import javafx.beans.property.SimpleStringProperty;
 public class PaymentVO {
 	//付款单
 	private final SimpleStringProperty id;				//付款单编号
-	private final SimpleStringProperty supplierName;	//供货商名称
-	private final SimpleStringProperty salesmanName;		//销售商名称
 	private final SimpleStringProperty operatorName;		//操作员名称
 	private final SimpleStringProperty accountName;			//账户名称
 	private final SimpleStringProperty cash;			//额度
@@ -14,14 +12,10 @@ public class PaymentVO {
 	private final SimpleStringProperty totalCash;		//总额汇总
 	
 	private AccountVO account;						//账户
-	private ClientVO supplier;							//供货商
-	private ClientVO salesman;							//销售商
 	private UserVO operator;							//操作员
 	
-	public PaymentVO(String id,ClientVO supplier,ClientVO salesman,UserVO operator,AccountVO account,String cash,String other,String totalCash){
+	public PaymentVO(String id,UserVO operator,AccountVO account,String cash,String other,String totalCash){
 		this.id=new SimpleStringProperty(id);
-		this.supplierName=new SimpleStringProperty(supplier.getClientName());
-		this.salesmanName=new SimpleStringProperty(salesman.getClientName());
 		this.operatorName=new SimpleStringProperty(operator.getUserName());
 		this.accountName=new SimpleStringProperty(account.getAccountName());
 		this.cash=new SimpleStringProperty(cash);
@@ -29,8 +23,6 @@ public class PaymentVO {
 		this.totalCash=new SimpleStringProperty(totalCash);
 		
 		this.account=account;
-		this.supplier=supplier;
-		this.salesman=salesman;
 		this.operator=operator;
 	}
 	
@@ -40,22 +32,6 @@ public class PaymentVO {
 	
 	public void setId(String id){
 		this.id.set(id);
-	}
-	
-	public String getSupplierName(){
-		return supplierName.get();
-	}
-	
-	public void setSupplierName(String name){
-		supplierName.set(name);
-	}
-	
-	public String getSalesmanName(){
-		return salesmanName.get();
-	}
-	
-	public void setSalesmanName(String name){
-		salesmanName.set(name);
 	}
 	
 	public String getOperatorName(){
@@ -96,24 +72,6 @@ public class PaymentVO {
 	
 	public void setTotalCash(String cash){
 		totalCash.set(cash);
-	}
-	
-	public ClientVO getSupplier(){
-		return supplier;
-	}
-	
-	public void setSupplier(ClientVO supplier){
-		this.supplier=supplier;
-		supplierName.set(supplier.getClientName());
-	}
-	
-	public ClientVO getSalesman(){
-		return salesman;
-	}
-	
-	public void setSalesman(ClientVO salesman){
-		this.salesman=salesman;
-		salesmanName.set(salesman.getClientName());
 	}
 	
 	public UserVO getOperator(){

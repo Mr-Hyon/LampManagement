@@ -65,12 +65,12 @@ public class Account {
 		}
 		return list2;
 	}
-	//transfer accountVO to accountPO
+	//transform accountVO into accountPO
 	public static AccountPO toAccountPO(AccountVO vo){
 		AccountPO accountPO = new AccountPO(vo.getAccountName(),Double.parseDouble(vo.getAccountCash()));
 		return accountPO;
 	}
-	//transfer accountPO to accountVO
+	//transform accountPO into accountVO
 	public static AccountVO toAccountVO(AccountPO po){
 		AccountVO accountVO = new AccountVO(po.getName(),po.getBalance()+"");
 		return accountVO;

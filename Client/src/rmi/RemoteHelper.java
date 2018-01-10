@@ -13,9 +13,11 @@ import dataservice.CommodityDataService.CommodityDataService;
 import dataservice.CommodityDataService.GoodsDataService;
 import dataservice.PaymentDataService.CollectionDataService;
 import dataservice.PaymentDataService.PaymentDataService;
-
-
-
+import dataservice.PromotionDataService.PromotionDataService;
+import dataservice.PurchaseDataService.PurchaseBillDataService;
+import dataservice.SalesDataService.SalesBillDataService;
+import dataservice.TableDataService.SalesConditionDataService;
+import dataservice.UserDataService.UserDataService;
 
 public class RemoteHelper {
 	private static RemoteHelper remoteHelper=new RemoteHelper();
@@ -59,5 +61,25 @@ public class RemoteHelper {
 	
 	public PaymentDataService getPaymentDataService(){
 		return (PaymentDataService)remote;
+	}
+	
+	public PromotionDataService getPromotionDataService(){
+		return (PromotionDataService)remote;
+	}
+	
+	public PurchaseBillDataService getPurchaseDataService(){
+		return (PurchaseBillDataService)remote;
+	}
+	
+	public SalesBillDataService getSalesBillDataService(){
+		return (SalesBillDataService)remote;
+	}
+	
+	public SalesConditionDataService getSalesConditionDataService(){
+		return (SalesConditionDataService)remote;
+	}
+	
+	public UserDataService getUserDataService(){
+		return (UserDataService)remote;
 	}
 }

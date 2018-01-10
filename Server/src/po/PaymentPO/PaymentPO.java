@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.persistence.*;
 
-import po.ClientPO.ClientPO;
+import po.AccountPO.AccountPO;
 import po.UserPO.UserPO;
 
 @Entity
@@ -20,16 +20,16 @@ public class PaymentPO implements Serializable{
 	private String billID;
 	private String type;
 	private String client;
-	private String operator;
+	private AccountPO bank;
+	private UserPO operator;
 	private double totalAmount;
 	private List<TransferInfo> transferList;
 	private String state;
 	private String date;
 	
-	public PaymentPO(String billID,String type,String client,String operator,List<TransferInfo> transferList,double total){
+	public PaymentPO(String billID,UserPO operator,AccountPO bank,List<TransferInfo> transferList,double total){
 		this.billID=billID;
-		this.type=type;
-		this.client=client;
+		this.bank=bank;
 		this.operator=operator;
 		this.totalAmount=total;
 		this.transferList=transferList;
@@ -73,14 +73,25 @@ public class PaymentPO implements Serializable{
 		this.client=po;
 	}
 	
-	@Column(name = "operator")
-	public String getOperator(){
-		return operator;
-	}
+	@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="bankID")
+    public AccountPO getBank(){
+    	return bank;
+    }
+    
+    public void setBank(AccountPO bank){
+    	this.bank=bank;
+    }
 	
-	public void setOperator(String po){
-		this.operator=po;
-	}
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="operatorID")
+    public UserPO getOperator(){
+    	return operator;
+    }
+    
+    public void setOperator(UserPO po){
+    	this.operator=po;
+    }
 	
 	@Column(name="totalAmount")
 	public double getTotalAmount(){

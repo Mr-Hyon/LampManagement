@@ -1,35 +1,49 @@
 package bl.userbl;
 
 import java.rmi.RemoteException;
-import java.util.ArrayList;
-
+import common.feedback;
+import po.UserPO.UserPO;
+import rmi.RemoteHelper;
 import util.ResultMessage;
-import util.UserType;
 import vo.UserVO;
 
 public class User {
+	//add user
 	public ResultMessage add(UserVO vo) throws RemoteException{
-		
+		if(RemoteHelper.getInstance().getUserDataService().addUser(toUserPO(vo))==feedback.Success){
+			return ResultMessage.SUCCESS;
+		}
+		else{
+			return ResultMessage.FAILED;
+		}
 	}
-	public ResultMessage delete(UserVO vo) throws RemoteException{
-		
-	}
+	//modify password
 	public ResultMessage update(UserVO vo) throws RemoteException{
-		
+		if(RemoteHelper.getInstance().getUserDataService().modifyPassword(toUserPO(vo))==feedback.Success){
+			return ResultMessage.SUCCESS;
+		}
+		else{
+			return ResultMessage.FAILED;
+		}
 	}
-	public ArrayList<UserVO> findById(String id) throws RemoteException{
-		
+	//login
+	public ResultMessage login(String id,String password,String type) throws RemoteException{
+		UserPO userPO = RemoteHelper.getInstance().getUserDataService().findUser(id);
+		if(userPO.getPassword()==password&&userPO.getPosition()==type){
+			return ResultMessage.SUCCESS;
+		}
+		else{
+			return ResultMessage.FAILED;
+		}
 	}
-	public ArrayList<UserVO> findByName(String name) throws RemoteException{
-		
+	//transform userVO into userPO
+	public static UserPO toUserPO(UserVO vo) {
+		UserPO userPO = new UserPO(vo.getUserName(),vo.getUserPassword(),vo.getUserIdentity(),vo.getUserLevel());
+		return userPO;
 	}
-	public ArrayList<UserVO> findByType(UserType type) throws RemoteException{
-		
-	}
-	public ArrayList<UserVO> show() throws RemoteException{
-		
-	}
-	public UserType login(String id,String password) throws RemoteException{
-		
+	//transform userPO into userVO
+	public static UserVO toUserVO(UserPO po) {
+		UserVO userVO = new UserVO(po.getUsername(),po.getPassword(),po.getPosition(),po.getAuthority());
+		return userVO;
 	}
 }

@@ -1,18 +1,11 @@
 package blservice.userblservice;
 
-import java.util.ArrayList;
 import java.rmi.RemoteException;
 import util.ResultMessage;
-import util.UserType;
 import vo.UserVO;
 
 public interface UserBLService {
 	public ResultMessage add(UserVO vo) throws RemoteException;
-	public ResultMessage delete(UserVO vo) throws RemoteException;
 	public ResultMessage update(UserVO vo) throws RemoteException;
-	public ArrayList<UserVO> findById(String id) throws RemoteException;
-	public ArrayList<UserVO> findByName(String name) throws RemoteException;
-	public ArrayList<UserVO> findByType(UserType type) throws RemoteException;
-	public ArrayList<UserVO> show() throws RemoteException;
-	public UserType login(String id,String password) throws RemoteException;
+	public ResultMessage login(String id,String password,String type) throws RemoteException;
 }

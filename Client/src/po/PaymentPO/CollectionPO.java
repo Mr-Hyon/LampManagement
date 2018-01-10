@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import po.AccountPO.AccountPO;
+import po.ClientPO.ClientPO;
 import po.UserPO.UserPO;
 
 public class CollectionPO implements Serializable{
@@ -14,6 +15,8 @@ public class CollectionPO implements Serializable{
 
 	private int id;
 	private String billID;
+	private ClientPO supplier;
+	private ClientPO salesman;
 	private UserPO operator;
 	private AccountPO bank;
 	private double totalAmount;
@@ -21,8 +24,10 @@ public class CollectionPO implements Serializable{
 	private String state;
 	private String date;
 	
-	public CollectionPO(String billID,UserPO operator,AccountPO bank,double amount,List<FundInfo> list){
+	public CollectionPO(String billID,ClientPO supplier,ClientPO salesman,UserPO operator,AccountPO bank,double amount,List<FundInfo> list){
 		this.billID=billID;
+		this.supplier=supplier;
+		this.salesman=salesman;
 		this.bank=bank;
 		this.operator=operator;
 		this.totalAmount=amount;
@@ -43,6 +48,22 @@ public class CollectionPO implements Serializable{
     
     public void setBillID(String id){
     	this.billID=id;
+    }
+    
+    public ClientPO getSupplier(){
+    	return supplier;
+    }
+    
+    public void setSupplier(ClientPO po){
+    	this.supplier=po;
+    }
+    
+    public ClientPO getSalesman(){
+        return salesman;
+    }
+        
+    public void setSalesman(ClientPO po){
+        this.salesman=po;
     }
 
     public UserPO getOperator(){

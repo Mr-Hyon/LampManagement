@@ -3,6 +3,9 @@ package po.PaymentPO;
 import java.io.Serializable;
 import java.util.List;
 
+import po.AccountPO.AccountPO;
+import po.UserPO.UserPO;
+
 public class PaymentPO implements Serializable{
 	private static final long serialVersionUID=1L;
 	public PaymentPO() {
@@ -13,16 +16,16 @@ public class PaymentPO implements Serializable{
 	private String billID;
 	private String type;
 	private String client;
-	private String operator;
+	private AccountPO bank;
+	private UserPO operator;
 	private double totalAmount;
 	private List<TransferInfo> transferList;
 	private String state;
 	private String date;
 	
-	public PaymentPO(String billID,String type,String client,String operator,List<TransferInfo> transferList,double total){
+	public PaymentPO(String billID,UserPO operator,AccountPO bank,List<TransferInfo> transferList,double total){
 		this.billID=billID;
-		this.type=type;
-		this.client=client;
+		this.bank=bank;
 		this.operator=operator;
 		this.totalAmount=total;
 		this.transferList=transferList;
@@ -59,12 +62,20 @@ public class PaymentPO implements Serializable{
 	public void setClient(String po){
 		this.client=po;
 	}
+	
+	public AccountPO getBank(){
+    	return bank;
+    }
+    
+    public void setBank(AccountPO bank){
+    	this.bank=bank;
+    }
 
-	public String getOperator(){
+	public UserPO getOperator(){
 		return operator;
 	}
 	
-	public void setOperator(String po){
+	public void setOperator(UserPO po){
 		this.operator=po;
 	}
 

@@ -12,13 +12,11 @@ public class UserPO implements Serializable {
     private String authority;
     private String userID;
     private String contact;
-    public UserPO(String username, String passwords, String position,String authority,String userID,String contact) {
+    public UserPO(String username, String passwords, String position,String authority) {
         this.username = username;
         this.password = passwords;
         this.position = position;
         this.authority=authority;
-        this.userID=userID;
-        this.contact=contact;
     }
     public UserPO() {
 

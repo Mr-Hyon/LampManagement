@@ -65,12 +65,12 @@ public class Client {
 		}
 		return list2;
 	}
-	//transfer ClientVO to ClientPO
+	//transform ClientVO into ClientPO
 	public static ClientPO toClientPO(ClientVO vo){
 		ClientPO clientPO = new ClientPO(vo.getClientName(),vo.getClientLevel(),vo.getClientType(),vo.getClientContact(),vo.getClientAddress(),vo.getClientZip(),vo.getClientEmail(),0);
 		return clientPO;
 	}
-	//transfer ClientPO to ClientVO
+	//transform ClientPO into ClientVO
 	public static ClientVO toClientVO(ClientPO po){
 		ClientVO clientVO = new ClientVO(po.getId()+"",po.getType(),po.getLevel(),po.getName(),po.getTel(),po.getAddress(),po.getPostcode(),po.getEmail(),po.getPay()+"",po.getRecieve()+"");
 		return clientVO;

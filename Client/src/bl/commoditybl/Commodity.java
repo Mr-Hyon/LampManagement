@@ -100,22 +100,22 @@ public class Commodity {
 	public ResultMessage warning(){
 		return null;
 	}
-	//transfer CommodityTypeVO to ClassificationPO
+	//transform CommodityTypeVO into ClassificationPO
 	public static ClassificationPO toClassificationPO(CommodityTypeVO vo){
 		ClassificationPO classificationPO = new ClassificationPO(vo.getTypeName(),vo.getUpperTypeName());
 		return classificationPO;
 	}
-	//transfer ClassificationPO to CommodityTypeVO
+	//transform ClassificationPO into CommodityTypeVO
 	public static CommodityTypeVO toCommodityTypeVO(ClassificationPO po){
 		CommodityTypeVO commodityTypeVO = new CommodityTypeVO(po.getParentSort(),po.getId()+"",po.getName());
 		return commodityTypeVO;
 	}
-	//transfer CommodityVO to GoodsPO
+	//transform CommodityVO into GoodsPO
 	public static GoodsPO toGoodsPO(CommodityVO vo){
 		GoodsPO goodsPO = new GoodsPO(vo.getType().getTypeName(),vo.getGoodName(),vo.getGoodModel(),Integer.parseInt(vo.getGoodNum()),Double.parseDouble(vo.getGoodRecentBP()),Double.parseDouble(vo.getGoodRecentRP()));
 		return goodsPO;
 	}
-	//transfer GoodsPO to CommodityVO
+	//transform GoodsPO into CommodityVO
 	public static CommodityVO toCommodityVO(GoodsPO po){
 		CommodityVO commodityVO = new CommodityVO(po.getId()+"",po.getName(),po.getType(),po.getNum()+"",po.getPurPrice()+"",po.getSalePrice()+"");
 		return commodityVO;
