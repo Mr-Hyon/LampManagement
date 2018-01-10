@@ -50,7 +50,7 @@ public class LoginController {
 		identity.getSelectionModel().select(0);
 	}
 
-	public void onLoginAction() throws RemoteException{
+	public void onLoginAction() throws Exception{
 		
 		/*test rmi*/
 //		feedback fb=RemoteHelper.getInstance().getAccountDataService().addAccount(new AccountPO("test 3","Bank A",200.0));

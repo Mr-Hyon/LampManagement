@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import blservice.commodityblservice.CommodityBLService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TreeItemPropertyValueFactory;
+import presentation.BLFactory.BLServiceFactory;
 import vo.*;
 
 public class CommodityManageController {
@@ -83,6 +85,8 @@ public class CommodityManageController {
 	@FXML
 	TextField GoodIdSearch;
 	
+	CommodityBLService commodityBLService=BLServiceFactory.getCommodityBLService();
+	
 	private ObservableList<CommodityVO> commodity=FXCollections.observableArrayList(
 			new CommodityVO("0001","PS4","XM01","100","2000","2200"),
 			new CommodityVO("0002","NS","XM02","50","1670","2200"),
@@ -91,24 +95,31 @@ public class CommodityManageController {
 	
 	ArrayList<CommodityTypeVO> type=new ArrayList<>();	
 	
-	TreeItem<CommodityTypeVO> root=new TreeItem<>(new CommodityTypeVO(null,"0000","商品管理"));
+	TreeItem<CommodityTypeVO> root=new TreeItem<>(new CommodityTypeVO(null,null,"商品管理"));
 			
 	
 	public void initialize(){
-		type.add(new CommodityTypeVO(null,"0001","MainType A"));
-		type.add(new CommodityTypeVO(null,"0002","MainType B"));
-		type.add(new CommodityTypeVO(null,"0003","MainType C"));
+
+		type.add(new CommodityTypeVO(null,null,"MainType A"));
+		type.add(new CommodityTypeVO(null,null,"MainType B"));
+		type.add(new CommodityTypeVO(null,null,"MainType C"));
+		type.add(new CommodityTypeVO("MainType A",null,"Type B"));
+		type.add(new CommodityTypeVO("MainType B",null,"Type C"));
+		type.add(new CommodityTypeVO("MainType C",null,"Type D"));
+		type.add(new CommodityTypeVO("Type B",null,"Type E"));
+
 		GoodTypeTree.setEditable(true);
-		CommodityTypeVO subType1=new CommodityTypeVO(null,"0002","Type B");
-		CommodityTypeVO subType2=new CommodityTypeVO(null,"0003","Type C");
-		CommodityTypeVO subType3=new CommodityTypeVO(null,"0004","Type D");
-		TreeItem<CommodityTypeVO> child1=new TreeItem<>(subType1);
-		TreeItem<CommodityTypeVO> child2=new TreeItem<>(subType2);
-		TreeItem<CommodityTypeVO> child3=new TreeItem<>(subType3);
+
 		GoodTypeCol.setCellValueFactory(new TreeItemPropertyValueFactory<>("typeName"));
 		GoodTypeTree.setRoot(root);
-		child2.getChildren().setAll(child3);
-		root.getChildren().setAll(child1,child2);
+		for(int i=0;i<type.size();i++){
+			if(type.get(i).getUpperTypeName()==null){
+				root.getChildren().add(new TreeItem<CommodityTypeVO>(type.get(i)));
+			}
+		}
+		for(int i=0;i<root.getChildren().size();i++){
+			BuildTypeTree(root.getChildren().get(i));
+		}
 		
 		GoodTable.setEditable(true);
 		GoodIdCol.setCellValueFactory(new PropertyValueFactory<>("goodId"));
@@ -129,17 +140,23 @@ public class CommodityManageController {
 	
 	public void AddMainType(){
 		String typeName=MainType.getText();
-		CommodityTypeVO Type=new CommodityTypeVO(null,"0005",typeName);
-		TreeItem<CommodityTypeVO> mainType=new TreeItem<>(Type);
-		root.getChildren().add(mainType);
-		MainType.clear();
+		if(typeName.equals("")){
+			Alert alert=new Alert(Alert.AlertType.WARNING,"商品类型不能为空");
+			alert.showAndWait();
+		}
+		else{
+			CommodityTypeVO Type=new CommodityTypeVO(null,null,typeName);
+			TreeItem<CommodityTypeVO> mainType=new TreeItem<>(Type);
+			root.getChildren().add(mainType);
+			MainType.clear();
+		}
 	}
 	
 	public void AddSubType(){
 		String typeName=SubType.getText();
 		TreeItem<CommodityTypeVO> parent=GoodTypeTree.getSelectionModel().getSelectedItem();
 		CommodityTypeVO parentType=parent.getValue();
-		CommodityTypeVO childType=new CommodityTypeVO(parentType.getTypeId(),"0005",typeName);
+		CommodityTypeVO childType=new CommodityTypeVO(parentType.getTypeName(),null,typeName);
 		TreeItem<CommodityTypeVO> child=new TreeItem<>(childType);
 		parent.getChildren().add(child);
 		SubType.clear();
@@ -166,6 +183,22 @@ public class CommodityManageController {
 	}
 	
 	public void SearchGood(){
+		
+	}
+	
+	public void BuildTypeTree(TreeItem<CommodityTypeVO> root){
+		//前置条件:type=commodityBLService.showAllType();
+		for(int j=0;j<type.size();j++){
+			if(type.get(j).getUpperTypeName()==null){
+				
+			}
+			else if(type.get(j).getUpperTypeName().equals(root.getValue().getTypeName())){
+				root.getChildren().add(new TreeItem<CommodityTypeVO>(type.get(j)));
+			}
+		}
+		for(int k=0;k<root.getChildren().size();k++){
+			BuildTypeTree(root.getChildren().get(k));
+		}
 		
 	}
 }

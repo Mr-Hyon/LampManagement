@@ -19,7 +19,7 @@ public class CommodityTypeVO {
 	}
 	
 	public void setUpperTypeName(String upperTypeName){
-		
+		this.upperTypeName.set(upperTypeName);
 	}
 	
 	public String getTypeId(){
