@@ -20,8 +20,13 @@ public class PurchaseController implements PurchaseBLService{
 	}
 
 	@Override
-	public ResultMessage sendToVerify(PurchaseVO vo) throws RemoteException {
-		return purchase.sendToVerify(vo);
+	public ResultMessage checkPurchase(PurchaseVO vo) throws RemoteException {
+		return purchase.checkPurchase(vo);
+	}
+
+	@Override
+	public ResultMessage reversePurchase(PurchaseVO vo) throws RemoteException {
+		return purchase.reversePurchase(vo);
 	}
 
 }

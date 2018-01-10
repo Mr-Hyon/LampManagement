@@ -20,4 +20,24 @@ public class PaymentController implements PaymentBLService{
 		return payment.addPayBill(vo);
 	}
 
+	@Override
+	public ResultMessage checkReceipt(ReceiptVO vo) throws RemoteException {
+		return payment.checkReceipt(vo);
+	}
+
+	@Override
+	public ResultMessage checkPayBill(PaymentVO vo) throws RemoteException {
+		return payment.checkPayBill(vo);
+	}
+
+	@Override
+	public ResultMessage reverseReceipt(ReceiptVO vo) throws RemoteException {
+		return payment.reverseReceipt(vo);
+	}
+
+	@Override
+	public ResultMessage reversePayBill(PaymentVO vo) throws RemoteException {
+		return payment.reversePayBill(vo);
+	}
+
 }

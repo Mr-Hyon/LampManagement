@@ -46,14 +46,34 @@ public class Payment {
 		}
 	}
 	//approve payment bill
-		public ResultMessage checkPayBill(PaymentVO vo) throws RemoteException{
-			if(RemoteHelper.getInstance().getPaymentDataService().checkPaymentBill(toPaymentPO(vo))==feedback.Success){
-				return ResultMessage.SUCCESS;
-			}
-			else{
-				return ResultMessage.FAILED;
-			}
+	public ResultMessage checkPayBill(PaymentVO vo) throws RemoteException{
+		if(RemoteHelper.getInstance().getPaymentDataService().checkPaymentBill(toPaymentPO(vo))==feedback.Success){
+			return ResultMessage.SUCCESS;
 		}
+		else{
+			return ResultMessage.FAILED;
+		}
+	}
+	//reverse receipt
+	public ResultMessage reverseReceipt(ReceiptVO vo)throws RemoteException{
+		if(RemoteHelper.getInstance().getCollectionDataService().reverseCollectionBill(vo.getId())==feedback.Success){
+			return ResultMessage.SUCCESS;
+		}
+		else{
+			return ResultMessage.FAILED;
+		}
+	}
+	//reverse payment bill
+	public ResultMessage reversePayBill(PaymentVO vo)throws RemoteException{
+		if(RemoteHelper.getInstance().getPaymentDataService().reversePaymentBill(vo.getId())==feedback.Success){
+			return ResultMessage.SUCCESS;
+		}
+		else{
+			return ResultMessage.FAILED;
+		}
+	}
+	
+	
 	//transform receiptVO into collectionPO
 	public static CollectionPO toCollectionPO(ReceiptVO vo){
 		List<FundInfo> list= new ArrayList<FundInfo>();

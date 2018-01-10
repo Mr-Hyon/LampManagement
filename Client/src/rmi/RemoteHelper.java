@@ -67,7 +67,7 @@ public class RemoteHelper {
 		return (PromotionDataService)remote;
 	}
 	
-	public PurchaseBillDataService getPurchaseDataService(){
+	public PurchaseBillDataService getPurchaseBillDataService(){
 		return (PurchaseBillDataService)remote;
 	}
 	

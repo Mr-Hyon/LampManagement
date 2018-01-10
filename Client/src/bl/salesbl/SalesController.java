@@ -20,8 +20,13 @@ public class SalesController implements SalesBLService{
 	}
 
 	@Override
-	public ResultMessage sendToVerify(SalesVO vo) throws RemoteException {
-		return sales.sendToVerify(vo);
+	public ResultMessage checkSales(SalesVO vo) throws RemoteException {
+		return sales.checkSales(vo);
+	}
+
+	@Override
+	public ResultMessage reverseSales(SalesVO vo) throws RemoteException {
+		return sales.reverseSales(vo);
 	}
 
 }
