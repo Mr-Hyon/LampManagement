@@ -29,7 +29,7 @@ public class User {
 	//login
 	public ResultMessage login(String id,String password,String type) throws RemoteException{
 		UserPO userPO = RemoteHelper.getInstance().getUserDataService().findUser(id);
-		if(userPO.getPassword()==password&&userPO.getPosition()==type){
+		if(userPO.getPassword().equals(password)&&userPO.getPosition().equals(type)){
 			return ResultMessage.SUCCESS;
 		}
 		else{
