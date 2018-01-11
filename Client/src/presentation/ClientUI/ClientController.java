@@ -4,12 +4,25 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 
 import java.io.IOException;
+import java.rmi.RemoteException;
+import java.util.ArrayList;
 
+import blservice.accountblservice.AccountBLService;
+import blservice.clientblservice.ClientBLService;
+import presentation.BLFactory.BLServiceFactory;
+import presentation.accountUI.AccountShowController;
+import presentation.accountUI.AccountShowui;
 import presentation.userUI.Loginui;
 import presentation.userUI.SalesmanUI;
+import util.ResultMessage;
+import vo.AccountVO;
+import vo.ClientVO;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 
 import javafx.scene.control.Label;
@@ -17,6 +30,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -34,7 +48,7 @@ public class ClientController {
 	@FXML
 	private Button BacktoMain;
 	@FXML
-	private TableView ShowClientMes;
+	private TableView<ClientVO> ShowClientMes;
 	@FXML
 	private TableColumn ClientID;
 	@FXML
@@ -46,6 +60,28 @@ public class ClientController {
 	@FXML
 	private MenuButton Menu;
 	
+	/*ClientBLService ClientBLService = BLServiceFactory.getClientBLService();
+	private ObservableList<ClientVO> data=FXCollections.observableArrayList(
+			new ClientVO("001","Supplier", "1", "admin", "tele","Addr","210046", "e-m", null, null),
+			new ClientVO("102","Buyer", "3", "acfun", "tele","Addr","210046", "e-m",null, null),
+			new ClientVO("103","Buyer", "5","bilibili", "tele","Addr", "210046","e-m", null, null)
+			);
+	ObservableList<ClientVO> transfer=FXCollections.observableArrayList();
+	
+	public void changeData(int index,ClientVO vo){
+		data.set(index, vo);
+	}
+	public void initialize() throws RemoteException{
+		data.clear();
+		ArrayList<ClientVO> ClientList=ClientBLService.show();
+		for(int i=0;i<ClientList.size();i++){
+			data.add(ClientList.get(i));
+		}
+		ShowClientMes.setEditable(true);
+		ClientID.setCellValueFactory(new PropertyValueFactory<>("ClientID"));
+		ClientName.setCellValueFactory(new PropertyValueFactory<>("ClientName"));
+		ShowClientMes.setItems(data);
+	}*/
 	public void ShowUser(){
 		Label1.setText("您好！YYY");
 	}
