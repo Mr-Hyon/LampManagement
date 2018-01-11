@@ -172,8 +172,7 @@ public class AccountController {
 			AccountVO vo=AccountInputui.show();
 			if(AccountInputui.getAccess()){
 				AccountVO sample=data.get(index);
-				vo.setAccountCash(sample.getAccountCash());
-				ResultMessage rm = accountBLService.update(vo);
+				ResultMessage rm = accountBLService.updateName(sample,vo.getAccountName());
 				if(rm==ResultMessage.SUCCESS){
 					Alert information=new Alert(Alert.AlertType.INFORMATION,"修改成功");
 					information.showAndWait();

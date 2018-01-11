@@ -154,16 +154,32 @@ public class CommodityManageController {
 	
 	public void AddSubType(){
 		String typeName=SubType.getText();
-		TreeItem<CommodityTypeVO> parent=GoodTypeTree.getSelectionModel().getSelectedItem();
-		CommodityTypeVO parentType=parent.getValue();
-		CommodityTypeVO childType=new CommodityTypeVO(parentType.getTypeName(),null,typeName);
-		TreeItem<CommodityTypeVO> child=new TreeItem<>(childType);
-		parent.getChildren().add(child);
-		SubType.clear();
+		if(typeName.equals("")){
+			Alert alert=new Alert(Alert.AlertType.WARNING,"商品类型不能为空");
+			alert.showAndWait();
+		}
+		else{
+			TreeItem<CommodityTypeVO> parent=GoodTypeTree.getSelectionModel().getSelectedItem();
+			CommodityTypeVO parentType=parent.getValue();
+			CommodityTypeVO childType=new CommodityTypeVO(parentType.getTypeName(),null,typeName);
+			TreeItem<CommodityTypeVO> child=new TreeItem<>(childType);
+			parent.getChildren().add(child);
+			SubType.clear();
+		}
 	}
 	
 	public void DeleteGoodType(){
-		
+		TreeItem<CommodityTypeVO> node=GoodTypeTree.getSelectionModel().getSelectedItem();
+		if(node.getValue().getTypeName().equals("商品管理")){
+			
+		}
+		else if(!node.isLeaf()){			
+			Alert alert=new Alert(Alert.AlertType.WARNING,"该商品分类下尚有子分类，不能删除");
+			alert.showAndWait();
+		}
+		else{
+			node.getParent().getChildren().removeAll(node);
+		}
 	}
 	
 	public void ModifyGoodType(){
