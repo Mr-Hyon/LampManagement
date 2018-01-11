@@ -38,6 +38,15 @@ public class Account {
 			return ResultMessage.FAILED;
 		}
 	}
+	//update account name
+		public ResultMessage updateName(AccountVO vo,String name) throws RemoteException{
+			if(RemoteHelper.getInstance().getAccountDataService().updateAccountName(toAccountPO(vo),name)==feedback.Success){
+				return ResultMessage.SUCCESS;
+			}
+			else{
+				return ResultMessage.FAILED;
+			}
+		}
 	//find account by ID
 	public ArrayList<AccountVO> findByKeyword(String str) throws RemoteException{
 		List<AccountPO> list1 = (java.util.List<AccountPO>) RemoteHelper.getInstance().getAccountDataService().findAccountByKeyWord(str);
