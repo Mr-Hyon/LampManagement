@@ -3,9 +3,11 @@ package presentation.paymentUI;
 import presentation.BLFactory.BLServiceFactory;
 import presentation.financeUI.Financeui;
 import presentation.userUI.LoginController;
+import util.ResultMessage;
 import vo.PaymentVO;
 import vo.ReceiptVO;
 
+import java.rmi.RemoteException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -13,6 +15,7 @@ import blservice.accountblservice.AccountBLService;
 import blservice.clientblservice.ClientBLService;
 import blservice.paymentblservice.PaymentBLService;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -53,7 +56,7 @@ public class PaymentController {
 	@FXML
 	TextArea Other;
 	
-	PaymentBLService paymenyBLService=BLServiceFactory.getPaymentBLService();
+	PaymentBLService paymentBLService=BLServiceFactory.getPaymentBLService();
 	AccountBLService accountBLService=BLServiceFactory.getAccountBLService();
 	ClientBLService clientBLService=BLServiceFactory.getClientBLService();
 	
@@ -70,7 +73,7 @@ public class PaymentController {
 		Receiptui.hide();
 	}
 	
-	public void ReceiptSubmitAction(){
+	public void ReceiptSubmitAction() throws RemoteException{
 		String id=ReceiptID.getText();
 		String salesman=Salesman.getText();
 		String supplier=Supplier.getText();
@@ -81,7 +84,15 @@ public class PaymentController {
 		String operator=Operator.getText();
 		
 		ReceiptVO vo=new ReceiptVO(id,supplier,salesman,operator,account,cash,other,totalCash);
-		
+		ResultMessage rm=paymentBLService.addReceipt(vo);
+		if(rm==ResultMessage.SUCCESS){
+			Alert alert=new Alert(Alert.AlertType.INFORMATION,"提交成功");
+			alert.showAndWait();
+		}
+		else{
+			Alert alert=new Alert(Alert.AlertType.INFORMATION,"提交失败");
+			alert.showAndWait();
+		}
 	}
 	
 }
