@@ -13,12 +13,12 @@ public class CommodityBillPO implements Serializable{
     private int id;
     private String date;
     private String type;
-    private List<GoodsPO> InventoryBillGoodsList;
+    private List<GoodsPO> CommodityBillGoodsList;
     private String billID;
 
     public CommodityBillPO(String date,String type,List<GoodsPO> goodsList){
         this.type=type;
-        this.InventoryBillGoodsList=goodsList;
+        this.CommodityBillGoodsList=goodsList;
         this.date=date;
     }
 
@@ -45,11 +45,11 @@ public class CommodityBillPO implements Serializable{
     @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name = "InventoryBillGoodsListID")
     public List<GoodsPO> getGoodsList() {
-        return InventoryBillGoodsList;
+        return CommodityBillGoodsList;
     }
 
     public void setGoodsList(List<GoodsPO> goodsList) {
-        this.InventoryBillGoodsList = goodsList;
+        this.CommodityBillGoodsList = goodsList;
     }
 
     @Column(name = "billID")
