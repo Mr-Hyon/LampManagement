@@ -12,26 +12,18 @@ public class ReceiptVO {
 	private final SimpleStringProperty cash;			//额度
 	private final SimpleStringProperty other;			//备注
 	private final SimpleStringProperty totalCash;		//总额汇总
+	public boolean isVerified;							//是否被审批
 	
-	private AccountVO account;						//账户
-	private ClientVO supplier;							//供货商
-	private ClientVO salesman;							//销售商
-	private UserVO operator;							//操作员
-	
-	public ReceiptVO(String id,ClientVO supplier,ClientVO salesman,UserVO operator,AccountVO account,String cash,String other,String totalCash){
+	public ReceiptVO(String id,String supplier,String salesman,String operator,String account,String cash,String other,String totalCash){
 		this.id=new SimpleStringProperty(id);
-		this.supplierName=new SimpleStringProperty(supplier.getClientName());
-		this.salesmanName=new SimpleStringProperty(salesman.getClientName());
-		this.operatorName=new SimpleStringProperty(operator.getUserName());
-		this.accountName=new SimpleStringProperty(account.getAccountName());
+		this.supplierName=new SimpleStringProperty(supplier);
+		this.salesmanName=new SimpleStringProperty(salesman);
+		this.operatorName=new SimpleStringProperty(operator);
+		this.accountName=new SimpleStringProperty(account);
 		this.cash=new SimpleStringProperty(cash);
 		this.other=new SimpleStringProperty(other);
 		this.totalCash=new SimpleStringProperty(totalCash);
-		
-		this.account=account;
-		this.supplier=supplier;
-		this.salesman=salesman;
-		this.operator=operator;
+		isVerified=false;
 	}
 	
 	public String getId(){
@@ -96,42 +88,6 @@ public class ReceiptVO {
 	
 	public void setTotalCash(String cash){
 		totalCash.set(cash);
-	}
-	
-	public ClientVO getSupplier(){
-		return supplier;
-	}
-	
-	public void setSupplier(ClientVO supplier){
-		this.supplier=supplier;
-		supplierName.set(supplier.getClientName());
-	}
-	
-	public ClientVO getSalesman(){
-		return salesman;
-	}
-	
-	public void setSalesman(ClientVO salesman){
-		this.salesman=salesman;
-		salesmanName.set(salesman.getClientName());
-	}
-	
-	public UserVO getOperator(){
-		return operator;
-	}
-	
-	public void setOperator(UserVO operator){
-		this.operator=operator;
-		operatorName.set(operator.getUserName());
-	}
-	
-	public AccountVO getAccount(){
-		return account;
-	}
-	
-	public void setAccount(AccountVO account){
-		this.account=account;
-		accountName.set(account.getAccountName());
 	}
 
 }

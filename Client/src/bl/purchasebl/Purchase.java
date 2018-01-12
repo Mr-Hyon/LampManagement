@@ -38,7 +38,7 @@ public class Purchase {
 	}
 	//reverse purchase bill and return bill
 	public ResultMessage reversePurchase(PurchaseVO vo)throws RemoteException{
-		if(RemoteHelper.getInstance().getPurchaseBillDataService().reversePurchaseBill(vo.getId())==feedback.Success){
+		if(RemoteHelper.getInstance().getPurchaseBillDataService().reversePurchaseBill(vo.getPurchaseId())==feedback.Success){
 			return ResultMessage.SUCCESS;
 		}
 		else{

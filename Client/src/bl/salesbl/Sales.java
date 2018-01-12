@@ -38,7 +38,7 @@ public class Sales {
 	}
 	//reverse sales bill and return bill
 	public ResultMessage reverseSales(SalesVO vo) throws RemoteException {
-		if(RemoteHelper.getInstance().getSalesBillDataService().reverseSalesBill(vo.getId())==feedback.Success){
+		if(RemoteHelper.getInstance().getSalesBillDataService().reverseSalesBill(vo.getSalesId())==feedback.Success){
 			return ResultMessage.SUCCESS;
 		}
 		else{

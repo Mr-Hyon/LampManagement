@@ -1,7 +1,17 @@
 package presentation.paymentUI;
 
+import presentation.BLFactory.BLServiceFactory;
 import presentation.financeUI.Financeui;
+import presentation.userUI.LoginController;
+import vo.PaymentVO;
 import vo.ReceiptVO;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import blservice.accountblservice.AccountBLService;
+import blservice.clientblservice.ClientBLService;
+import blservice.paymentblservice.PaymentBLService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -17,16 +27,7 @@ public class PaymentController {
 	Button ReceiptSubmitButton;
 	
 	@FXML
-	Button PaybillReturnButton;
-	
-	@FXML
-	Button PaybillSubmitButton;
-	
-	@FXML
 	Label ReceiptID;
-	
-	@FXML
-	Label PaybillID;
 	
 	@FXML
 	Label currentUser;
@@ -52,8 +53,16 @@ public class PaymentController {
 	@FXML
 	TextArea Other;
 	
+	PaymentBLService paymenyBLService=BLServiceFactory.getPaymentBLService();
+	AccountBLService accountBLService=BLServiceFactory.getAccountBLService();
+	ClientBLService clientBLService=BLServiceFactory.getClientBLService();
+	
 	public void initialize(){
-		//test
+		Operator.setText(LoginController.CurrentUser);
+		SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd-HHmmss");//设置日期格式
+		String id=df.format(new Date());// new Date()为获取当前系统时间
+		id="SKD-"+id;
+		ReceiptID.setText(id);
 	}
 	
 	public void ReceiptReturnAction(){
@@ -62,17 +71,17 @@ public class PaymentController {
 	}
 	
 	public void ReceiptSubmitAction(){
-		String id=ReceiptID.getId();
-		//need blsupport
-	}
-	
-	public void PaybillReturnAction(){
-		Financeui.show();
-		Paybillui.hide();
-	}
-	
-	public void PaybillSubmitAction(){
+		String id=ReceiptID.getText();
+		String salesman=Salesman.getText();
+		String supplier=Supplier.getText();
+		String account=AccountName.getText();
+		String cash=Cash.getText();
+		String totalCash=TotalCash.getText();
+		String other=Other.getText();
+		String operator=Operator.getText();
+		
+		ReceiptVO vo=new ReceiptVO(id,supplier,salesman,operator,account,cash,other,totalCash);
 		
 	}
-
+	
 }

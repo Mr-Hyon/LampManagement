@@ -1,5 +1,6 @@
 package presentation.commodityUI;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -60,6 +61,9 @@ public class CommodityManageController {
 	
 	@FXML
 	Button ModifyGoodTypeButton;
+	
+	@FXML
+	Button showGoodButton;
 	
 	@FXML
 	Button AddGoodButton;
@@ -179,6 +183,35 @@ public class CommodityManageController {
 		}
 		else{
 			node.getParent().getChildren().removeAll(node);
+		}
+	}
+	
+	public void showGood() throws RemoteException{
+		TreeItem<CommodityTypeVO> node=GoodTypeTree.getSelectionModel().getSelectedItem();
+		if(node==null){
+			System.out.println("It's null.");
+			commodity.clear();
+			ArrayList<CommodityVO> goodList=commodityBLService.show();
+			for(int i=0;i<goodList.size();i++){
+				commodity.add(goodList.get(i));
+			}
+		}
+		else{
+			String type=node.getValue().getTypeName();
+			if(type.equals("商品管理")){
+				commodity.clear();
+				ArrayList<CommodityVO> goodList=commodityBLService.show();
+				for(int i=0;i<goodList.size();i++){
+					commodity.add(goodList.get(i));
+				}
+			}
+			else{
+				commodity.clear();
+				ArrayList<CommodityVO> goodList=commodityBLService.showByType(type);
+				for(int i=0;i<goodList.size();i++){
+					commodity.add(goodList.get(i));
+				}
+			}
 		}
 	}
 	

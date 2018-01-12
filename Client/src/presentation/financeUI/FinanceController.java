@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import presentation.userUI.LoginController;
 import presentation.userUI.Loginui;
 import presentation.paymentUI.Paybillui;
 import presentation.paymentUI.Receiptui;
@@ -48,7 +49,7 @@ public class FinanceController {
 	Label currentUser;
 	
 	public void initialize(){
-		
+		currentUser.setText(LoginController.CurrentUser);
 	}
 	
 	public void onManageAccount(){
