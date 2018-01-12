@@ -78,6 +78,7 @@ public class ClientController {
 			data.add(ClientList.get(i));
 		}
 		ShowClientMes.setEditable(true);
+		ClientID.setCellValueFactory(new PropertyValueFactory<>("clientID"));
 		ClientID.setCellValueFactory(new PropertyValueFactory<>("clientId"));
 		ClientName.setCellValueFactory(new PropertyValueFactory<>("clientName"));
 		ShowClientMes.setItems(data);
@@ -87,16 +88,49 @@ public class ClientController {
 	}
 
 	public void ShowMessage(ActionEvent event){
-		System.out.println("Button Clicked 1!");
+		int index=ShowClientMes.getSelectionModel().getSelectedIndex();
+		if(index>=0){
+			ClientVO client=ShowClientMes.getSelectionModel().getSelectedItem();
+			ClientMesUI cm=new ClientMesUI();
+			cm.setUp(client);
+			ClientUI.hide();
+		}
+		else{
+			Alert warning=new Alert(Alert.AlertType.WARNING,"请选中一个客户进行操作");
+			warning.showAndWait();
+		}
 	}
 	public void AddClient(ActionEvent event){
 		System.out.println("Button Clicked 2!");
 	}
-	public void Delete(ActionEvent event){
-		System.out.println("Button Clicked 3!");
+	public void Delete(ActionEvent event) throws RemoteException{
+		int index=ShowClientMes.getSelectionModel().getSelectedIndex();
+		if(index>=0){
+			ClientVO client=ShowClientMes.getSelectionModel().getSelectedItem();
+			ResultMessage rm=ClientBLService.delete(client);
+			if(rm==ResultMessage.SUCCESS){
+				Alert information=new Alert(Alert.AlertType.INFORMATION,"删除成功");
+				information.showAndWait();
+				data.remove(client);
+			}
+		}
+		else{
+			Alert warning=new Alert(Alert.AlertType.WARNING,"请选中一个客户进行操作");
+			warning.showAndWait();
+		}
 	}
 	public void Modify(ActionEvent event){
-		System.out.println("Button Clicked 4!");
+		int index=ShowClientMes.getSelectionModel().getSelectedIndex();
+		if(index>=0){
+			ClientVO client=ShowClientMes.getSelectionModel().getSelectedItem();
+			ClientMesUI cm=new ClientMesUI();
+			cm.setUp(client);
+			ClientUI.hide();
+		}
+		else{
+			Alert warning=new Alert(Alert.AlertType.WARNING,"请选中一个客户进行操作");
+			warning.showAndWait();
+		}
 	}
 	public void BacktoMain(ActionEvent event){
 		System.out.println("Button Clicked 5!");

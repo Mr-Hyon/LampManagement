@@ -5,14 +5,12 @@ import java.rmi.RemoteException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import blservice.accountblservice.AccountBLService;
 import blservice.salesblservice.SalesBLService;
 import presentation.BLFactory.BLServiceFactory;
 import presentation.userUI.LoginController;
 import presentation.userUI.Loginui;
 import presentation.userUI.SalesmanUI;
 import util.ResultMessage;
-import vo.PurchaseVO;
 import vo.SalesVO;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -33,7 +31,7 @@ import javafx.scene.control.MenuButton;
 
 import javafx.scene.control.ChoiceBox;
 
-public class SalesController {
+public class UnSalesController {
 
 	@FXML
 	private Button Confirm;
@@ -52,7 +50,7 @@ public class SalesController {
 	@FXML
 	private TextField IDofGoods;
 	@FXML
-	private ChoiceBox<String> NameofGoods;
+	private ChoiceBox NameofGoods;
 	@FXML
 	private TextField Xinghao;
 	@FXML
@@ -80,13 +78,13 @@ public class SalesController {
 		Operator.setText(LoginController.CurrentUser);
 		SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd-HHmmss");
 		String id=df.format(new Date());
-		id="XSD-"+id;
+		id="XSTHD-"+id;
 		NumberofDoc.setText(id);
 		NameofGoods.setItems(FXCollections.observableArrayList("商品1","商品2","商品3"));
 		NameofGoods.getSelectionModel().select(0);
 	}
 	public void BacktoMain(ActionEvent event){
-		SalesUI.hide();
+		UnSalesUI.hide();
 		SalesmanUI.show();
 	}
 	public void Confirm(ActionEvent event) throws RemoteException{
@@ -100,22 +98,22 @@ public class SalesController {
 		}	
 		else{
 			SalesVO vo=new SalesVO(NumberofDoc.getText(), NameofClient.getText(),Businessman.getText(), Operator.getText(), Storage.getText(), Double.parseDouble(Sum.getText()),Double.parseDouble(Discount.getText()),Double.parseDouble(DiscountUsed.getText()),Double.parseDouble(SumAfterDiscount.getText()), Note1.getText(), IDofGoods.getText(), NameofGoods.getValue().toString(), Xinghao.getText(), Integer.parseInt(NumberofGoods.getText()), Double.parseDouble(PriceofGoods.getText()), Double.parseDouble(Sum2.getText()), Note2.getText());
-			ResultMessage rm=salesBLService.addSales(vo);
-			
-			if(rm==ResultMessage.SUCCESS){
-				Alert information=new Alert(Alert.AlertType.INFORMATION,"制定成功");
-				information.showAndWait();
-			}
-			else if(rm==ResultMessage.FAILED){
-				Alert information=new Alert(Alert.AlertType.INFORMATION,"制定失败");
-				information.showAndWait();
-			}
-			SalesUI.hide();
+		ResultMessage rm=salesBLService.addSales(vo);
+		
+		if(rm==ResultMessage.SUCCESS){
+			Alert information=new Alert(Alert.AlertType.INFORMATION,"制定成功");
+			information.showAndWait();
+		}
+		else if(rm==ResultMessage.FAILED){
+			Alert information=new Alert(Alert.AlertType.INFORMATION,"制定失败");
+			information.showAndWait();
+		}
+			UnSalesUI.hide();
 			SalesmanUI.show();
 		}
 	}
 	public void logout(ActionEvent event){
-		SalesUI.hide();
+		UnSalesUI.hide();
 		Loginui.show();
 	}
 }

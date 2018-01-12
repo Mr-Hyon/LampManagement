@@ -6,7 +6,7 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class SalesVO {
 	private SimpleStringProperty SalesId;   	//单据编号
-	private SimpleStringProperty Supplier; 		 //供应商
+	private SimpleStringProperty Buyer; 		 //供应商
 	private SimpleStringProperty Businessman; 	//业务员 
 	private SimpleStringProperty Operator;		//操作员
 	private SimpleStringProperty Storage;       //仓库
@@ -16,42 +16,35 @@ public class SalesVO {
 	private SimpleDoubleProperty SumAfterDiscount;  //折让后总额
 	private SimpleStringProperty Note1;         //单据备注
 	
-	
 	private SimpleStringProperty IdofGoods;     //商品编号
 	private SimpleStringProperty NameofGoods;   //商品名称
 	private SimpleStringProperty Xinghao;       //商品型号
 	private SimpleIntegerProperty Number;        //数量
-	private SimpleStringProperty Price;         //单价
+	private SimpleDoubleProperty Price;         //单价
 	private SimpleDoubleProperty Sum2;          //出货商品总额
 	private SimpleStringProperty Note2;         //出货商品清单备注
 	
-	private ClientVO client;                            //客户
-	private UserVO operator;							//操作员
-	private CommodityVO goods;							//商品
 	
-	public SalesVO(String SalesId,ClientVO client,String Businessman,UserVO operator,String Storage,double Sum1,double Discount,double DiscountUsed,double SumAfterDiscount, String Note1,
-			CommodityVO goods,int number, double Sum2,String Note2){
+	public SalesVO(String SalesId,String Buyer,String Businessman,String operator,String Storage,double Sum1,double Discount,double DiscountUsed,double SumAfterDiscount, String Note1,
+			String Idofgoods,String NameofGoods,String Xinghao,int number,double price, double Sum2,String Note2){
 		this.SalesId=new SimpleStringProperty(SalesId);			
-		this.Supplier=new SimpleStringProperty(client.getClientName());		
+		this.Buyer=new SimpleStringProperty(Buyer);		
 		this.Businessman=new SimpleStringProperty(Businessman);		
-		this.Operator=new SimpleStringProperty(operator.getUserName());		
+		this.Operator=new SimpleStringProperty(operator);		
 		this.Storage=new SimpleStringProperty(Storage);	
 		this.Sum=new SimpleDoubleProperty(Sum1);
 		this.Discount=new SimpleDoubleProperty(Discount);
 		this.DiscountUsed=new SimpleDoubleProperty(DiscountUsed);		
 		this.SumAfterDiscount=new SimpleDoubleProperty(SumAfterDiscount);	
 		this.Note1=new SimpleStringProperty(Note1);			
-		this.IdofGoods=new SimpleStringProperty(goods.getGoodId());	
-		this.NameofGoods=new SimpleStringProperty(goods.getGoodName());	
-		this.Xinghao=new SimpleStringProperty(goods.getGoodModel());	
+		this.IdofGoods=new SimpleStringProperty(Idofgoods);	
+		this.NameofGoods=new SimpleStringProperty(NameofGoods);	
+		this.Xinghao=new SimpleStringProperty(Xinghao);	
 		this.Number=new SimpleIntegerProperty(number);
-		this.Price=new SimpleStringProperty(goods.getGoodBuyPrice());
+		this.Price=new SimpleDoubleProperty(price);
 		this.Sum2=new SimpleDoubleProperty(Sum2);
 		this.Note2=new SimpleStringProperty(Note2);	
 		
-		this.client=client;
-		this.operator=operator;
-		this.goods=goods;
 	}
 	public String getSalesId() {
 		return SalesId.get();
@@ -65,11 +58,11 @@ public class SalesVO {
 	public void setBusinessman(String Businessman){
 		this.Businessman.set(Businessman);
 	}
-	public String getSupplier() {
-		return Supplier.get();
+	public String getBuyer() {
+		return Buyer.get();
 	}
-	public void setSupplier(String Supplier){
-		this.Supplier.set(Supplier);
+	public void setBuyer(String Buyer){
+		this.Buyer.set(Buyer);
 	}
 	public String getStorage() {
 		return Storage.get();
@@ -130,10 +123,10 @@ public class SalesVO {
 	public void setNumber(int Number){
 		this.Number.set(Number);
 	}
-	public String getPrice() {
+	public Double getPrice() {
 		return Price.get();
 	}
-	public void setPrice(String Price){
+	public void setPrice(Double Price){
 		this.Price.set(Price);
 	}
 	public double getSum2() {
@@ -150,37 +143,4 @@ public class SalesVO {
 	}
 	
 	
-	public ClientVO getClient(){
-		return client;
-	}		
-	public void setClient(ClientVO client){
-		this.client=client;
-		Supplier.set(client.getClientName());
-	}
-	public UserVO getOperator(){
-		return operator;
-	}		
-	public void setOperator(UserVO operator){
-		this.operator=operator;
-		Operator.set(operator.getUserName());
-	}
-	public CommodityVO getCommodity(){
-		return goods;
-	}
-	public void setIdofGoods(CommodityVO goods){
-		this.goods=goods;
-		IdofGoods.set(goods.getGoodId());
-	}
-	public void setNameofGoods(CommodityVO goods){
-		this.goods=goods;
-		NameofGoods.set(goods.getGoodName());
-	}
-	public void setXinghao(CommodityVO goods){
-		this.goods=goods;
-		Xinghao.set(goods.getGoodModel());
-	}
-	public void setPrice(CommodityVO goods){
-		this.goods=goods;
-		Price.set(goods.getGoodBuyPrice());
-	}
 }

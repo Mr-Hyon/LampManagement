@@ -1,15 +1,30 @@
 package presentation.PurchaseUI;
 
 import java.io.IOException;
+import java.rmi.RemoteException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
+import blservice.accountblservice.AccountBLService;
+import blservice.clientblservice.ClientBLService;
+import blservice.commodityblservice.CommodityBLService;
+import blservice.paymentblservice.PaymentBLService;
+import blservice.purchaseblservice.PurchaseBLService;
+import blservice.userblservice.UserBLService;
+import presentation.userUI.LoginController;
 import presentation.userUI.Loginui;
 import presentation.userUI.SalesmanUI;
+import util.ResultMessage;
+import vo.PurchaseVO;
+import presentation.BLFactory.BLServiceFactory;
 import presentation.PurchaseUI.PurchaseUI;
 import presentation.SalesUI.SalesUI;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 
 import javafx.scene.control.TextField;
@@ -43,7 +58,7 @@ public class PurchaseController {
 	@FXML
 	private TextField IDofGoods;
 	@FXML
-	private ChoiceBox NameofGoods;
+	private ChoiceBox<String> NameofGoods;
 	@FXML
 	private TextField Xinghao;
 	@FXML
@@ -61,18 +76,46 @@ public class PurchaseController {
 	@FXML
 	private Label id;
 	
+	
+	CommodityBLService commodityBLService=BLServiceFactory.getCommodityBLService();
+	PurchaseBLService purchaseBLService=BLServiceFactory.getPurchaseBLService();
+	ClientBLService clientBLService=BLServiceFactory.getClientBLService();
+	
+	public void initialize(){
+		Operator.setText(LoginController.CurrentUser);
+		SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd-HHmmss");
+		String id=df.format(new Date());
+		id="JHD-"+id;
+		NumberofDoc.setText(id);
+		NameofGoods.setItems(FXCollections.observableArrayList("商品1","商品2","商品3"));
+		NameofGoods.getSelectionModel().select(0);
+	}
 	public void BacktoMain(ActionEvent event){
-		System.out.println("Button Clicked 5!");
 		PurchaseUI.hide();
 		SalesmanUI.show();
 	}
-	public void Confirm(ActionEvent event){
-		System.out.println("Button Clicked 5!");
+	public void Confirm(ActionEvent event) throws RemoteException{
+		if(NumberofGoods.getText().equals("")){
+			Alert warning=new Alert(Alert.AlertType.WARNING,"商品数量不能为空。");
+		    warning.showAndWait();
+		}
+		if(Integer.parseInt(NumberofGoods.getText())<=0){
+			Alert warning=new Alert(Alert.AlertType.WARNING,"商品数量应为正整数。");
+		    warning.showAndWait();
+		}
+		PurchaseVO vo=new PurchaseVO(NumberofDoc.getText(), NameofClient.getText(), Operator.getText(), Storage.getText(), Double.parseDouble(Sum.getText()), Note1.getText(), IDofGoods.getText(), NameofGoods.getValue().toString(), Xinghao.getText(), Integer.parseInt(NumberofGoods.getText()), PriceofGoods.getText(), Double.parseDouble(Sum2.getText()), Note2.getText());
+		ResultMessage rm=purchaseBLService.addPurchase(vo);
+		
+		if(rm==ResultMessage.SUCCESS){
+			Alert information=new Alert(Alert.AlertType.INFORMATION,"制定成功");
+			information.showAndWait();
+		}
+		else if(rm==ResultMessage.FAILED){
+			Alert information=new Alert(Alert.AlertType.INFORMATION,"制定失败");
+			information.showAndWait();
+		}
 		PurchaseUI.hide();
 		SalesmanUI.show();
-	}
-	public void setID(String ID){
-		id.setText("您好，"+ID);
 	}
 	public void logout(ActionEvent event){
 		PurchaseUI.hide();
