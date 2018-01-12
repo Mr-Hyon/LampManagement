@@ -17,6 +17,7 @@ public interface CommodityBLService {
 	public ArrayList<CommodityVO> show() throws RemoteException;
 	public ArrayList<CommodityVO> showByName(String name) throws RemoteException;
 	public ArrayList<CommodityVO> showByType(String type) throws RemoteException;
+	public ArrayList<CommodityVO> showSort() throws RemoteException;
 	public ResultMessage check() throws RemoteException;
 	public ResultMessage sendGift(CommodityVO vo) throws RemoteException;
 	public ResultMessage analysis(long goodNum) throws RemoteException;

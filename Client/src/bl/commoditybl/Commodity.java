@@ -94,6 +94,15 @@ public class Commodity {
 		}
 		return list2;
 	}
+	//show all types
+	public ArrayList<CommodityTypeVO> showSort() throws RemoteException{
+		List<ClassificationPO> list1 = (java.util.List<ClassificationPO>) RemoteHelper.getInstance().getClassificationDataService().showSort();
+		ArrayList<CommodityTypeVO> list2 = new ArrayList<CommodityTypeVO>();
+		for(int i = 0;i<list1.size();i++){
+			list2.add(toCommodityTypeVO(list1.get(i)));
+		}
+		return list2;
+	}
 	public ResultMessage check() throws RemoteException{
 		return null;
 	}
