@@ -70,7 +70,7 @@ public class PaymentData implements PaymentDataService{
 
 	@Override
 	public List<PaymentPO> findPaymentBillByClient(String po) throws RemoteException{
-		// TODO �Զ����ɵķ������
+		
 		Configuration configuration = new Configuration().configure();
 		factory = configuration.buildSessionFactory();
 		session = factory.openSession();
