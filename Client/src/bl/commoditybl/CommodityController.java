@@ -57,7 +57,7 @@ public class CommodityController implements CommodityBLService{
 	}
 	
 	@Override
-	public ArrayList<CommodityVO> showSort() throws RemoteException {
+	public ArrayList<CommodityTypeVO> showSort() throws RemoteException {
 		return commodity.showSort();
 	}
 

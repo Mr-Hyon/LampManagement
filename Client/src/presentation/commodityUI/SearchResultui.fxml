@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="704.0" prefWidth="927.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.commodityUI.SearchResultController">
+   <children>
+      <TableView fx:id="SearchGoodTable" layoutX="38.0" layoutY="62.0" prefHeight="580.0" prefWidth="660.0">
+         <columns>
+            <TableColumn fx:id="SearchGoodIdCol" prefWidth="75.0" text="编号" />
+            <TableColumn fx:id="SearchGoodNameCol" prefWidth="75.0" text="名称" />
+            <TableColumn fx:id="SearchGoodModelCol" prefWidth="90.0" text="型号" />
+            <TableColumn fx:id="SearchGoodNumCol" prefWidth="86.0" text="库存数量" />
+            <TableColumn fx:id="SearchGoodBPCol" prefWidth="71.0" text="进价" />
+            <TableColumn fx:id="SearchGoodRPCol" prefWidth="77.0" text="零售价" />
+            <TableColumn fx:id="SearchGoodRBPCol" prefWidth="91.0" text="最近进价" />
+            <TableColumn fx:id="SearchGoodRRPCol" prefWidth="94.0" text="最近零售价" />
+         </columns>
+      </TableView>
+      <Label layoutX="38.0" layoutY="21.0" text="查询结果" />
+      <Button fx:id="ReturnButton" layoutX="792.0" layoutY="612.0" mnemonicParsing="false" onAction="#Return" text="返回" />
+   </children>
+</AnchorPane>

@@ -136,6 +136,7 @@ public class Commodity {
 	//transform GoodsPO into CommodityVO
 	public static CommodityVO toCommodityVO(GoodsPO po){
 		CommodityVO commodityVO = new CommodityVO(po.getId()+"",po.getName(),po.getType(),po.getNum()+"",po.getPurPrice()+"",po.getSalePrice()+"");
+		commodityVO.setType(new CommodityTypeVO(null,null,po.getClassification()));
 		return commodityVO;
 	}
 }

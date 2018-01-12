@@ -9,7 +9,7 @@
 <?import javafx.scene.control.TreeTableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="825.0" prefWidth="1227.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.commodityUI.CommodityManageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="836.0" prefWidth="1301.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.commodityUI.CommodityManageController">
    <children>
       <TableView fx:id="GoodTable" layoutX="506.0" layoutY="43.0" prefHeight="580.0" prefWidth="660.0">
         <columns>
@@ -31,20 +31,27 @@
       </TreeTableView>
       <Label layoutX="35.0" layoutY="14.0" text="商品类别信息" />
       <Button fx:id="AddGoodTypeButton" layoutX="257.0" layoutY="657.0" mnemonicParsing="false" onAction="#AddMainType" text="添加商品主类" />
-      <Button fx:id="DeleteGoodTypeButton" layoutX="347.0" layoutY="414.0" mnemonicParsing="false" onAction="#DeleteGoodType" text="删除商品分类" />
-      <Button fx:id="ModifyGoodTypeButton" layoutX="347.0" layoutY="464.0" mnemonicParsing="false" onAction="#ModifyGoodType" text="修改商品分类" />
-      <Button fx:id="AddGoodButton" layoutX="931.0" layoutY="642.0" mnemonicParsing="false" onAction="#AddGood" prefHeight="30.0" prefWidth="95.0" text="添 加 商 品" />
-      <Button fx:id="DeleteGoodButton" layoutX="932.0" layoutY="687.0" mnemonicParsing="false" onAction="#DeleteGood" text="删 除 商 品" />
-      <Button fx:id="ModifyGoodButton" layoutX="932.0" layoutY="730.0" mnemonicParsing="false" onAction="#ModifyGood" text="修 改 商 品" />
-      <Button fx:id="SearchGoodButton" layoutX="684.0" layoutY="771.0" mnemonicParsing="false" onAction="#SearchGood" text="查 询 商 品" />
+      <Button fx:id="DeleteGoodTypeButton" layoutX="347.0" layoutY="458.0" mnemonicParsing="false" onAction="#DeleteGoodType" text="删除商品分类" />
+      <Button fx:id="AddGoodButton" layoutX="932.0" layoutY="672.0" mnemonicParsing="false" onAction="#AddGood" prefHeight="30.0" prefWidth="95.0" text="添 加 商 品" />
+      <Button fx:id="DeleteGoodButton" layoutX="1183.0" layoutY="403.0" mnemonicParsing="false" onAction="#DeleteGood" text="删 除 商 品" />
+      <Button fx:id="ModifyGoodButton" layoutX="1183.0" layoutY="458.0" mnemonicParsing="false" onAction="#ModifyGood" text="修 改 商 品" />
+      <Button fx:id="SearchGoodButton" layoutX="733.0" layoutY="771.0" mnemonicParsing="false" onAction="#SearchGood" text="查 询 商 品" />
       <Button fx:id="ReturnButton" layoutX="1109.0" layoutY="756.0" mnemonicParsing="false" onAction="#Return" text="返回主界面" />
-      <Label layoutX="584.0" layoutY="677.0" text="商品名称" />
-      <Label layoutX="591.0" layoutY="725.0" text="商品ID" />
-      <TextField fx:id="GoodNameSearch" layoutX="668.0" layoutY="672.0" prefHeight="20.0" prefWidth="110.0" />
-      <TextField fx:id="GoodIdSearch" layoutX="668.0" layoutY="720.0" prefHeight="20.0" prefWidth="110.0" />
+      <Label layoutX="528.0" layoutY="776.0" text="关键字" />
+      <TextField fx:id="KeyWord" layoutX="598.0" layoutY="771.0" prefHeight="20.0" prefWidth="110.0" />
       <TextField fx:id="MainType" layoutX="35.0" layoutY="657.0" />
       <TextField fx:id="SubType" layoutX="35.0" layoutY="715.0" />
       <Button fx:id="AddGoodTypeButton1" layoutX="257.0" layoutY="715.0" mnemonicParsing="false" onAction="#AddSubType" text="添加商品子类" />
-      <Button fx:id="showGoodButton" layoutX="347.0" layoutY="364.0" mnemonicParsing="false" onAction="#showGood" text="显示商品信息" />
+      <Button fx:id="showGoodButton" layoutX="347.0" layoutY="398.0" mnemonicParsing="false" onAction="#showGood" text="显示商品信息" />
+      <TextField fx:id="GoodsName" layoutX="502.0" layoutY="672.0" prefHeight="20.0" prefWidth="69.0" />
+      <TextField fx:id="GoodsModel" layoutX="584.0" layoutY="672.0" prefHeight="20.0" prefWidth="69.0" />
+      <TextField fx:id="GoodsNum" layoutX="664.0" layoutY="672.0" prefHeight="20.0" prefWidth="69.0" />
+      <TextField fx:id="GoodsBP" layoutX="746.0" layoutY="672.0" prefHeight="20.0" prefWidth="69.0" />
+      <TextField fx:id="GoodsRP" layoutX="827.0" layoutY="672.0" prefHeight="20.0" prefWidth="69.0" />
+      <Label layoutX="521.0" layoutY="639.0" text="名称" />
+      <Label layoutX="604.0" layoutY="639.0" text="型号" />
+      <Label layoutX="669.0" layoutY="639.0" text="库存数量" />
+      <Label layoutX="765.0" layoutY="639.0" text="进价" />
+      <Label layoutX="839.0" layoutY="639.0" text="零售价" />
    </children>
 </AnchorPane>
