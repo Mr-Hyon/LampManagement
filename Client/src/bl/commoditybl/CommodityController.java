@@ -55,6 +55,11 @@ public class CommodityController implements CommodityBLService{
 	public ArrayList<CommodityVO> showByType(String type) throws RemoteException {
 		return commodity.showByType(type);
 	}
+	
+	@Override
+	public ArrayList<CommodityVO> showSort() throws RemoteException {
+		return commodity.showSort();
+	}
 
 	@Override
 	public ResultMessage check() throws RemoteException {
