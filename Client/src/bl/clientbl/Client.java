@@ -29,6 +29,15 @@ public class Client {
 		}
 		return list2;
 	}
+	//find client by name
+	public ArrayList<ClientVO> findbyName(String name) throws RemoteException{
+		List<ClientPO> list1 = (java.util.List<ClientPO>) RemoteHelper.getInstance().getClientDataService().findClientByName(name);
+		ArrayList<ClientVO> list2 = new ArrayList<ClientVO>();
+		for(int i = 0;i<list1.size();i++){
+			list2.add(toClientVO(list1.get(i)));
+		}
+		return list2;
+	}
 	//find client by keyword
 	public ArrayList<ClientVO> findbyString(String str) throws RemoteException{
 		List<ClientPO> list1 = (java.util.List<ClientPO>) RemoteHelper.getInstance().getClientDataService().findClientByKeyWord(str);

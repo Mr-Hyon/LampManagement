@@ -83,8 +83,8 @@ public class Payment {
 		FundInfo fundinfo = new FundInfo(vo.getAccountName(),Double.parseDouble(vo.getCash()),vo.getOther());
 		list.add(fundinfo);
 		Client client = new Client();
-		ClientVO supplierVO = client.findbyID(vo.getSupplierName()).get(0);
-		ClientVO salesmanVO = client.findbyID(vo.getSalesmanName()).get(0);
+		ClientVO supplierVO = client.findbyName(vo.getSupplierName()).get(0);
+		ClientVO salesmanVO = client.findbyName(vo.getSalesmanName()).get(0);
 		User operator = new User();
 		UserVO userVO = operator.findUser(vo.getOperatorName());
 		Account account = new Account();
