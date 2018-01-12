@@ -30,5 +30,4 @@ public class Loginui {
 		new Loginui();
 		LoginStage.show();
 	}
-
 }

@@ -5,7 +5,7 @@ import javafx.beans.property.SimpleStringProperty;
 public class ClientVO {
 	
 	private SimpleStringProperty clientId;		//客户编号
-	private SimpleStringProperty clientType;	//客户类型(供货商supplier销售商salesman)
+	private SimpleStringProperty clientType;	//客户类型(供货商supplier销售商buyer)
 	private SimpleStringProperty clientLevel;	//客户等级(从1到5)
 	private SimpleStringProperty clientName;	//客户名称
 	private SimpleStringProperty clientContact;	//客户电话

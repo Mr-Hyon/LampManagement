@@ -64,6 +64,8 @@ public class AccountController {
 			new AccountVO("third","1111")
 			);
 	
+	ObservableList<AccountVO> transfer=FXCollections.observableArrayList();
+	
 	public void changeData(int index,AccountVO vo){
 		data.set(index, vo);
 	}
@@ -81,18 +83,25 @@ public class AccountController {
 	}
 	
 	public void SearchAccount(){
+		transfer.clear();
 		String key=keyWords.getText();
-		int size=data.size();
-		ObservableList<AccountVO> transfer=FXCollections.observableArrayList();
-		for(int i=0;i<size;i++){
-			AccountVO temp=data.get(i);
-			if(temp.getAccountName().indexOf(key)>=0){
-				transfer.add(temp);
-			}
+		if(key.equals("")){
+			Alert alert=new Alert(Alert.AlertType.WARNING,"关键字不能为空");
+			alert.showAndWait();
+			keyWords.clear();
 		}
-		AccountShowController.setData(transfer);
-		AccountShowui.show();
-		keyWords.clear();
+		else{
+			int size=data.size();
+			for(int i=0;i<size;i++){
+				AccountVO temp=data.get(i);
+				if(temp.getAccountName().indexOf(key)>=0){
+					transfer.add(temp);
+				}
+			}
+			AccountShowController.setData(transfer);
+			AccountShowui.show();
+			keyWords.clear();
+		}
 	}
 	
 	public void ReturntoMainmenu(){
@@ -163,8 +172,18 @@ public class AccountController {
 			AccountVO vo=AccountInputui.show();
 			if(AccountInputui.getAccess()){
 				AccountVO sample=data.get(index);
-				sample.setAccountName(vo.getAccountName());
-				data.set(index, sample);
+				ResultMessage rm = accountBLService.updateName(sample,vo.getAccountName());
+				if(rm==ResultMessage.SUCCESS){
+					Alert information=new Alert(Alert.AlertType.INFORMATION,"修改成功");
+					information.showAndWait();
+					sample.setAccountName(vo.getAccountName());
+					data.set(index, sample);
+				}
+				else if(rm==ResultMessage.FAILED){
+					Alert information=new Alert(Alert.AlertType.INFORMATION,"修改失败");
+					information.showAndWait();
+					//System.out.println(vo.getAccountName()+" "+vo.getAccountCash());
+				}
 			}
 		}
 		else{

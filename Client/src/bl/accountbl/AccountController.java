@@ -24,6 +24,11 @@ public class AccountController implements AccountBLService{
 	public ResultMessage update(AccountVO vo) throws RemoteException{
 		return account.update(vo);
 	}
+	
+	@Override
+	public ResultMessage updateName(AccountVO vo, String name) throws RemoteException{
+		return account.updateName(vo,name);
+	}
 
 	@Override
 	public ArrayList<AccountVO> findByKeyword(String str) throws RemoteException{
