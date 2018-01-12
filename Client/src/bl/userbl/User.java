@@ -26,6 +26,10 @@ public class User {
 			return ResultMessage.FAILED;
 		}
 	}
+	//find user by name
+	public UserVO findUser(String name) throws RemoteException{
+		return toUserVO(RemoteHelper.getInstance().getUserDataService().findUser(name));
+	}
 	//login
 	public ResultMessage login(String id,String password,String type) throws RemoteException{
 		UserPO userPO = RemoteHelper.getInstance().getUserDataService().findUser(id);
