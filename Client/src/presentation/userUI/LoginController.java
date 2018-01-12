@@ -41,7 +41,7 @@ public class LoginController {
 	ChoiceBox identity;
 	public static Object Identity;
 	
-	public String CurrentUser;
+	public static String CurrentUser;
 	
 	UserBLService userBLService = BLServiceFactory.getUserBLService();
 	

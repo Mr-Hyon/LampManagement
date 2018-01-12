@@ -1,14 +1,17 @@
 package bl.commoditybl;
 
 import java.rmi.RemoteException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
 import common.feedback;
 import po.CommodityPO.ClassificationPO;
+import po.CommodityPO.CommodityBillPO;
 import po.CommodityPO.GoodsPO;
 import rmi.RemoteHelper;
 import util.ResultMessage;
+import vo.CommodityBillVO;
 import vo.CommodityTypeVO;
 import vo.CommodityVO;
 
@@ -94,21 +97,43 @@ public class Commodity {
 		}
 		return list2;
 	}
-	public ResultMessage check() throws RemoteException{
-		return null;
+	//show all types
+	public ArrayList<CommodityTypeVO> showSort() throws RemoteException{
+		List<ClassificationPO> list1 = (java.util.List<ClassificationPO>) RemoteHelper.getInstance().getClassificationDataService().showSort();
+		ArrayList<CommodityTypeVO> list2 = new ArrayList<CommodityTypeVO>();
+		for(int i = 0;i<list1.size();i++){
+			list2.add(toCommodityTypeVO(list1.get(i)));
+		}
+		return list2;
 	}
-	public ResultMessage sendGift(CommodityVO vo) throws RemoteException{
-		return null;
+	//add warning bill
+	public ResultMessage addCommodityBill(CommodityBillVO vo) throws RemoteException{
+		if(RemoteHelper.getInstance().getCommodityDataService().addCommodityBill(toCommodityBillPO(vo))==feedback.Success){
+			return ResultMessage.SUCCESS;
+		}
+		else{
+			return ResultMessage.FAILED;
+		}
 	}
-	public ResultMessage analysis(long goodNum) throws RemoteException{
-		return null;
+	//show all warning bills
+	public ArrayList<CommodityBillVO> showCommodityBill() throws RemoteException{
+		List<CommodityBillPO> list1 = (java.util.List<CommodityBillPO>) RemoteHelper.getInstance().getCommodityDataService().getCommodityBill();
+		ArrayList<CommodityBillVO> list2 = new ArrayList<CommodityBillVO>();
+		for(int i = 0;i<list1.size();i++){
+			list2.add(toCommodityBillVO(list1.get(i)));
+		}
+		return list2;
 	}
-	public ResultMessage setWarningValue(long goodNum) throws RemoteException{
-		return null;
+	//get warning bills by time
+	public ArrayList<CommodityBillVO> getCommodityBill(String startDate,String endDate) throws RemoteException, ParseException{
+		List<CommodityBillPO> list1 = (java.util.List<CommodityBillPO>) RemoteHelper.getInstance().getCommodityDataService().getCommodityList(startDate,endDate);
+		ArrayList<CommodityBillVO> list2 = new ArrayList<CommodityBillVO>();
+		for(int i = 0;i<list1.size();i++){
+			list2.add(toCommodityBillVO(list1.get(i)));
+		}
+		return list2;
 	}
-	public ResultMessage warning(){
-		return null;
-	}
+	
 	//transform CommodityTypeVO into ClassificationPO
 	public static ClassificationPO toClassificationPO(CommodityTypeVO vo){
 		ClassificationPO classificationPO = new ClassificationPO(vo.getTypeName(),vo.getUpperTypeName());
@@ -127,6 +152,20 @@ public class Commodity {
 	//transform GoodsPO into CommodityVO
 	public static CommodityVO toCommodityVO(GoodsPO po){
 		CommodityVO commodityVO = new CommodityVO(po.getId()+"",po.getName(),po.getType(),po.getNum()+"",po.getPurPrice()+"",po.getSalePrice()+"");
+		commodityVO.setType(new CommodityTypeVO(null,null,po.getClassification()));
 		return commodityVO;
+	}
+	//transform CommodityBillVO into CommodityBillPO
+	public static CommodityBillPO toCommodityBillPO(CommodityBillVO vo){
+		List<GoodsPO> list= new ArrayList<GoodsPO>();
+		GoodsPO goodsPO = toGoodsPO(vo.getGood());
+		list.add(goodsPO);
+		CommodityBillPO commodityBillPO = new CommodityBillPO(vo.getDate(),vo.getType(),list);
+		return commodityBillPO;
+	}
+	//transform CommodityBillPO into CommodityBillVO
+	public static CommodityBillVO toCommodityBillVO(CommodityBillPO po){
+		CommodityBillVO commodityBillVO = new CommodityBillVO(po.getBillID(),po.getDate(),po.getType(),toCommodityVO(po.getGoodsList().get(0)));
+		return commodityBillVO;
 	}
 }

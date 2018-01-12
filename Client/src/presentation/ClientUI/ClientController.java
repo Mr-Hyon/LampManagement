@@ -60,7 +60,7 @@ public class ClientController {
 	@FXML
 	private MenuButton Menu;
 	
-	/*ClientBLService ClientBLService = BLServiceFactory.getClientBLService();
+	ClientBLService ClientBLService = BLServiceFactory.getClientBLService();
 	private ObservableList<ClientVO> data=FXCollections.observableArrayList(
 			new ClientVO("001","Supplier", "1", "admin", "tele","Addr","210046", "e-m", null, null),
 			new ClientVO("102","Buyer", "3", "acfun", "tele","Addr","210046", "e-m",null, null),
@@ -72,16 +72,16 @@ public class ClientController {
 		data.set(index, vo);
 	}
 	public void initialize() throws RemoteException{
-		data.clear();
+		//data.clear();
 		ArrayList<ClientVO> ClientList=ClientBLService.show();
 		for(int i=0;i<ClientList.size();i++){
 			data.add(ClientList.get(i));
 		}
 		ShowClientMes.setEditable(true);
-		ClientID.setCellValueFactory(new PropertyValueFactory<>("ClientID"));
-		ClientName.setCellValueFactory(new PropertyValueFactory<>("ClientName"));
+		ClientID.setCellValueFactory(new PropertyValueFactory<>("clientId"));
+		ClientName.setCellValueFactory(new PropertyValueFactory<>("clientName"));
 		ShowClientMes.setItems(data);
-	}*/
+	}
 	public void ShowUser(){
 		Label1.setText("您好！YYY");
 	}

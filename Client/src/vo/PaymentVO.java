@@ -11,19 +11,13 @@ public class PaymentVO {
 	private final SimpleStringProperty other;			//备注
 	private final SimpleStringProperty totalCash;		//总额汇总
 	
-	private AccountVO account;						//账户
-	private UserVO operator;							//操作员
-	
-	public PaymentVO(String id,UserVO operator,AccountVO account,String cash,String other,String totalCash){
+	public PaymentVO(String id,String operator,String account,String cash,String other,String totalCash){
 		this.id=new SimpleStringProperty(id);
-		this.operatorName=new SimpleStringProperty(operator.getUserName());
-		this.accountName=new SimpleStringProperty(account.getAccountName());
+		this.operatorName=new SimpleStringProperty(operator);
+		this.accountName=new SimpleStringProperty(account);
 		this.cash=new SimpleStringProperty(cash);
 		this.other=new SimpleStringProperty(other);
 		this.totalCash=new SimpleStringProperty(totalCash);
-		
-		this.account=account;
-		this.operator=operator;
 	}
 	
 	public String getId(){
@@ -72,24 +66,6 @@ public class PaymentVO {
 	
 	public void setTotalCash(String cash){
 		totalCash.set(cash);
-	}
-	
-	public UserVO getOperator(){
-		return operator;
-	}
-	
-	public void setOperator(UserVO operator){
-		this.operator=operator;
-		operatorName.set(operator.getUserName());
-	}
-	
-	public AccountVO getAccount(){
-		return account;
-	}
-	
-	public void setAccount(AccountVO account){
-		this.account=account;
-		accountName.set(account.getAccountName());
 	}
 
 }

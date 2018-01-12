@@ -19,6 +19,11 @@ public class UserController implements UserBLService{
 	}
 
 	@Override
+	public UserVO findUser(String name) throws RemoteException {
+		return user.findUser(name);
+	}
+	
+	@Override
 	public ResultMessage login(String id, String password, String type) throws RemoteException {
 		return user.login(id, password,type);
 	}

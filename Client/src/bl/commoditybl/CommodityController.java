@@ -1,9 +1,11 @@
 package bl.commoditybl;
 
 import java.rmi.RemoteException;
+import java.text.ParseException;
 import java.util.ArrayList;
 
 import blservice.commodityblservice.CommodityBLService;
+import vo.CommodityBillVO;
 import util.ResultMessage;
 import vo.CommodityTypeVO;
 import vo.CommodityVO;
@@ -55,30 +57,24 @@ public class CommodityController implements CommodityBLService{
 	public ArrayList<CommodityVO> showByType(String type) throws RemoteException {
 		return commodity.showByType(type);
 	}
-
+	
 	@Override
-	public ResultMessage check() throws RemoteException {
-		return commodity.check();
+	public ArrayList<CommodityTypeVO> showSort() throws RemoteException {
+		return commodity.showSort();
 	}
 
 	@Override
-	public ResultMessage sendGift(CommodityVO vo) throws RemoteException {
-		return commodity.sendGift(vo);
+	public ResultMessage addCommodityBill(CommodityBillVO vo) throws RemoteException {
+		return commodity.addCommodityBill(vo);
 	}
 
 	@Override
-	public ResultMessage analysis(long goodNum) throws RemoteException {
-		return commodity.analysis(goodNum);
+	public ArrayList<CommodityBillVO> showCommodityBill() throws RemoteException {
+		return commodity.showCommodityBill();
 	}
-
+	
 	@Override
-	public ResultMessage setWarningValue(long goodNum) throws RemoteException {
-		return commodity.setWarningValue(goodNum);
+	public ArrayList<CommodityBillVO> getCommodityBill(String startDate,String endDate) throws RemoteException, ParseException {
+		return commodity.getCommodityBill(startDate,endDate);
 	}
-
-	@Override
-	public ResultMessage warning() {
-		return commodity.warning();
-	}
-
 }

@@ -148,7 +148,7 @@ public class GoodsData implements GoodsDataService{
 		session = factory.openSession();
 		transaction = session.beginTransaction();
 		
-		List<GoodsPO> goodsList = session.createCriteria(GoodsPO.class).add(Restrictions.eq("sort", sort)).list();
+		List<GoodsPO> goodsList = session.createCriteria(GoodsPO.class).add(Restrictions.eq("classification", sort)).list();
 		transaction.commit();
 		session.close();
 		factory.close();

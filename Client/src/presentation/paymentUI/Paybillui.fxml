@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="693.0" prefWidth="1007.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.paymentUI.PaymentController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="693.0" prefWidth="1007.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.paymentUI.PaybillController">
    <children>
       <Label layoutX="108.0" layoutY="76.0" text="付款单编号：">
          <font>
@@ -47,7 +47,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="currentUser" layoutX="213.0" layoutY="589.0" text="当前用户">
+      <Label fx:id="Operator" layoutX="213.0" layoutY="589.0" text="当前用户">
          <font>
             <Font size="20.0" />
          </font>
