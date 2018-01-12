@@ -59,7 +59,7 @@ public class Purchase {
 	//transform purchaseVO into purchasebillPO
 	public PurchaseBillPO toPurchaseBillPO(PurchaseVO vo){
 		List<GoodInfo> list = new ArrayList<GoodInfo>();
-		GoodInfo goodinfo = new GoodInfo(vo.getNameofGoods(),vo.getModel(),vo.getNumber(),Double.parseDouble(vo.getPrice()),vo.getSum2());
+		GoodInfo goodinfo = new GoodInfo(vo.getNameofGoods(),vo.getModel(),vo.getNumber(),Double.parseDouble(vo.getPrice()),vo.getSum2(),vo.getNote2());
 		list.add(goodinfo);
 		PurchaseBillPO purchasebillPO = new PurchaseBillPO(null,vo.getIdofGoods(),vo.getSupplier(),vo.getStorage(),null,vo.getOperator().getUserName(),list,vo.getNote1(),vo.getSum1());
 		return purchasebillPO;

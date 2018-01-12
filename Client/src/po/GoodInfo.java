@@ -16,14 +16,6 @@ public class GoodInfo implements Serializable{
 	private double totalPrice;
 	private String remark;
 	
-	public GoodInfo(String name,String type,double amount,double price,double totalPrice){
-		this.name=name;
-		this.type=type;
-		this.amount=amount;
-		this.price=price;
-		this.totalPrice=totalPrice;
-	}
-	
 	public GoodInfo(String name,String type,double amount,double price,double totalPrice,String remark){
 		this.name=name;
 		this.type=type;
