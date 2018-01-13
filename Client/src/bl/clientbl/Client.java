@@ -21,22 +21,14 @@ public class Client {
 		}
 	}
 	//find client by ID
-	public ArrayList<ClientVO> findbyID(String ID) throws RemoteException{
-		List<ClientPO> list1 = (java.util.List<ClientPO>) RemoteHelper.getInstance().getClientDataService().findClientById(Integer.parseInt(ID));
-		ArrayList<ClientVO> list2 = new ArrayList<ClientVO>();
-		for(int i = 0;i<list1.size();i++){
-			list2.add(toClientVO(list1.get(i)));
-		}
-		return list2;
+	public ClientVO findbyID(String ID) throws RemoteException{
+		ClientVO clientVO = toClientVO(RemoteHelper.getInstance().getClientDataService().findClientById(Integer.parseInt(ID)));
+		return clientVO;
 	}
 	//find client by name
-	public ArrayList<ClientVO> findbyName(String name) throws RemoteException{
-		List<ClientPO> list1 = (java.util.List<ClientPO>) RemoteHelper.getInstance().getClientDataService().findClientByName(name);
-		ArrayList<ClientVO> list2 = new ArrayList<ClientVO>();
-		for(int i = 0;i<list1.size();i++){
-			list2.add(toClientVO(list1.get(i)));
-		}
-		return list2;
+	public ClientVO findbyName(String name) throws RemoteException{
+		ClientVO clientVO = toClientVO(RemoteHelper.getInstance().getClientDataService().findClientByName(name));
+		return clientVO;
 	}
 	//find client by keyword
 	public ArrayList<ClientVO> findbyString(String str) throws RemoteException{

@@ -36,7 +36,7 @@ public class AccountController implements AccountBLService{
 	}
 
 	@Override
-	public ArrayList<AccountVO> findByName(String name) throws RemoteException{
+	public AccountVO findByName(String name) throws RemoteException{
 		return account.findByName(name);
 	}
 
