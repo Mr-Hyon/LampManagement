@@ -30,8 +30,8 @@ public class CollectionPO implements Serializable{
 	
 	public CollectionPO(String billID,ClientPO supplier,ClientPO salesman,UserPO operator,AccountPO bank,double amount,List<FundInfo> list){
 		this.billID=billID;
-		this.supplier=supplier;
-		this.salesman=salesman;
+		//this.supplier=supplier;
+		//this.salesman=salesman;
 		this.bank=bank;
 		this.operator=operator;
 		this.totalAmount=amount;
@@ -58,7 +58,7 @@ public class CollectionPO implements Serializable{
     	this.billID=id;
     }
     
-    @ManyToOne(fetch=FetchType.LAZY)
+   /* @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="supplierID")
     public ClientPO getSupplier(){
     	return supplier;
@@ -76,7 +76,7 @@ public class CollectionPO implements Serializable{
     
     public void setSalesman(ClientPO po){
     	this.salesman=po;
-    }
+    }*/
     
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="operatorID")

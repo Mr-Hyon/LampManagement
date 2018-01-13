@@ -20,7 +20,7 @@ public class PaymentPO implements Serializable{
 	private String billID;
 	private String type;
 	private String client;
-	private AccountPO bank;
+
 	private UserPO operator;
 	private double totalAmount;
 	private List<TransferInfo> transferList;
@@ -29,7 +29,7 @@ public class PaymentPO implements Serializable{
 	
 	public PaymentPO(String billID,UserPO operator,AccountPO bank,List<TransferInfo> transferList,double total){
 		this.billID=billID;
-		this.bank=bank;
+		//this.bank=bank;
 		this.operator=operator;
 		this.totalAmount=total;
 		this.transferList=transferList;
@@ -73,7 +73,7 @@ public class PaymentPO implements Serializable{
 		this.client=po;
 	}
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	/*@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="bankID")
     public AccountPO getBank(){
     	return bank;
@@ -81,7 +81,7 @@ public class PaymentPO implements Serializable{
     
     public void setBank(AccountPO bank){
     	this.bank=bank;
-    }
+    }*/
 	
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="operatorID")
@@ -130,8 +130,5 @@ public class PaymentPO implements Serializable{
 		this.date = date;
 	}
 
-//	public String toString(){
-//		return
-//	}
 }
 
