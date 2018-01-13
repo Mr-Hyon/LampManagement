@@ -16,6 +16,7 @@ import blservice.clientblservice.ClientBLService;
 import presentation.BLFactory.BLServiceFactory;
 import presentation.accountUI.AccountShowController;
 import presentation.accountUI.AccountShowui;
+import presentation.userUI.LoginController;
 import presentation.userUI.Loginui;
 import presentation.userUI.SalesmanUI;
 import util.ResultMessage;
@@ -68,23 +69,17 @@ public class ClientController {
 			);
 	ObservableList<ClientVO> transfer=FXCollections.observableArrayList();
 	
-	public void changeData(int index,ClientVO vo){
-		data.set(index, vo);
-	}
 	public void initialize() throws RemoteException{
-		//data.clear();
+		data.clear();
 		ArrayList<ClientVO> ClientList=ClientBLService.show();
 		for(int i=0;i<ClientList.size();i++){
 			data.add(ClientList.get(i));
 		}
 		ShowClientMes.setEditable(true);
-		ClientID.setCellValueFactory(new PropertyValueFactory<>("clientID"));
 		ClientID.setCellValueFactory(new PropertyValueFactory<>("clientId"));
 		ClientName.setCellValueFactory(new PropertyValueFactory<>("clientName"));
 		ShowClientMes.setItems(data);
-	}
-	public void ShowUser(){
-		Label1.setText("您好！YYY");
+		Label1.setText("您好！"+LoginController.CurrentUser);
 	}
 
 	public void ShowMessage(ActionEvent event){

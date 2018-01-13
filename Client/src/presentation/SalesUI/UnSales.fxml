@@ -37,7 +37,7 @@
       <Label layoutX="423.0" layoutY="426.0" text="备注：" />
       <TextField fx:id="Note2" layoutX="506.0" layoutY="421.0" />
       <Button fx:id="BacktoMain" layoutX="693.0" layoutY="486.0" mnemonicParsing="false" onAction="#BacktoMain" prefHeight="37.0" prefWidth="105.0" text="返回主界面" />
-      <Label layoutX="693.0" layoutY="4.0" text="您好！XXX" />
+      <Label fx:id="Label" layoutX="693.0" layoutY="4.0" text="您好！XXX" />
       <Label layoutX="419.0" layoutY="88.0" text="业务员：" />
       <TextField fx:id="Businessman" layoutX="506.0" layoutY="83.0" />
       <Label layoutX="248.0" layoutY="180.0" text="折让：" />
