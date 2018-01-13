@@ -64,6 +64,12 @@ public class SalesVO {
 	public void setBuyer(String Buyer){
 		this.Buyer.set(Buyer);
 	}
+	public String getOperator(){
+		return Operator.get();
+	}
+	public void setOperator(String Operator){
+		this.Operator.set(Operator);
+	}
 	public String getStorage() {
 		return Storage.get();
 	}
