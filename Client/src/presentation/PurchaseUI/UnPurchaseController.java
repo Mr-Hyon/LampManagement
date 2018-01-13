@@ -3,20 +3,24 @@ package presentation.PurchaseUI;
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import blservice.accountblservice.AccountBLService;
 import blservice.clientblservice.ClientBLService;
+import blservice.commodityblservice.CommodityBLService;
 import blservice.paymentblservice.PaymentBLService;
 import blservice.purchaseblservice.PurchaseBLService;
 import presentation.userUI.LoginController;
 import presentation.userUI.Loginui;
 import presentation.userUI.SalesmanUI;
 import util.ResultMessage;
+import vo.CommodityVO;
 import vo.PurchaseVO;
 import presentation.BLFactory.BLServiceFactory;
 import presentation.PurchaseUI.PurchaseUI;
 import presentation.SalesUI.SalesUI;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -73,16 +77,26 @@ public class UnPurchaseController {
 	private Button logout;
 	@FXML
 	private Label id;
+	CommodityBLService commodityBLService=BLServiceFactory.getCommodityBLService();
 	PurchaseBLService purchaseBLService=BLServiceFactory.getPurchaseBLService();
-	public void initialize(){
+	public void initialize() throws RemoteException{
 		Operator.setText(LoginController.CurrentUser);
 		SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd-HHmmss");
 		String Id=df.format(new Date());
 		Id="JHTHD-"+Id;
 		NumberofDoc.setText(Id);
-		NameofGoods.setItems(FXCollections.observableArrayList("商品1","商品2","商品3"));
-		NameofGoods.getSelectionModel().select(0);
 		id.setText("您好！"+LoginController.CurrentUser);
+		ArrayList<CommodityVO> accountList=commodityBLService.show();
+		ArrayList<String> goodsname = null;
+		for(int i=0;i<accountList.size();i++)
+			goodsname.add(accountList.get(i).getGoodName());
+		NameofGoods.setItems(FXCollections.observableArrayList(goodsname));
+		NameofGoods.getSelectionModel().select(0);
+		NameofGoods.getSelectionModel().selectedIndexProperty().addListener((ObservableValue<? extends Number> ov, Number old_val, Number new_val)->{  
+			IDofGoods.setText(accountList.get(new_val.intValue()).getGoodId());
+			Xinghao.setText(accountList.get(new_val.intValue()).getGoodModel());
+			PriceofGoods.setText(accountList.get(new_val.intValue()).getGoodBuyPrice());
+		});
 	}
 	public void BacktoMain(ActionEvent event){
 		UnPurchaseUI.hide();
@@ -98,7 +112,7 @@ public class UnPurchaseController {
 		    warning.showAndWait();
 		}
 		PurchaseVO vo=new PurchaseVO(NumberofDoc.getText(), NameofClient.getText(), Operator.getText(), Storage.getText(), Double.parseDouble(Sum.getText()), Note1.getText(), IDofGoods.getText(), NameofGoods.getValue().toString(), Xinghao.getText(), Integer.parseInt(NumberofGoods.getText()), PriceofGoods.getText(), Double.parseDouble(Sum2.getText()), Note2.getText());
-		ResultMessage rm=purchaseBLService.addPurchase(vo);
+		ResultMessage rm=purchaseBLService.addRefunds(vo);
 		
 		if(rm==ResultMessage.SUCCESS){
 			Alert information=new Alert(Alert.AlertType.INFORMATION,"制定成功");

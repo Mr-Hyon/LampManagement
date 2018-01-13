@@ -3,15 +3,19 @@ package presentation.SalesUI;
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
+import blservice.commodityblservice.CommodityBLService;
 import blservice.salesblservice.SalesBLService;
 import presentation.BLFactory.BLServiceFactory;
 import presentation.userUI.LoginController;
 import presentation.userUI.Loginui;
 import presentation.userUI.SalesmanUI;
 import util.ResultMessage;
+import vo.CommodityVO;
 import vo.SalesVO;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -76,15 +80,25 @@ public class UnSalesController {
 	@FXML
 	private Label Label;
 	SalesBLService salesBLService = BLServiceFactory.getSalesBLService();
-	public void initialize(){
+	CommodityBLService commodityBLService = BLServiceFactory.getCommodityBLService();
+	public void initialize() throws RemoteException{
 		Operator.setText(LoginController.CurrentUser);
 		SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd-HHmmss");
 		String id=df.format(new Date());
 		id="XSTHD-"+id;
 		NumberofDoc.setText(id);
-		NameofGoods.setItems(FXCollections.observableArrayList("商品1","商品2","商品3"));
+		ArrayList<CommodityVO> accountList=commodityBLService.show();
+		ArrayList<String> goodsname = null;
+		for(int i=0;i<accountList.size();i++)
+			goodsname.add(accountList.get(i).getGoodName());
+		NameofGoods.setItems(FXCollections.observableArrayList(goodsname));
 		NameofGoods.getSelectionModel().select(0);
 		Label.setText("您好！"+LoginController.CurrentUser);
+		NameofGoods.getSelectionModel().selectedIndexProperty().addListener((ObservableValue<? extends Number> ov, Number old_val, Number new_val)->{  
+			IDofGoods.setText(accountList.get(new_val.intValue()).getGoodId());
+			Xinghao.setText(accountList.get(new_val.intValue()).getGoodModel());
+			PriceofGoods.setText(accountList.get(new_val.intValue()).getGoodBuyPrice());
+        });;
 	}
 	public void BacktoMain(ActionEvent event){
 		UnSalesUI.hide();
@@ -101,7 +115,7 @@ public class UnSalesController {
 		}	
 		else{
 			SalesVO vo=new SalesVO(NumberofDoc.getText(), NameofClient.getText(),Businessman.getText(), Operator.getText(), Storage.getText(), Double.parseDouble(Sum.getText()),Double.parseDouble(Discount.getText()),Double.parseDouble(DiscountUsed.getText()),Double.parseDouble(SumAfterDiscount.getText()), Note1.getText(), IDofGoods.getText(), NameofGoods.getValue().toString(), Xinghao.getText(), Integer.parseInt(NumberofGoods.getText()), Double.parseDouble(PriceofGoods.getText()), Double.parseDouble(Sum2.getText()), Note2.getText());
-		ResultMessage rm=salesBLService.addSales(vo);
+		ResultMessage rm=salesBLService.addRefunds(vo);
 		
 		if(rm==ResultMessage.SUCCESS){
 			Alert information=new Alert(Alert.AlertType.INFORMATION,"制定成功");
