@@ -135,19 +135,17 @@ public class ClientController {
 		}
 	}
 	public void BacktoMain(ActionEvent event){
-		System.out.println("Button Clicked 5!");
 		SalesmanUI.show();
 		ClientUI.hide();
 	}
 	public void Find(ActionEvent event){
-		System.out.println("Button Clicked 6!");
 		ClientFindUI cf=new ClientFindUI();
 		cf.setUp();
 		ClientUI.hide();
 	}
 	public void logout(ActionEvent event){
-		System.out.println("Button Clicked 7!");
 		ClientUI.hide();
 		Loginui.show();
 	}
+	
 }
