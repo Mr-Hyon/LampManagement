@@ -1,7 +1,9 @@
 package presentation.commodityUI;
 
 import java.rmi.RemoteException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import blservice.commodityblservice.CommodityBLService;
 import javafx.collections.FXCollections;
@@ -15,6 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import presentation.BLFactory.BLServiceFactory;
 import util.ResultMessage;
+import vo.CommodityBillVO;
 import vo.CommodityVO;
 
 public class CommodityAnalyzeController {
@@ -79,16 +82,40 @@ public class CommodityAnalyzeController {
 			RealNum.clear();
 		}
 		else{
+			String type="";	//用来区分是报损还是报溢单
+			int n1=Integer.parseInt(vo.getGoodNum());
+			int n2=Integer.parseInt(num);
 			vo.setGoodNum(num);
-			ResultMessage rm=commodityBLService.update(vo);
-			if(rm==ResultMessage.SUCCESS){
-				Alert alert=new Alert(Alert.AlertType.INFORMATION,"更新成功");
-				alert.showAndWait();
-				data.set(index, vo);
+			if(n1==n2){
+				Alert info=new Alert(Alert.AlertType.INFORMATION,"数量一致，无需更改");
+				info.showAndWait();
 			}
 			else{
-				Alert alert=new Alert(Alert.AlertType.INFORMATION,"更新失败");
-				alert.showAndWait();
+				int delta=0;
+				if(n1>n2){
+					type="Lost";
+					delta=n1-n2;
+				}
+				else{
+					type="Earn";
+					delta=n2-n1;
+				}
+				SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+				String date=sdf.format(new Date());
+				CommodityVO good=new CommodityVO(vo.getGoodId(),vo.getGoodName(),vo.getGoodModel(),vo.getGoodNum(),vo.getGoodBuyPrice(),vo.getGoodRetailPrice());
+				good.setGoodNum(String.valueOf(delta));
+				CommodityBillVO cbv=new CommodityBillVO("0000",date,type,good);
+				
+				ResultMessage rm=commodityBLService.update(vo);
+				if(rm==ResultMessage.SUCCESS){
+					Alert alert=new Alert(Alert.AlertType.INFORMATION,"更新成功");
+					alert.showAndWait();
+					data.set(index, vo);
+				}
+				else{
+					Alert alert=new Alert(Alert.AlertType.INFORMATION,"更新失败");
+					alert.showAndWait();
+				}
 			}
 		}
 	}
