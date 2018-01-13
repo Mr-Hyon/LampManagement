@@ -7,6 +7,7 @@ import java.util.List;
 import bl.accountbl.Account;
 import bl.clientbl.Client;
 import bl.userbl.User;
+import common.BillType;
 import common.feedback;
 import po.PaymentPO.CollectionPO;
 import po.PaymentPO.FundInfo;
@@ -107,6 +108,7 @@ public class Payment {
 		Account account = new Account();
 		AccountVO accountVO = account.findByName(vo.getAccountName());
 		PaymentPO paymentPO = new PaymentPO(vo.getId(),User.toUserPO(userVO),Account.toAccountPO(accountVO),list,Double.parseDouble(vo.getTotalCash()));
+		paymentPO.setType(BillType.PAY);
 		return paymentPO;
 	}
 	//transform paymentPO into paymentVO

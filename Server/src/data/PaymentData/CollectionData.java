@@ -141,9 +141,9 @@ public class CollectionData implements CollectionDataService{
 			CollectionPO bill = list.get(0);
 			CollectionPO po = new CollectionPO();
 			po.setDate(bill.getDate());
-			po.setBank(bill.getBank());
+			//po.setBank(bill.getBank());
 			po.setClausesList(bill.getClausesList());
-			po.setOperator(bill.getOperator());
+			//po.setOperator(bill.getOperator());
 			po.setTotalAmount(-bill.getTotalAmount());
 			po.setState(billstate.PASSED);
 			session.save(po);

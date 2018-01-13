@@ -32,8 +32,8 @@ public class CollectionPO implements Serializable{
 		this.billID=billID;
 		//this.supplier=supplier;
 		//this.salesman=salesman;
-		this.bank=bank;
-		this.operator=operator;
+		//this.bank=bank;
+		//this.operator=operator;
 		this.totalAmount=amount;
 		this.fundsList=list;
 	}
@@ -78,7 +78,7 @@ public class CollectionPO implements Serializable{
     	this.salesman=po;
     }*/
     
-    @ManyToOne(fetch=FetchType.LAZY)
+    /*@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="operatorID")
     public UserPO getOperator(){
     	return operator;
@@ -86,8 +86,9 @@ public class CollectionPO implements Serializable{
     
     public void setOperator(UserPO po){
     	this.operator=po;
-    }
+    }*/
     
+    /*
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="bankID")
     public AccountPO getBank(){
@@ -96,7 +97,7 @@ public class CollectionPO implements Serializable{
     
     public void setBank(AccountPO bank){
     	this.bank=bank;
-    }
+    }*/
     
     @Column(name="totalAmount")
     public double getTotalAmount(){
