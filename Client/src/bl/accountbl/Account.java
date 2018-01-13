@@ -57,11 +57,9 @@ public class Account {
 		return list2;
 	}
 	//find account by name
-	public ArrayList<AccountVO> findByName(String name) throws RemoteException{
-		AccountPO po =  RemoteHelper.getInstance().getAccountDataService().findAccountByName(name);
-		ArrayList<AccountVO> list=new ArrayList();
-		list.add(toAccountVO(po));
-		return list;
+	public AccountVO findByName(String name) throws RemoteException{
+		AccountVO accountVO = toAccountVO(RemoteHelper.getInstance().getAccountDataService().findAccountByName(name));
+		return accountVO;
 	}
 	//show account
 	public ArrayList<AccountVO> show() throws RemoteException{

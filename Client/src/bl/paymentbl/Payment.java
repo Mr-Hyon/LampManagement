@@ -83,12 +83,12 @@ public class Payment {
 		FundInfo fundinfo = new FundInfo(vo.getAccountName(),Double.parseDouble(vo.getCash()),vo.getOther());
 		list.add(fundinfo);
 		Client client = new Client();
-		ClientVO supplierVO = client.findbyName(vo.getSupplierName()).get(0);
-		ClientVO salesmanVO = client.findbyName(vo.getSalesmanName()).get(0);
+		ClientVO supplierVO = client.findbyName(vo.getSupplierName());
+		ClientVO salesmanVO = client.findbyName(vo.getSalesmanName());
 		User operator = new User();
 		UserVO userVO = operator.findUser(vo.getOperatorName());
 		Account account = new Account();
-		AccountVO accountVO = account.findByName(vo.getAccountName()).get(0);
+		AccountVO accountVO = account.findByName(vo.getAccountName());
 		CollectionPO collectionPO = new CollectionPO(vo.getId(),Client.toClientPO(supplierVO),Client.toClientPO(salesmanVO),User.toUserPO(userVO),Account.toAccountPO(accountVO),Double.parseDouble(vo.getTotalCash()),list);
 		return collectionPO;
 	}
@@ -105,7 +105,7 @@ public class Payment {
 		User operator = new User();
 		UserVO userVO = operator.findUser(vo.getOperatorName());
 		Account account = new Account();
-		AccountVO accountVO = account.findByName(vo.getAccountName()).get(0);
+		AccountVO accountVO = account.findByName(vo.getAccountName());
 		PaymentPO paymentPO = new PaymentPO(vo.getId(),User.toUserPO(userVO),Account.toAccountPO(accountVO),list,Double.parseDouble(vo.getTotalCash()));
 		return paymentPO;
 	}
