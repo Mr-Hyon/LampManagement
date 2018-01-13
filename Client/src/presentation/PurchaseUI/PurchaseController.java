@@ -84,11 +84,12 @@ public class PurchaseController {
 	public void initialize(){
 		Operator.setText(LoginController.CurrentUser);
 		SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd-HHmmss");
-		String id=df.format(new Date());
-		id="JHD-"+id;
-		NumberofDoc.setText(id);
+		String Id=df.format(new Date());
+		Id="JHD-"+Id;
+		NumberofDoc.setText(Id);
 		NameofGoods.setItems(FXCollections.observableArrayList("商品1","商品2","商品3"));
 		NameofGoods.getSelectionModel().select(0);
+		id.setText("您好！"+LoginController.CurrentUser);;
 	}
 	public void BacktoMain(ActionEvent event){
 		PurchaseUI.hide();

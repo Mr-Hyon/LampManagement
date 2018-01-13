@@ -73,6 +73,8 @@ public class UnSalesController {
 	private TextField DiscountUsed;
 	@FXML
 	private TextField SumAfterDiscount;
+	@FXML
+	private Label Label;
 	SalesBLService salesBLService = BLServiceFactory.getSalesBLService();
 	public void initialize(){
 		Operator.setText(LoginController.CurrentUser);
@@ -82,6 +84,7 @@ public class UnSalesController {
 		NumberofDoc.setText(id);
 		NameofGoods.setItems(FXCollections.observableArrayList("商品1","商品2","商品3"));
 		NameofGoods.getSelectionModel().select(0);
+		Label.setText("您好！"+LoginController.CurrentUser);
 	}
 	public void BacktoMain(ActionEvent event){
 		UnSalesUI.hide();
