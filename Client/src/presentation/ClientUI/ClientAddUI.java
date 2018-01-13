@@ -16,7 +16,7 @@ public class ClientAddUI {
 		stage=new Stage();
 		FXMLLoader rootLoader = new FXMLLoader();
 		loader=rootLoader;
-		rootLoader.setLocation(getClass().getResource("ClientMes.fxml"));
+		rootLoader.setLocation(getClass().getResource("ClientAdd.fxml"));
 	    Pane root;
 		try {
 			root = rootLoader.load();
