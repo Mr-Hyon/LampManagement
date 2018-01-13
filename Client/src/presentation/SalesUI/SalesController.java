@@ -3,17 +3,22 @@ package presentation.SalesUI;
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import blservice.accountblservice.AccountBLService;
+import blservice.commodityblservice.CommodityBLService;
 import blservice.salesblservice.SalesBLService;
 import presentation.BLFactory.BLServiceFactory;
 import presentation.userUI.LoginController;
 import presentation.userUI.Loginui;
 import presentation.userUI.SalesmanUI;
 import util.ResultMessage;
+import vo.AccountVO;
+import vo.CommodityVO;
 import vo.PurchaseVO;
 import vo.SalesVO;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -78,15 +83,25 @@ public class SalesController {
 	@FXML
 	private Label Label;
 	SalesBLService salesBLService = BLServiceFactory.getSalesBLService();
-	public void initialize(){
+	CommodityBLService commodityBLService = BLServiceFactory.getCommodityBLService();
+	public void initialize() throws RemoteException{
 		Operator.setText(LoginController.CurrentUser);
 		SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd-HHmmss");
 		String id=df.format(new Date());
 		id="XSD-"+id;
 		NumberofDoc.setText(id);
-		NameofGoods.setItems(FXCollections.observableArrayList("商品1","商品2","商品3"));
+		ArrayList<CommodityVO> accountList=commodityBLService.show();
+		ArrayList<String> goodsname = null;
+		for(int i=0;i<accountList.size();i++)
+			goodsname.add(accountList.get(i).getGoodName());
+		NameofGoods.setItems(FXCollections.observableArrayList(goodsname));
 		NameofGoods.getSelectionModel().select(0);
 		Label.setText("您好！"+LoginController.CurrentUser);
+		NameofGoods.getSelectionModel().selectedIndexProperty().addListener((ObservableValue<? extends Number> ov, Number old_val, Number new_val)->{  
+			IDofGoods.setText(accountList.get(new_val.intValue()).getGoodId());
+			Xinghao.setText(accountList.get(new_val.intValue()).getGoodModel());
+			PriceofGoods.setText(accountList.get(new_val.intValue()).getGoodBuyPrice());
+        });;
 	}
 	public void BacktoMain(ActionEvent event){
 		SalesUI.hide();
