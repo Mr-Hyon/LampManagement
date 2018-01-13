@@ -1,9 +1,25 @@
 package presentation.SalesUI;
 
 import java.io.IOException;
+import java.rmi.RemoteException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 
+import blservice.accountblservice.AccountBLService;
+import blservice.commodityblservice.CommodityBLService;
+import blservice.salesblservice.SalesBLService;
+import presentation.BLFactory.BLServiceFactory;
+import presentation.userUI.LoginController;
 import presentation.userUI.Loginui;
 import presentation.userUI.SalesmanUI;
+import util.ResultMessage;
+import vo.AccountVO;
+import vo.CommodityVO;
+import vo.PurchaseVO;
+import vo.SalesVO;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -41,7 +57,7 @@ public class SalesController {
 	@FXML
 	private TextField IDofGoods;
 	@FXML
-	private ChoiceBox NameofGoods;
+	private ChoiceBox<String> NameofGoods;
 	@FXML
 	private TextField Xinghao;
 	@FXML
@@ -64,12 +80,34 @@ public class SalesController {
 	private TextField DiscountUsed;
 	@FXML
 	private TextField SumAfterDiscount;
+	@FXML
+	private Label Label;
+	SalesBLService salesBLService = BLServiceFactory.getSalesBLService();
+	CommodityBLService commodityBLService = BLServiceFactory.getCommodityBLService();
+	public void initialize() throws RemoteException{
+		Operator.setText(LoginController.CurrentUser);
+		SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd-HHmmss");
+		String id=df.format(new Date());
+		id="XSD-"+id;
+		NumberofDoc.setText(id);
+		ArrayList<CommodityVO> accountList=commodityBLService.show();
+		ArrayList<String> goodsname = null;
+		for(int i=0;i<accountList.size();i++)
+			goodsname.add(accountList.get(i).getGoodName());
+		NameofGoods.setItems(FXCollections.observableArrayList(goodsname));
+		NameofGoods.getSelectionModel().select(0);
+		Label.setText("您好！"+LoginController.CurrentUser);
+		NameofGoods.getSelectionModel().selectedIndexProperty().addListener((ObservableValue<? extends Number> ov, Number old_val, Number new_val)->{  
+			IDofGoods.setText(accountList.get(new_val.intValue()).getGoodId());
+			Xinghao.setText(accountList.get(new_val.intValue()).getGoodModel());
+			PriceofGoods.setText(accountList.get(new_val.intValue()).getGoodBuyPrice());
+        });;
+	}
 	public void BacktoMain(ActionEvent event){
-		System.out.println("Button Clicked 5!");
 		SalesUI.hide();
 		SalesmanUI.show();
 	}
-	public void Confirm(ActionEvent event){
+	public void Confirm(ActionEvent event) throws RemoteException{
 		if(NumberofGoods.getText().equals("")){
 			Alert warning=new Alert(Alert.AlertType.WARNING,"商品数量不能为空。");
 		    warning.showAndWait();
@@ -79,6 +117,17 @@ public class SalesController {
 		    warning.showAndWait();
 		}	
 		else{
+			SalesVO vo=new SalesVO(NumberofDoc.getText(), NameofClient.getText(),Businessman.getText(), Operator.getText(), Storage.getText(), Double.parseDouble(Sum.getText()),Double.parseDouble(Discount.getText()),Double.parseDouble(DiscountUsed.getText()),Double.parseDouble(SumAfterDiscount.getText()), Note1.getText(), IDofGoods.getText(), NameofGoods.getValue().toString(), Xinghao.getText(), Integer.parseInt(NumberofGoods.getText()), Double.parseDouble(PriceofGoods.getText()), Double.parseDouble(Sum2.getText()), Note2.getText());
+			ResultMessage rm=salesBLService.addSales(vo);
+			
+			if(rm==ResultMessage.SUCCESS){
+				Alert information=new Alert(Alert.AlertType.INFORMATION,"制定成功");
+				information.showAndWait();
+			}
+			else if(rm==ResultMessage.FAILED){
+				Alert information=new Alert(Alert.AlertType.INFORMATION,"制定失败");
+				information.showAndWait();
+			}
 			SalesUI.hide();
 			SalesmanUI.show();
 		}

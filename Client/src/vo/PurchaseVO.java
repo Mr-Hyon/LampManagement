@@ -21,29 +21,25 @@ public class PurchaseVO {
 	private SimpleDoubleProperty Sum2;          //入库商品总额
 	private SimpleStringProperty Note2;         //入库商品清单备注
 	
-	private ClientVO client;                            //客户
-	private UserVO operator;							//操作员
-	private CommodityVO goods;							//商品
+
 	
-	public PurchaseVO(String PurchaseId,ClientVO client,UserVO operator,String Storage,double Sum1, String Note1,
-			CommodityVO goods,int number, double Sum2,String Note2){
+	public PurchaseVO(String PurchaseId,String Supplier,String operator,String Storage,double Sum1, String Note1,
+			String Idofgoods,String NameofGoods,String Xinghao,int number, String price,double Sum2,String Note2){
 		this.PurchaseId=new SimpleStringProperty(PurchaseId);			
-		this.Supplier=new SimpleStringProperty(client.getClientName());			
-		this.Operator=new SimpleStringProperty(operator.getUserName());		
+		this.Supplier=new SimpleStringProperty(Supplier);			
+		this.Operator=new SimpleStringProperty(operator);		
 		this.Storage=new SimpleStringProperty(Storage);	
 		this.Sum=new SimpleDoubleProperty(Sum1);	
 		this.Note1=new SimpleStringProperty(Note1);			
-		this.IdofGoods=new SimpleStringProperty(goods.getGoodId());	
-		this.NameofGoods=new SimpleStringProperty(goods.getGoodName());	
-		this.Xinghao=new SimpleStringProperty(goods.getGoodModel());	
+		this.IdofGoods=new SimpleStringProperty(Idofgoods);	
+		this.NameofGoods=new SimpleStringProperty(NameofGoods);	
+		this.Xinghao=new SimpleStringProperty(Xinghao);	
 		this.Number=new SimpleIntegerProperty(number);
-		this.Price=new SimpleStringProperty(goods.getGoodBuyPrice());
+		this.Price=new SimpleStringProperty(price);
 		this.Sum2=new SimpleDoubleProperty(Sum2);
 		this.Note2=new SimpleStringProperty(Note2);	
 		
-		this.client=client;
-		this.operator=operator;
-		this.goods=goods;
+
 	}
 	public String getPurchaseId() {
 		return PurchaseId.get();
@@ -56,6 +52,12 @@ public class PurchaseVO {
 	}
 	public void setSupplier(String Supplier){
 		this.Supplier.set(Supplier);
+	}
+	public String getOperator() {
+		return Operator.get();
+	}
+	public void setOperator(String Operator){
+		this.Supplier.set(Operator);
 	}
 	public String getStorage() {
 		return Storage.get();
@@ -118,37 +120,4 @@ public class PurchaseVO {
 	}
 	
 	
-	public ClientVO getClient(){
-		return client;
-	}		
-	public void setClient(ClientVO client){
-		this.client=client;
-		Supplier.set(client.getClientName());
-	}
-	public UserVO getOperator(){
-		return operator;
-	}		
-	public void setOperator(UserVO operator){
-		this.operator=operator;
-		Operator.set(operator.getUserName());
-	}
-	public CommodityVO getCommodity(){
-		return goods;
-	}
-	public void setIdofGoods(CommodityVO goods){
-		this.goods=goods;
-		IdofGoods.set(goods.getGoodId());
-	}
-	public void setNameofGoods(CommodityVO goods){
-		this.goods=goods;
-		NameofGoods.set(goods.getGoodName());
-	}
-	public void setXinghao(CommodityVO goods){
-		this.goods=goods;
-		Xinghao.set(goods.getGoodModel());
-	}
-	public void setPrice(CommodityVO goods){
-		this.goods=goods;
-		Price.set(goods.getGoodBuyPrice());
-	}
 }

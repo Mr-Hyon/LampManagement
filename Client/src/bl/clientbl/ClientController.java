@@ -16,12 +16,12 @@ public class ClientController implements ClientBLService{
 	}
 
 	@Override
-	public ArrayList<ClientVO> findbyID(String ID) throws RemoteException {
+	public ClientVO findbyID(String ID) throws RemoteException {
 		return client.findbyID(ID);
 	}
 	
 	@Override
-	public ArrayList<ClientVO> findbyName(String name) throws RemoteException {
+	public ClientVO findbyName(String name) throws RemoteException {
 		return client.findbyName(name);
 	}
 

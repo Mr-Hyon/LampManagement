@@ -57,13 +57,9 @@ public class Account {
 		return list2;
 	}
 	//find account by name
-	public ArrayList<AccountVO> findByName(String name) throws RemoteException{
-		List<AccountPO> list1 = (java.util.List<AccountPO>) RemoteHelper.getInstance().getAccountDataService().findAccountByName(name);
-		ArrayList<AccountVO> list2 = new ArrayList<AccountVO>();
-		for(int i = 0;i<list1.size();i++){
-			list2.add(toAccountVO(list1.get(i)));
-		}
-		return list2;
+	public AccountVO findByName(String name) throws RemoteException{
+		AccountVO accountVO = toAccountVO(RemoteHelper.getInstance().getAccountDataService().findAccountByName(name));
+		return accountVO;
 	}
 	//show account
 	public ArrayList<AccountVO> show() throws RemoteException{

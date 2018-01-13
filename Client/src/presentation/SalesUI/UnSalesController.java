@@ -1,4 +1,4 @@
-package presentation.PurchaseUI;
+package presentation.SalesUI;
 
 import java.io.IOException;
 import java.rmi.RemoteException;
@@ -6,21 +6,15 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-import blservice.accountblservice.AccountBLService;
-import blservice.clientblservice.ClientBLService;
 import blservice.commodityblservice.CommodityBLService;
-import blservice.paymentblservice.PaymentBLService;
-import blservice.purchaseblservice.PurchaseBLService;
-import blservice.userblservice.UserBLService;
+import blservice.salesblservice.SalesBLService;
+import presentation.BLFactory.BLServiceFactory;
 import presentation.userUI.LoginController;
 import presentation.userUI.Loginui;
 import presentation.userUI.SalesmanUI;
 import util.ResultMessage;
 import vo.CommodityVO;
-import vo.PurchaseVO;
-import presentation.BLFactory.BLServiceFactory;
-import presentation.PurchaseUI.PurchaseUI;
-import presentation.SalesUI.SalesUI;
+import vo.SalesVO;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -37,12 +31,11 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.scene.control.MenuButton;
 
 import javafx.scene.control.ChoiceBox;
 
-public class PurchaseController {
+public class UnSalesController {
 
 	@FXML
 	private Button Confirm;
@@ -61,7 +54,7 @@ public class PurchaseController {
 	@FXML
 	private TextField IDofGoods;
 	@FXML
-	private ChoiceBox<String> NameofGoods;
+	private ChoiceBox NameofGoods;
 	@FXML
 	private TextField Xinghao;
 	@FXML
@@ -77,34 +70,38 @@ public class PurchaseController {
 	@FXML
 	private Button logout;
 	@FXML
-	private Label id;
-	
-	
-	CommodityBLService commodityBLService=BLServiceFactory.getCommodityBLService();
-	PurchaseBLService purchaseBLService=BLServiceFactory.getPurchaseBLService();
-	ClientBLService clientBLService=BLServiceFactory.getClientBLService();
-	
+	private TextField Businessman;
+	@FXML
+	private TextField Discount;
+	@FXML
+	private TextField DiscountUsed;
+	@FXML
+	private TextField SumAfterDiscount;
+	@FXML
+	private Label Label;
+	SalesBLService salesBLService = BLServiceFactory.getSalesBLService();
+	CommodityBLService commodityBLService = BLServiceFactory.getCommodityBLService();
 	public void initialize() throws RemoteException{
 		Operator.setText(LoginController.CurrentUser);
 		SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd-HHmmss");
-		String Id=df.format(new Date());
-		Id="JHD-"+Id;
-		NumberofDoc.setText(Id);
-		id.setText("您好！"+LoginController.CurrentUser);
+		String id=df.format(new Date());
+		id="XSTHD-"+id;
+		NumberofDoc.setText(id);
 		ArrayList<CommodityVO> accountList=commodityBLService.show();
 		ArrayList<String> goodsname = null;
 		for(int i=0;i<accountList.size();i++)
 			goodsname.add(accountList.get(i).getGoodName());
 		NameofGoods.setItems(FXCollections.observableArrayList(goodsname));
 		NameofGoods.getSelectionModel().select(0);
+		Label.setText("您好！"+LoginController.CurrentUser);
 		NameofGoods.getSelectionModel().selectedIndexProperty().addListener((ObservableValue<? extends Number> ov, Number old_val, Number new_val)->{  
 			IDofGoods.setText(accountList.get(new_val.intValue()).getGoodId());
 			Xinghao.setText(accountList.get(new_val.intValue()).getGoodModel());
 			PriceofGoods.setText(accountList.get(new_val.intValue()).getGoodBuyPrice());
-		});
+        });;
 	}
 	public void BacktoMain(ActionEvent event){
-		PurchaseUI.hide();
+		UnSalesUI.hide();
 		SalesmanUI.show();
 	}
 	public void Confirm(ActionEvent event) throws RemoteException{
@@ -115,9 +112,10 @@ public class PurchaseController {
 		if(Integer.parseInt(NumberofGoods.getText())<=0){
 			Alert warning=new Alert(Alert.AlertType.WARNING,"商品数量应为正整数。");
 		    warning.showAndWait();
-		}
-		PurchaseVO vo=new PurchaseVO(NumberofDoc.getText(), NameofClient.getText(), Operator.getText(), Storage.getText(), Double.parseDouble(Sum.getText()), Note1.getText(), IDofGoods.getText(), NameofGoods.getValue().toString(), Xinghao.getText(), Integer.parseInt(NumberofGoods.getText()), PriceofGoods.getText(), Double.parseDouble(Sum2.getText()), Note2.getText());
-		ResultMessage rm=purchaseBLService.addPurchase(vo);
+		}	
+		else{
+			SalesVO vo=new SalesVO(NumberofDoc.getText(), NameofClient.getText(),Businessman.getText(), Operator.getText(), Storage.getText(), Double.parseDouble(Sum.getText()),Double.parseDouble(Discount.getText()),Double.parseDouble(DiscountUsed.getText()),Double.parseDouble(SumAfterDiscount.getText()), Note1.getText(), IDofGoods.getText(), NameofGoods.getValue().toString(), Xinghao.getText(), Integer.parseInt(NumberofGoods.getText()), Double.parseDouble(PriceofGoods.getText()), Double.parseDouble(Sum2.getText()), Note2.getText());
+		ResultMessage rm=salesBLService.addRefunds(vo);
 		
 		if(rm==ResultMessage.SUCCESS){
 			Alert information=new Alert(Alert.AlertType.INFORMATION,"制定成功");
@@ -127,12 +125,12 @@ public class PurchaseController {
 			Alert information=new Alert(Alert.AlertType.INFORMATION,"制定失败");
 			information.showAndWait();
 		}
-		PurchaseUI.hide();
-		SalesmanUI.show();
+			UnSalesUI.hide();
+			SalesmanUI.show();
+		}
 	}
 	public void logout(ActionEvent event){
-		PurchaseUI.hide();
+		UnSalesUI.hide();
 		Loginui.show();
 	}
-	
 }

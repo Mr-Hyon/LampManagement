@@ -5,7 +5,9 @@ package presentation.userUI;
 
 import presentation.ClientUI.ClientUI;
 import presentation.PurchaseUI.PurchaseUI;
+import presentation.PurchaseUI.UnPurchaseUI;
 import presentation.SalesUI.SalesUI;
+import presentation.SalesUI.UnSalesUI;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -34,31 +36,26 @@ public class SalesmanController {
 	@FXML
 	private Button logout;
 	public void Purchase(ActionEvent event){
-		System.out.println("Button Clicked 1!");
 		PurchaseUI pc=new PurchaseUI();
 		pc.setUp();
 		SalesmanUI.hide();
 	}
 	public void Unpurchase(ActionEvent event){
-		System.out.println("Button Clicked 2!");
-		PurchaseUI pc=new PurchaseUI();
-		pc.setUp();
+		UnPurchaseUI upc=new UnPurchaseUI();
+		upc.setUp();
 		SalesmanUI.hide();
 	}
 	public void Sell(ActionEvent event){
-		System.out.println("Button Clicked 3!");
 		SalesUI sc=new SalesUI();
 		sc.setUp();
 		SalesmanUI.hide();
 	}
 	public void Unsell(ActionEvent event){
-		System.out.println("Button Clicked 4!");
-		SalesUI sc=new SalesUI();
-		sc.setUp();
+		UnSalesUI usc=new UnSalesUI();
+		usc.setUp();
 		SalesmanUI.hide();
 	}
 	public void ClientManage(ActionEvent event){
-		System.out.println("Button Clicked 5!");
 		ClientUI cc=new ClientUI();
 		cc.setUp();
 		SalesmanUI.hide();

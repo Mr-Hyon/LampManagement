@@ -16,6 +16,7 @@ import blservice.clientblservice.ClientBLService;
 import presentation.BLFactory.BLServiceFactory;
 import presentation.accountUI.AccountShowController;
 import presentation.accountUI.AccountShowui;
+import presentation.userUI.LoginController;
 import presentation.userUI.Loginui;
 import presentation.userUI.SalesmanUI;
 import util.ResultMessage;
@@ -68,11 +69,8 @@ public class ClientController {
 			);
 	ObservableList<ClientVO> transfer=FXCollections.observableArrayList();
 	
-	public void changeData(int index,ClientVO vo){
-		data.set(index, vo);
-	}
 	public void initialize() throws RemoteException{
-		//data.clear();
+		data.clear();
 		ArrayList<ClientVO> ClientList=ClientBLService.show();
 		for(int i=0;i<ClientList.size();i++){
 			data.add(ClientList.get(i));
@@ -81,37 +79,68 @@ public class ClientController {
 		ClientID.setCellValueFactory(new PropertyValueFactory<>("clientId"));
 		ClientName.setCellValueFactory(new PropertyValueFactory<>("clientName"));
 		ShowClientMes.setItems(data);
-	}
-	public void ShowUser(){
-		Label1.setText("您好！YYY");
+		Label1.setText("您好！"+LoginController.CurrentUser);
 	}
 
 	public void ShowMessage(ActionEvent event){
-		System.out.println("Button Clicked 1!");
+		int index=ShowClientMes.getSelectionModel().getSelectedIndex();
+		if(index>=0){
+			ClientVO client=ShowClientMes.getSelectionModel().getSelectedItem();
+			ClientMesUI cm=new ClientMesUI();
+			cm.setUp(client);
+			ClientUI.hide();
+		}
+		else{
+			Alert warning=new Alert(Alert.AlertType.WARNING,"请选中一个客户进行操作");
+			warning.showAndWait();
+		}
 	}
 	public void AddClient(ActionEvent event){
-		System.out.println("Button Clicked 2!");
+		ClientAddUI ca=new ClientAddUI();
+		ca.setUp();
+		ClientUI.hide();
 	}
-	public void Delete(ActionEvent event){
-		System.out.println("Button Clicked 3!");
+	public void Delete(ActionEvent event) throws RemoteException{
+		int index=ShowClientMes.getSelectionModel().getSelectedIndex();
+		if(index>=0){
+			ClientVO client=ShowClientMes.getSelectionModel().getSelectedItem();
+			ResultMessage rm=ClientBLService.delete(client);
+			if(rm==ResultMessage.SUCCESS){
+				Alert information=new Alert(Alert.AlertType.INFORMATION,"删除成功");
+				information.showAndWait();
+				data.remove(client);
+			}
+		}
+		else{
+			Alert warning=new Alert(Alert.AlertType.WARNING,"请选中一个客户进行操作");
+			warning.showAndWait();
+		}
 	}
 	public void Modify(ActionEvent event){
-		System.out.println("Button Clicked 4!");
+		int index=ShowClientMes.getSelectionModel().getSelectedIndex();
+		if(index>=0){
+			ClientVO client=ShowClientMes.getSelectionModel().getSelectedItem();
+			ClientMesUI cm=new ClientMesUI();
+			cm.setUp(client);
+			ClientUI.hide();
+		}
+		else{
+			Alert warning=new Alert(Alert.AlertType.WARNING,"请选中一个客户进行操作");
+			warning.showAndWait();
+		}
 	}
 	public void BacktoMain(ActionEvent event){
-		System.out.println("Button Clicked 5!");
 		SalesmanUI.show();
 		ClientUI.hide();
 	}
 	public void Find(ActionEvent event){
-		System.out.println("Button Clicked 6!");
 		ClientFindUI cf=new ClientFindUI();
 		cf.setUp();
 		ClientUI.hide();
 	}
 	public void logout(ActionEvent event){
-		System.out.println("Button Clicked 7!");
 		ClientUI.hide();
 		Loginui.show();
 	}
+	
 }
