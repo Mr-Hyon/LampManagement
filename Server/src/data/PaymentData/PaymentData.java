@@ -202,7 +202,7 @@ public class PaymentData implements PaymentDataService{
 			po.setTransferList(bill.getTransferList());
 			po.setClient(bill.getClient());
 			po.setDate(bill.getDate());
-			po.setOperator(bill.getOperator());
+			//po.setOperator(bill.getOperator());
 			po.setType(bill.getType());
 			po.setTotalAmount(-bill.getTotalAmount());
 			po.setState(billstate.PASSED);
@@ -234,7 +234,7 @@ public class PaymentData implements PaymentDataService{
 			bill.setTransferList(po.getTransferList());
 			bill.setClient(po.getClient());
 			bill.setDate(po.getDate());
-			bill.setOperator(po.getOperator());
+			//bill.setOperator(po.getOperator());
 			bill.setType(po.getType());
 			bill.setTotalAmount(po.getTotalAmount());
 			bill.setState(po.getState());
