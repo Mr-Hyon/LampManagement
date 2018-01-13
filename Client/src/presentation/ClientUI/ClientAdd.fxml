@@ -9,12 +9,12 @@
 <AnchorPane prefHeight="597.0" prefWidth="927.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.ClientUI.ClientAddController">
    <children>
       <Label layoutX="60.0" layoutY="70.0" prefHeight="41.0" prefWidth="108.0" text="客户编号：" />
-      <TextField fx:id="clientLevel" editable="false" layoutX="168.0" layoutY="227.0" />
-      <TextField fx:id="clientName" editable="false" layoutX="597.0" layoutY="227.0" prefHeight="30.0" prefWidth="202.0" />
-      <TextField fx:id="clientContact" editable="false" layoutX="168.0" layoutY="309.0" />
-      <TextField fx:id="clientAddress" editable="false" layoutX="597.0" layoutY="309.0" />
-      <TextField fx:id="clientZip" editable="false" layoutX="168.0" layoutY="382.0" />
-      <TextField fx:id="clientEmail" editable="false" layoutX="597.0" layoutY="382.0" />
+      <TextField fx:id="clientLevel" layoutX="168.0" layoutY="227.0" />
+      <TextField fx:id="clientName" layoutX="597.0" layoutY="227.0" prefHeight="30.0" prefWidth="202.0" />
+      <TextField fx:id="clientContact" layoutX="168.0" layoutY="309.0" />
+      <TextField fx:id="clientAddress" layoutX="597.0" layoutY="309.0" />
+      <TextField fx:id="clientZip" layoutX="168.0" layoutY="382.0" />
+      <TextField fx:id="clientEmail" layoutX="597.0" layoutY="382.0" />
       <Button fx:id="Back" layoutX="725.0" layoutY="480.0" mnemonicParsing="false" onAction="#Back" prefHeight="53.0" prefWidth="119.0" text="返回">
          <font>
             <Font size="18.0" />
