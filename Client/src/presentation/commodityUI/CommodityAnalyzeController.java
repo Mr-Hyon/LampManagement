@@ -104,7 +104,17 @@ public class CommodityAnalyzeController {
 				String date=sdf.format(new Date());
 				CommodityVO good=new CommodityVO(vo.getGoodId(),vo.getGoodName(),vo.getGoodModel(),vo.getGoodNum(),vo.getGoodBuyPrice(),vo.getGoodRetailPrice());
 				good.setGoodNum(String.valueOf(delta));
+				good.setType(vo.getType());
 				CommodityBillVO cbv=new CommodityBillVO("0000",date,type,good);
+				ResultMessage rm2=commodityBLService.addCommodityBill(cbv);
+				if(rm2==ResultMessage.SUCCESS){
+					Alert alert=new Alert(Alert.AlertType.INFORMATION,"表单添加成功");
+					alert.showAndWait();
+				}
+				else{
+					Alert alert=new Alert(Alert.AlertType.INFORMATION,"表单添加失败");
+					alert.showAndWait();
+				}
 				
 				ResultMessage rm=commodityBLService.update(vo);
 				if(rm==ResultMessage.SUCCESS){
