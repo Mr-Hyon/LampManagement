@@ -11,7 +11,7 @@ import vo.ClientVO;
 public class ClientAddUI {
 	public static Stage stage;
 	static FXMLLoader loader;
-	public void setUp(ClientVO vo) {
+	public void setUp() {
 		// TODO Auto-generated method stub
 		stage=new Stage();
 		FXMLLoader rootLoader = new FXMLLoader();

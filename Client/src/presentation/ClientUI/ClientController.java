@@ -101,7 +101,9 @@ public class ClientController {
 		}
 	}
 	public void AddClient(ActionEvent event){
-		System.out.println("Button Clicked 2!");
+		ClientAddUI ca=new ClientAddUI();
+		ca.setUp();
+		ClientUI.hide();
 	}
 	public void Delete(ActionEvent event) throws RemoteException{
 		int index=ShowClientMes.getSelectionModel().getSelectedIndex();
